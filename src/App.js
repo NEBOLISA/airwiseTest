@@ -8,6 +8,7 @@ import AboutComponent from "./components/aboutComponent";
 
 import ButtonComp from "./components/buttonComp";
 import { useState } from "react";
+import FeaturesComponent from "./components/featuresComponent";
 function App() {
   //state to handle hero section imaeg swap
   const [backgroundImage, setBackgroundImage] = useState(null);
@@ -16,14 +17,14 @@ function App() {
 
   const handleMouseEnter = (imageUrl) => {
     setBackgroundImage(`url(${imageUrl})`);
-    setTextColor("black");
+    setTextColor("white");
     setOpacity("0");
   };
   const backgroundProperties = {
     backgroundImage: backgroundImage,
-    transition: "background-image 1.5s ease",
+    transition: "background-image 1s ease-in-out",
   };
-  const textTransition = "color 1.5s ease";
+  const textTransition = "color 1s ease-in-out";
   const handleMouseLeave = () => {
     setBackgroundImage(null);
     setTextColor(null);
@@ -74,6 +75,7 @@ function App() {
       </section>
       <StatsComponent />
       <AboutComponent />
+      <FeaturesComponent />
     </div>
   );
 }
