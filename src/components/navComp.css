@@ -1,0 +1,46 @@
+.nav_bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-family: "Open Sans", sans-serif;
+  height: 80px;
+  background-color: #140f18;;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 500;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+}
+.nav_left img {
+  width: 120px;
+}
+.nav_middle ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+  gap: 3rem;
+}
+.nav_middle ul li {
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 16px;
+  font-family: 'Open Sans';
+  position: relative;
+  padding-bottom: 5px;
+}
+li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: all 300ms ease;
+}
+li:hover::before {
+  width: 100%;
+}
