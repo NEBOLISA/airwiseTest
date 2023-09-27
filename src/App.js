@@ -9,6 +9,7 @@ import AboutComponent from "./components/aboutComponent";
 import ButtonComp from "./components/buttonComp";
 import { useState } from "react";
 import FeaturesComponent from "./components/featuresComponent";
+import WorksComponent from "./components/worksComponent";
 function App() {
   //state to handle hero section imaeg swap
   const [backgroundImage, setBackgroundImage] = useState(null);
@@ -76,6 +77,7 @@ function App() {
       <StatsComponent />
       <AboutComponent />
       <FeaturesComponent />
+      <WorksComponent />
     </div>
   );
 }
