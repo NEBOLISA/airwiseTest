@@ -18,7 +18,7 @@ function App() {
 
   const handleMouseEnter = (imageUrl) => {
     setBackgroundImage(`url(${imageUrl})`);
-    setTextColor("white");
+    setTextColor("black");
     setOpacity("0");
   };
   const backgroundProperties = {

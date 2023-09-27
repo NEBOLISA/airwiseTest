@@ -51,17 +51,31 @@ const AboutComponent = () => {
                 <p className="about__icons--title">Affordable</p>
               </div>
               <p className="about__text">
-                Experience our <span className="highlighted-text"><b>free</b></span> app services, where value meets your wallet
-                with a smile.
+                Experience our{" "}
+                <span className="highlighted-text">
+                  <b>free</b>
+                </span>{" "}
+                app services, where value meets your wallet with a smile.
               </p>
             </div>
             <div className="about__icons--wrapper">
               <div className="about__icons">
-                <GiHealthCapsule className="icon" style={{ color: "#9747ff" }} />
+                <GiHealthCapsule
+                  className="icon"
+                  style={{ color: "#9747ff" }}
+                />
                 <p className="about__icons--title">Health</p>
               </div>
               <p className="about__text">
-                Caring for your <span className="highlighted-text"><b>health</b></span>, is our commitment; because your <span className="highlighted-text"><b>well-being</b></span> matters.
+                Caring for your{" "}
+                <span className="highlighted-text">
+                  <b>health</b>
+                </span>
+                , is our commitment; because your{" "}
+                <span className="highlighted-text">
+                  <b>well-being</b>
+                </span>{" "}
+                matters.
               </p>
             </div>
           </div>

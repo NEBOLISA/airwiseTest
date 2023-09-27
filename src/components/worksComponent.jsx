@@ -1,22 +1,26 @@
 import "./worksComponent.css";
-import works from "../assets/images/worksImage.png";
+import oura from '../assets/images/oura.jpg'
+import airwise from '../assets/images/airwiseLogo.png'
+import openWeather from '../assets/images/openweather.png'
 
 const WorksComponent = () => {
   return (
-    <div className="container">
+    <div className="container__work">
       <h1>How it Works</h1>
       <div className="works__wrapper">
         <p>
-          Airwise is an innovative platform that serves as a robust "combine" by
-          seamlessly incorporating data from two main sources, namely Oura and
-          IQAir. Its main goal is to offer users valuable insights on the best
-          time to participate in outdoor activities, considering their physical
-          well-being, current weather conditions, and overall air quality. By
-          harnessing the capabilities of AirWise, individuals can confidently
-          optimize their surroundings to maximize the advantages to their health
-          and well-being.
+          Airwise: Real-time health and pollution insights for better outdoor
+          living, powered by <span className="highlighted-text"><b>Oura</b></span> and <span className="highlighted-text"><b>Openweathermap</b></span> data
         </p>
-        <img src={works} alt="" />
+        <div className="work__box">
+            <img src={oura} className="oura__logo" alt="" />
+        </div>
+        <div className="work__box">
+        <img src={airwise} className="airwise__logo" alt="" />
+        </div>
+        <div className="work__box">
+        <img src={openWeather} className="openweather__logo" alt="" />
+        </div>
       </div>
     </div>
   );
