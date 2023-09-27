@@ -1,7 +1,7 @@
 import "./worksComponent.css";
-import oura from '../assets/images/oura.jpg'
-import airwise from '../assets/images/airwiseLogo.png'
-import openWeather from '../assets/images/openweather.png'
+import oura from "../assets/images/oura.jpg";
+import airwise from "../assets/images/airwiseLogo.png";
+import openWeather from "../assets/images/openweather.png";
 
 const WorksComponent = () => {
   return (
@@ -10,16 +10,81 @@ const WorksComponent = () => {
       <div className="works__wrapper">
         <p>
           Airwise: Real-time health and pollution insights for better outdoor
-          living, powered by <span className="highlighted-text"><b>Oura</b></span> and <span className="highlighted-text"><b>Openweathermap</b></span> data
+          living, powered by{" "}
+          <span className="highlighted-text">
+            <b>Oura</b>
+          </span>{" "}
+          and{" "}
+          <span className="highlighted-text">
+            <b>Openweathermap</b>
+          </span>{" "}
+          data
         </p>
-        <div className="work__box">
-            <img src={oura} className="oura__logo" alt="" />
-        </div>
-        <div className="work__box">
-        <img src={airwise} className="airwise__logo" alt="" />
-        </div>
-        <div className="work__box">
-        <img src={openWeather} className="openweather__logo" alt="" />
+        <div className="work__box--wrapper">
+          <div className="work__box">
+            <div class="oura__detail"></div>
+            <div className="logo__wrapper">
+              <img src={oura} className="oura__logo" alt="" />
+            </div>
+            <div className="oura__text">
+              <p style={{ fontWeight: "bold" }}>Stylish wearable rings</p>
+              <p style={{ fontSize: "14px" }}>
+                Tracks sleep, activity, and health metrics
+              </p>
+              <p style={{ fontSize: "14px" }}>Offers valuable insights</p>
+              <p style={{ fontSize: "14px" }}>
+                Optimizes well-being and performance
+              </p>
+            </div>
+            <button className="oura__btn">
+              <a
+                target="_blank"
+                href="https://ouraring.com/?g_acctid=553-919-5922&g_adgroupid=135780338841&g_adid=574855521019&g_adtype=search&g_campaign=Brand_AllGeos_Eng_2022114&g_campaignid=15872040703&g_keyword=oura%20ring&g_keywordid=aud-2185977188622:kwd-306928467817&g_network=g&utm_campaign=Brand_AllGeos_Eng_2022114&utm_medium=cpc&utm_source=google&utm_source=google_search&gclid=Cj0KCQjwpc-oBhCGARIsAH6ote8Zyuf_24xWI2OqMY5zLtwVmhyUPs_jT1wVuhCSBIkhMS6kIVqSdPMaAj3OEALw_wcB"
+              >
+                Learn More
+              </a>
+            </button>
+          </div>
+          <div className="work__box airwise__box">
+            <div className="logo__wrapper">
+              <img src={airwise} className="airwise__logo" alt="" />
+            </div>
+            <div className="oura__text">
+              <p style={{ fontWeight: "bold" }}>Oura + OpenWeatherMap data</p>
+              <p style={{ fontSize: "14px" }}>
+                Real-time good outdoor recommendations
+              </p>
+              <p style={{ fontSize: "14px" }}>
+                Health optimization on air quality
+              </p>
+              <p style={{ fontSize: "14px" }}>Your Well-being Partner</p>
+            </div>
+            <button className="airwise__btn">Get Started</button>
+          </div>
+          <div className="work__box">
+            <div class="openweather__detail"></div>
+            <div className="logo__wrapper">
+              <img src={openWeather} className="openweather__logo" alt="" />
+            </div>
+            <div className="oura__text">
+              <p style={{ fontWeight: "bold" }}>
+                Global leader in tracking weather
+              </p>
+              <p style={{ fontSize: "14px" }}>
+                Real-time and forecasted weather data
+              </p>
+              <p style={{ fontSize: "14px" }}>
+                Supports informed decisions and future planning
+              </p>
+              <p style={{ fontSize: "14px" }}>Includes health considerations</p>
+            </div>
+            <button className="openweather__btn">
+              {" "}
+              <a target="_blank" href="https://openweathermap.org/guide">
+                Learn More
+              </a>
+            </button>
+          </div>
         </div>
       </div>
     </div>
