@@ -11,6 +11,7 @@ import { useState } from "react";
 import FeaturesComponent from "./components/featuresComponent";
 import WorksComponent from "./components/worksComponent";
 import FooterComponent from "./components/footerComponent";
+import CommentComponent from "./components/commentComponent";
 function App() {
   //state to handle hero section imaeg swap
   const [backgroundImage, setBackgroundImage] = useState(null);
@@ -44,16 +45,22 @@ function App() {
               style={{ color: TextColor, transition: `${textTransition}` }}
             >
               {" "}
-              <span style={{ color: "#9747FF", fontSize: '58px', }}>Don’t</span> let pollution
-              destroy your health!{" "}
+              <span style={{ color: "#9747FF", fontSize: "58px" }}>
+                Don’t
+              </span>{" "}
+              let pollution destroy your health!{" "}
             </p>
             <div className="text_bottom_div">
               <div className="group1">
                 <p
                   className="bottom_text"
-                  style={{ color: TextColor, transition: `${textTransition}`, fontFamily: 'Poppins'  }}
+                  style={{
+                    color: TextColor,
+                    transition: `${textTransition}`,
+                    fontFamily: "Poppins",
+                  }}
                 >
-                  Be <span style={{ color: "#9747FF"}}>Air</span>Wise
+                  Be <span style={{ color: "#9747FF" }}>Air</span>Wise
                 </p>
                 <img className="group1_icon" src={mark} alt="heroicon" />
               </div>
@@ -79,6 +86,7 @@ function App() {
       <AboutComponent />
       <FeaturesComponent />
       <WorksComponent />
+      <CommentComponent />
       <FooterComponent />
     </div>
   );

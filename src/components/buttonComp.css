@@ -6,9 +6,9 @@
   color: white;
   cursor: pointer;
   font-size: 14px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   padding: 10px 1.5rem;
-  background-color: #9747FF;
+  background-color: #9747ff;
   opacity: 1;
   margin-bottom: 28px;
   transition: all 300ms ease;
@@ -19,20 +19,20 @@
   outline: none;
   font-weight: 600;
   border-radius: 8px;
-  color:  #140f18;
+  color: white;
   cursor: pointer;
   font-size: 14px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   padding: 10px 1.5rem;
-  background-color:  white;
+  background-color: #9747ff;
   opacity: 1;
   transition: all 300ms ease;
 }
 
 .btn_comp2:hover {
-  background-color: rgba(255, 255, 255, 0.733);
+  background-color: #8742e2;
 }
 
 .btn_comp:hover {
-  background-color: #8742e2
+  background-color: #8742e2;
 }

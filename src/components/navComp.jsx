@@ -16,7 +16,7 @@ function NavComp() {
         </ul>
       </div>
       <div className="nav_right">
-        <ButtonComp   text="Login" />
+        <ButtonComp text="Login" />
       </div>
     </nav>
   );
