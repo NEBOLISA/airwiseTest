@@ -4,6 +4,7 @@
   color: white;
   text-align: center;
   margin-bottom: 100px;
+  padding-bottom: 50px;
 }
 .images {
   width: 50px;
@@ -20,7 +21,7 @@
   background-color: #281f2d53;
   width: 350px;
   height: 500px;
-  margin: 10px;
+  margin: 20px;
   display: inline-block;
   color: white;
   border-radius: 10px;
@@ -29,8 +30,7 @@
 }
 
 .work__box--wrapper {
-  display: flex;
-  gap: 20px;
+  gap: 40px;
 }
 
 .openweather__detail {
@@ -93,14 +93,23 @@
   transition: all 300ms ease;
 }
 
+.works__btn {
+  padding-bottom: 1px;
+  border-bottom: 2px solid transparent;
+  transition: all 300ms ease;
+}
+
+.works__btn:hover {
+  border-bottom: 2px solid #9747ff
+}
+
 a {
   color: white;
   text-decoration: none;
 }
 
 .openweather__btn:hover {
-  transform: scale(1.04);
-  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
+  opacity: 0.8;
 }
 
 .airwise__btn {
@@ -118,8 +127,7 @@ a {
 }
 
 .airwise__btn:hover {
-  transform: scale(1.04);
-  box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
 }
 
 .oura__btn {
@@ -135,14 +143,13 @@ a {
   color: white;
   font-size: 14px;
   font-weight: bold;
-  font-family: "poppins";
+  font-family: "Poppins";
   cursor: pointer;
   transition: all 300ms ease;
 }
 
 .oura__btn:hover {
-  transform: scale(1.04);
-  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
+  opacity: 0.8;
 }
 
 .oura__text {
@@ -163,6 +170,7 @@ a {
 .airwise__logo {
   width: 40%;
   display: inline-block;
+  margin-top: 10px;
 }
 
 .openweather__logo {
@@ -171,10 +179,7 @@ a {
 }
 
 .box {
-  padding-top: 3%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 40px;
   background-color: #281f2d53;
   width: 290px;
   height: 250px;

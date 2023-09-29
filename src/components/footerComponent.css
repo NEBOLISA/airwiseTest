@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap');
+
+.footer__container {
+    width: 100%;
+    height: 100px;
+    background-color: #120e14;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer__logo--img {
+    width: 130px;
+}
+
+.footer__text {
+    color: white;
+    font-family: 'Lato';
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+
+.socials {
+    width: 25%;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.socials:hover {
+    opacity: 0.8;
+}
+
+.socials__wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 200px;
+}

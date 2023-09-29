@@ -12,10 +12,7 @@
     text-align: center;
   }
 .box {
-    padding-top: 3%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-top: 40px;
     background-color: #281f2d53;
     width: 290px;
     height: 250px;

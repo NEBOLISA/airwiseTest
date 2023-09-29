@@ -1,6 +1,6 @@
 import "./worksComponent.css";
 import oura from "../assets/images/oura.jpg";
-import airwise from "../assets/images/airwiseLogo.png";
+import airwise from "../assets/images/Airwisewhite.svg";
 import openWeather from "../assets/images/openweather.png";
 
 const WorksComponent = () => {
@@ -11,13 +11,20 @@ const WorksComponent = () => {
         <p>
           Airwise: Real-time health and pollution insights for better outdoor
           living, powered by{" "}
-          <span className="highlighted-text">
-            <b>Oura</b>
-          </span>{" "}
+          <a
+            target="_blank"
+            href="https://ouraring.com/?g_acctid=553-919-5922&g_adgroupid=135780338841&g_adid=574855521019&g_adtype=search&g_campaign=Brand_AllGeos_Eng_2022114&g_campaignid=15872040703&g_keyword=oura%20ring&g_keywordid=aud-2185977188622:kwd-306928467817&g_network=g&utm_campaign=Brand_AllGeos_Eng_2022114&utm_medium=cpc&utm_source=google&utm_source=google_search&gclid=Cj0KCQjwpc-oBhCGARIsAH6ote8Zyuf_24xWI2OqMY5zLtwVmhyUPs_jT1wVuhCSBIkhMS6kIVqSdPMaAj3OEALw_wcB"
+          >
+            <span className="highlighted-text works__btn">
+              <b>Oura</b>
+            </span>
+          </a>{" "}
           and{" "}
-          <span className="highlighted-text">
-            <b>Openweathermap</b>
-          </span>{" "}
+          <a target="_blank" href="https://openweathermap.org/guide">
+            <span className="highlighted-text works__btn">
+              <b>Openweathermap</b>
+            </span>
+          </a>{" "}
           data
         </p>
         <div className="work__box--wrapper">

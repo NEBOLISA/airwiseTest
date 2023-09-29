@@ -1,5 +1,5 @@
 import "./navComp.css";
-import logo from "../assets/images/airwiseLogo.png";
+import logo from "../assets/images/Airwise.svg";
 import ButtonComp from "./buttonComp";
 
 function NavComp() {
