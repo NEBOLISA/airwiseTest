@@ -1,6 +1,7 @@
 import "./App.css";
 import NavComp from "./components/navComp";
 import mark from "./assets/images/mark.png";
+import ball from "../src/assets/images/ball.png";
 import heroVector2 from "./assets/images/heroVector2.svg";
 import heroswapvector from "./assets/images/heroswapvector.svg";
 import StatsComponent from "./components/statsComponent";
@@ -11,7 +12,8 @@ import { useState } from "react";
 import FeaturesComponent from "./components/featuresComponent";
 import WorksComponent from "./components/worksComponent";
 import FooterComponent from "./components/footerComponent";
-import CommentComponent from "./components/commentComponent";
+import StepsComponent from "./components/stepsComponent";
+
 function App() {
   //state to handle hero section imaeg swap
   const [backgroundImage, setBackgroundImage] = useState(null);
@@ -82,12 +84,12 @@ function App() {
           </div>
         </div>
       </section>
-      <StatsComponent />
-      <AboutComponent />
-      <FeaturesComponent />
-      <WorksComponent />
-      <CommentComponent />
-      <FooterComponent />
+        <StatsComponent />
+        <AboutComponent />
+        <FeaturesComponent />
+        <WorksComponent />
+        <StepsComponent />
+        <FooterComponent />
     </div>
   );
 }

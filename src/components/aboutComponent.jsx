@@ -2,13 +2,16 @@ import React from "react";
 import "./aboutComponent.css";
 import about from "../assets/images/about.svg";
 import { GiReceiveMoney, GiHealthCapsule } from "react-icons/gi";
+import ball from '../assets/images/ball.png'
+import smallball from '../assets/images/smallball.png'
 
 const AboutComponent = () => {
   return (
     <div className="container__about">
       <div className="title-container"></div>
-
       <div className="content-container">
+      <img src={ball} className="purple__ball" alt="" />
+      <img src={smallball} className="purple__smallball" alt="" />
         <p className="left-text">
           <h1 className="page-title" style={{ textAlign: "left" }}>
             About{" "}

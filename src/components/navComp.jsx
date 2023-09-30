@@ -11,7 +11,7 @@ function NavComp() {
       <div className="nav_middle">
         <ul>
           <li>Home</li>
-          <li>Features</li>
+          <li> <a href="#features">Features</a></li>
           <li>How it works</li>
         </ul>
       </div>

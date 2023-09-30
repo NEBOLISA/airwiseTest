@@ -29,7 +29,7 @@ const WorksComponent = () => {
         </p>
         <div className="work__box--wrapper">
           <div className="work__box">
-            <div class="oura__detail"></div>
+            <div className="oura__detail"></div>
             <div className="logo__wrapper">
               <img src={oura} className="oura__logo" alt="" />
             </div>
@@ -69,7 +69,7 @@ const WorksComponent = () => {
             <button className="airwise__btn">Get Started</button>
           </div>
           <div className="work__box">
-            <div class="openweather__detail"></div>
+            <div className="openweather__detail"></div>
             <div className="logo__wrapper">
               <img src={openWeather} className="openweather__logo" alt="" />
             </div>

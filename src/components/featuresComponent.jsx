@@ -5,13 +5,16 @@ import { RiMentalHealthLine } from "react-icons/ri";
 import { TiWeatherCloudy } from "react-icons/ti";
 import { BsDatabase } from "react-icons/bs";
 import { CgDanger } from "react-icons/cg";
+import ball from '../assets/images/ball.png'
+import smallball from '../assets/images/smallball.png'
 
 const FeaturesComponent = () => {
   return (
     <div className="container__features">
       <div className="title-container"></div>
-
       <div className="content-container">
+      <img src={ball} className="purple__ball--features" alt="" />
+      <img src={smallball} className="purple__smallball--features" alt="" />
         <img src={features} alt="Image" className="right-image" />
         <p className="left-text">
           <h1 className="page-title" style={{ textAlign: "left" }}>
