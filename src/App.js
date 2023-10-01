@@ -1,7 +1,6 @@
 import "./App.css";
 import NavComp from "./components/navComp";
 import mark from "./assets/images/mark.png";
-import ball from "../src/assets/images/ball.png";
 import heroVector2 from "./assets/images/heroVector2.svg";
 import heroswapvector from "./assets/images/heroswapvector.svg";
 import StatsComponent from "./components/statsComponent";
@@ -13,6 +12,7 @@ import FeaturesComponent from "./components/featuresComponent";
 import WorksComponent from "./components/worksComponent";
 import FooterComponent from "./components/footerComponent";
 import StepsComponent from "./components/stepsComponent";
+import ReviewComponent from "./components/reviewComponent";
 
 function App() {
   //state to handle hero section imaeg swap
@@ -89,6 +89,7 @@ function App() {
         <FeaturesComponent />
         <WorksComponent />
         <StepsComponent />
+        <ReviewComponent  />
         <FooterComponent />
     </div>
   );
