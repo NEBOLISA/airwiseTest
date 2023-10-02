@@ -1,7 +1,5 @@
 import "./reviewComponent.css";
 import world from "../assets/images/world.png";
-import ball from "../assets/images/ball.png";
-import smallball from "../assets/images/smallball.png";
 import profileImage1 from "../assets/images/profile1.png";
 import profileImage2 from "../assets/images/profile2.png";
 import profileImage3 from "../assets/images/profile3.png";
@@ -15,8 +13,21 @@ const ReviewComponent = () => {
   return (
     <div className="comment__container">
       <div>
-        <h1 className="comment__title">Let's see our User's Review</h1>
-        <p className="comment__subtitle">
+        <h1
+          className="comment__title"
+          data-aos="fade-in"
+          data-aos-once="true"
+          data-aos-offset="500"
+        >
+          Let's see our User's Review
+        </h1>
+        <p
+          className="comment__subtitle"
+          data-aos="fade-in"
+          data-aos-offset="500"
+          data-aos-once="true"
+          data-aos-duration="200"
+        >
           Take a look at what people are saying about{" "}
           <span className="highlighted--text">
             <b>Air</b>
@@ -24,7 +35,12 @@ const ReviewComponent = () => {
           Wise!
         </p>
       </div>
-      <div className="comment__wrapper">
+      <div
+        className="comment__wrapper"
+        data-aos="fade-in"
+        data-aos-once="true"
+        data-aos-offset="500"
+      >
         <div className="comment__content">
           <img className="comment__img" src={world} alt="" />
           <img src={profileImage1} alt="" className="first__profile" />

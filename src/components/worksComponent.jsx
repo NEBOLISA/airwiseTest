@@ -6,9 +6,11 @@ import openWeather from "../assets/images/openweather.png";
 const WorksComponent = ({ worksRef }) => {
   return (
     <div className="container__work" ref={worksRef}>
+      <div data-aos="fade-in" data-aos-once="true" data-aos-offset="500">
       <h1>How it Works</h1>
+      </div>
       <div className="works__wrapper">
-        <p>
+        <p data-aos="fade-in" data-aos-offset="500" data-aos-once="true" data-aos-duration='200'>
           Airwise: Real-time health and pollution insights for better outdoor
           living, powered by{" "}
           <a
@@ -28,7 +30,7 @@ const WorksComponent = ({ worksRef }) => {
           data
         </p>
         <div className="work__box--wrapper">
-          <div className="work__box">
+          <div className="work__box" data-aos="fade-right" data-aos-offset="500" data-aos-once="true" data-aos-duration='200' data-aos-delay='400'>
             <div className="oura__detail"></div>
             <div className="logo__wrapper">
               <img src={oura} className="oura__logo" alt="" />
@@ -50,7 +52,7 @@ const WorksComponent = ({ worksRef }) => {
               <button className="oura__btn">Learn More</button>
             </a>
           </div>
-          <div className="work__box airwise__box">
+          <div className="work__box airwise__box" data-aos="fade-right" data-aos-offset="500" data-aos-once="true" data-aos-duration='200' data-aos-delay='600'>
             <div className="logo__wrapper">
               <img src={airwise} className="airwise__logo" alt="" />
             </div>
@@ -66,7 +68,7 @@ const WorksComponent = ({ worksRef }) => {
             </div>
             <button className="airwise__btn">Get Started</button>
           </div>
-          <div className="work__box">
+          <div className="work__box" data-aos="fade-right" data-aos-offset="500" data-aos-once="true" data-aos-duration='200' data-aos-delay='800'>
             <div className="openweather__detail"></div>
             <div className="logo__wrapper">
               <img src={openWeather} className="openweather__logo" alt="" />

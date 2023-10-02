@@ -9,9 +9,9 @@ import { AiOutlineCloudDownload } from "react-icons/ai";
 const StepsComponent = () => {
   return (
     <div className="steps__container">
-      <div className="steps__header">
+      <div className="steps__header" data-aos="fade-in" data-aos-once="true" data-aos-offset="500">
         <h1 className="steps__title">Steps</h1>
-        <p style={{ maxWidth: "initial" }} className="steps__text">
+        <p style={{ maxWidth: "initial" }} className="steps__text" data-aos="fade-in" data-aos-offset="500" data-aos-once="true" data-aos-duration='200'>
           Check the{" "}
           <span className="highlighted-text">
             <b>step-by-step</b>
@@ -20,7 +20,7 @@ const StepsComponent = () => {
         </p>
       </div>
       <div className="steps__content">
-        <div className="steps__content--wrapper">
+        <div className="steps__content--wrapper" data-aos="fade-left" data-aos-offset="500" data-aos-once="true" data-aos-duration='200' data-aos-delay='400'>
           <img className="steps__img " src={steps1} alt="" />
           <div className="steps">
             <PiSignIn className="steps__icon" />
@@ -37,7 +37,7 @@ const StepsComponent = () => {
             </p>
           </div>
         </div>
-        <div className="steps__content--wrapper">
+        <div className="steps__content--wrapper" data-aos="fade-left" data-aos-offset="500" data-aos-once="true" data-aos-duration='200' data-aos-delay='600'>
           <img className="steps__img " src={steps2} alt="" />
           <div className="steps">
             <GiRing style={{ color: "#f71065" }} className="steps__icon" />
@@ -59,7 +59,7 @@ const StepsComponent = () => {
             </p>
           </div>
         </div>
-        <div className="steps__content--wrapper">
+        <div className="steps__content--wrapper" data-aos="fade-left" data-aos-offset="500" data-aos-once="true" data-aos-duration='200' data-aos-delay='800'>
           <img className="steps__img " src={steps3} alt="" />
           <div className="steps">
             <AiOutlineCloudDownload

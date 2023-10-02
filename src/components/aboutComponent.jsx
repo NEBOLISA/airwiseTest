@@ -9,7 +9,7 @@ const AboutComponent = () => {
   return (
     <div className="container__about">
       <div className="title-container"></div>
-      <div className="content-container">
+      <div className="content-container" data-aos="fade-right" data-aos-once="true" data-aos-offset="500">
       <img src={ball} className="purple__ball" alt="" />
       <img src={smallball} className="purple__smallball" alt="" />
         <p className="left-text">

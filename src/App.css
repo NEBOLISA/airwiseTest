@@ -2,10 +2,12 @@
 
 body {
   background-color: #140f18;
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
+
 }
 
 .hero_section {
