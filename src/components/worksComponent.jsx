@@ -3,9 +3,9 @@ import oura from "../assets/images/oura.jpg";
 import airwise from "../assets/images/Airwisewhite.svg";
 import openWeather from "../assets/images/openweather.png";
 
-const WorksComponent = () => {
+const WorksComponent = ({ worksRef }) => {
   return (
-    <div className="container__work">
+    <div className="container__work" ref={worksRef}>
       <h1>How it Works</h1>
       <div className="works__wrapper">
         <p>
@@ -43,14 +43,12 @@ const WorksComponent = () => {
                 Optimizes well-being and performance
               </p>
             </div>
-            <button className="oura__btn">
-              <a
-                target="_blank"
-                href="https://ouraring.com/?g_acctid=553-919-5922&g_adgroupid=135780338841&g_adid=574855521019&g_adtype=search&g_campaign=Brand_AllGeos_Eng_2022114&g_campaignid=15872040703&g_keyword=oura%20ring&g_keywordid=aud-2185977188622:kwd-306928467817&g_network=g&utm_campaign=Brand_AllGeos_Eng_2022114&utm_medium=cpc&utm_source=google&utm_source=google_search&gclid=Cj0KCQjwpc-oBhCGARIsAH6ote8Zyuf_24xWI2OqMY5zLtwVmhyUPs_jT1wVuhCSBIkhMS6kIVqSdPMaAj3OEALw_wcB"
-              >
-                Learn More
-              </a>
-            </button>
+            <a
+              target="_blank"
+              href="https://ouraring.com/?g_acctid=553-919-5922&g_adgroupid=135780338841&g_adid=574855521019&g_adtype=search&g_campaign=Brand_AllGeos_Eng_2022114&g_campaignid=15872040703&g_keyword=oura%20ring&g_keywordid=aud-2185977188622:kwd-306928467817&g_network=g&utm_campaign=Brand_AllGeos_Eng_2022114&utm_medium=cpc&utm_source=google&utm_source=google_search&gclid=Cj0KCQjwpc-oBhCGARIsAH6ote8Zyuf_24xWI2OqMY5zLtwVmhyUPs_jT1wVuhCSBIkhMS6kIVqSdPMaAj3OEALw_wcB"
+            >
+              <button className="oura__btn">Learn More</button>
+            </a>
           </div>
           <div className="work__box airwise__box">
             <div className="logo__wrapper">
@@ -85,12 +83,9 @@ const WorksComponent = () => {
               </p>
               <p style={{ fontSize: "14px" }}>Includes health considerations</p>
             </div>
-            <button className="openweather__btn">
-              {" "}
-              <a target="_blank" href="https://openweathermap.org/guide">
-                Learn More
-              </a>
-            </button>
+            <a target="_blank" href="https://openweathermap.org/guide">
+              <button className="openweather__btn"> Learn More</button>
+            </a>
           </div>
         </div>
       </div>

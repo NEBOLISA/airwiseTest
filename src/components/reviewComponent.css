@@ -15,7 +15,7 @@
 }
 
 .comment__img {
-  width: 60%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,16 +23,25 @@
 
 .comment__subtitle {
   color: white;
+  text-align: center;
+}
+
+.comment__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .comment__wrapper {
   text-align: center;
   margin-bottom: 30px;
+  margin-top: 50px;
 }
 
 .first__profile {
-  left: 25%;
-  top: 35%;
+  left: 10%;
+  top: 22%;
   cursor: pointer;
   position: absolute;
   width: 50px;
@@ -44,8 +53,8 @@
 
 .hide1 {
   position: absolute;
-  left: 24%;
-  top: 14%;
+  left: 8%;
+  top: 19%;
   width: 400px;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -63,7 +72,7 @@
 
 .second__profile {
   left: 43%;
-  top: 50%;
+  top: 40%;
   cursor: pointer;
   position: absolute;
   width: 50px;
@@ -76,7 +85,7 @@
 .hide2 {
   position: absolute;
   left: 42%;
-  top: 49%;
+  top: 38%;
   width: 400px;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -94,7 +103,7 @@
 }
 
 .third__profile {
-  left: 33%;
+  left: 22%;
   top: 70%;
   cursor: pointer;
   position: absolute;
@@ -107,8 +116,8 @@
 
 .hide3 {
   position: absolute;
-  left: 32%;
-  top: 69%;
+  left: 21%;
+  top: 68%;
   width: 400px;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -122,7 +131,7 @@
 }
 
 .fourth__profile {
-  top: 32%;
+  top: 10%;
   left: 60%;
   cursor: pointer;
   position: absolute;
@@ -135,7 +144,7 @@
 
 .hide4 {
   position: absolute;
-  top: 31%;
+  top: 8%;
   left: 59%;
   width: 400px;
   border-top-right-radius: 2px;
@@ -147,16 +156,4 @@
 .fourth__profile:hover + .hide4 {
   opacity: 1;
   transform: scale(1.05);
-}
-
-.review__ball {
-  width: 125px;
-  right: 19%;
-  top: 7%
-}
-
-.review__smallball {
-  width: 80px;
-  right: 19%;
-  top: 18%
 }

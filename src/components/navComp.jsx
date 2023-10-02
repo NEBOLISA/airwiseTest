@@ -2,7 +2,7 @@ import "./navComp.css";
 import logo from "../assets/images/Airwise.svg";
 import ButtonComp from "./buttonComp";
 
-function NavComp() {
+  function NavComp({ scrollToSection, worksRef, featuresRef, HomeRef }) {
   return (
     <nav className="nav_bar">
       <div className="nav_left">
@@ -10,9 +10,9 @@ function NavComp() {
       </div>
       <div className="nav_middle">
         <ul>
-          <li>Home</li>
-          <li>Features</li>
-          <li>How it works</li>
+          <li onClick={() => scrollToSection(HomeRef)}>Home</li>
+          <li onClick={() => scrollToSection(featuresRef)}>Features</li>
+          <li onClick={() => scrollToSection(worksRef)}>How it works</li>
         </ul>
       </div>
       <div className="nav_right">

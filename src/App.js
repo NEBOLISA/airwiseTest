@@ -2,7 +2,6 @@ import "./App.css";
 import NavComp from "./components/navComp";
 import mark from "./assets/images/mark.png";
 import heroVector2 from "./assets/images/heroVector2.svg";
-import heroswapvector from "./assets/images/heroswapvector.svg";
 import StatsComponent from "./components/statsComponent";
 import AboutComponent from "./components/aboutComponent";
 
@@ -14,14 +13,28 @@ import StepsComponent from "./components/stepsComponent";
 import ReviewComponent from "./components/reviewComponent";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useRef } from "react";
 
 AOS.init();
 
 function App() {
+  const worksRef = useRef(null);
+  const featuresRef = useRef(null);
+  const HomeRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="App">
-      <NavComp />
-      <section className="hero_section">
+      <NavComp
+        scrollToSection={scrollToSection}
+        worksRef={worksRef}
+        featuresRef={featuresRef}
+        HomeRef={HomeRef}
+      />
+      <section className="hero_section" ref={HomeRef}>
         <div className="hero_text_img_div">
           <div className="text_div">
             <div
@@ -55,7 +68,11 @@ function App() {
                     Be <span style={{ color: "#9747FF" }}>Air</span>Wise
                   </p>
                 </div>
-                <div data-aos="fade-in" data-aos-delay="1000" data-aos-once="true">
+                <div
+                  data-aos="fade-in"
+                  data-aos-delay="1000"
+                  data-aos-once="true"
+                >
                   <img className="group1_icon" src={mark} alt="heroicon" />
                 </div>
               </div>
@@ -69,7 +86,12 @@ function App() {
               </div>
             </div>
           </div>
-          <div data-aos="fade-in" data-aos-delay="1500" data-aos-duration="500" data-aos-once="true">
+          <div
+            data-aos="fade-in"
+            data-aos-delay="1500"
+            data-aos-duration="500"
+            data-aos-once="true"
+          >
             <div className="image_div">
               <img
                 className="right_image"
@@ -85,8 +107,8 @@ function App() {
       </section>
       <StatsComponent />
       <AboutComponent />
-      <FeaturesComponent />
-      <WorksComponent />
+      <FeaturesComponent featuresRef={featuresRef} />
+      <WorksComponent worksRef={worksRef} />
       <StepsComponent />
       <ReviewComponent />
       <FooterComponent />

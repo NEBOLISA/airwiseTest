@@ -8,9 +8,9 @@ import { CgDanger } from "react-icons/cg";
 import ball from '../assets/images/ball.png'
 import smallball from '../assets/images/smallball.png'
 
-const FeaturesComponent = () => {
+const FeaturesComponent = ({ featuresRef }) => {
   return (
-    <div className="container__features">
+    <div className="container__features" ref={featuresRef}>
       <div className="title-container"></div>
       <div className="content-container">
       <img src={ball} className="purple__ball--features" alt="" />
