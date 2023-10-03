@@ -50,6 +50,37 @@ function App() {
                 </span>{" "}
                 let pollution destroy your health!{" "}
               </p>
+              <div
+                data-aos="fade-left"
+                data-aos-delay="500"
+                data-aos-duration="500"
+              >
+                <p
+                  className="hero__subtitle"
+                  style={{ marginTop: "0", marginBottom: "0px" }}
+                >
+                  Your Personal Guardian Application of{" "}
+                  <span className="highlighted--text">
+                    <b>Health</b>
+                  </span>{" "}
+                  and{" "}
+                  <span className="highlighted--text">
+                    <b>Air Quality</b>
+                  </span>
+                  .
+                </p>
+                <p className="hero__subtitle" style={{ marginTop: "0" }}>
+                  Stay{" "}
+                  <span className="highlighted--text">
+                    <b>Informed</b>
+                  </span>
+                  , Stay{" "}
+                  <span className="highlighted--text">
+                    <b>Safe</b>
+                  </span>
+                  .
+                </p>
+              </div>
             </div>
             <div className="text_bottom_div">
               <div className="group1">

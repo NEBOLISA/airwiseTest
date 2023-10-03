@@ -18,6 +18,13 @@ html {
   margin-bottom: 280px;
 }
 
+.hero__subtitle {
+  color: white;
+  max-width: 500px;
+  font-size: 16px;
+}
+
+
 .hero_text_img_div {
   display: flex;
   gap: 20%;
@@ -33,6 +40,7 @@ html {
   color: white;
   font-size: 46px;
   margin-top: 0;
+  margin-bottom: 0;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
