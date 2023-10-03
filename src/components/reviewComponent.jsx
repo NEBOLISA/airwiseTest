@@ -17,14 +17,14 @@ const ReviewComponent = () => {
           className="comment__title"
           data-aos="fade-in"
           data-aos-once="true"
-          data-aos-offset="500"
+          data-aos-offset="300"
         >
           Let's see our User's Review
         </h1>
         <p
           className="comment__subtitle"
           data-aos="fade-in"
-          data-aos-offset="500"
+          data-aos-offset="300"
           data-aos-once="true"
           data-aos-duration="200"
         >
@@ -39,7 +39,7 @@ const ReviewComponent = () => {
         className="comment__wrapper"
         data-aos="fade-in"
         data-aos-once="true"
-        data-aos-offset="500"
+        data-aos-offset="300"
       >
         <div className="comment__content">
           <img className="comment__img" src={world} alt="" />

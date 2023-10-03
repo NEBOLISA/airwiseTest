@@ -10,7 +10,7 @@ import smallball from '../assets/images/smallball.png'
 
 const FeaturesComponent = ({ featuresRef }) => {
   return (
-    <div className="container__features" ref={featuresRef} data-aos="fade-left" data-aos-once="true" data-aos-offset="500">
+    <div className="container__features" ref={featuresRef} data-aos="fade-left" data-aos-once="true" data-aos-offset="300">
       <div className="title-container"></div>
       <div className="content-container">
       <img src={ball} className="purple__ball--features" alt="" />
