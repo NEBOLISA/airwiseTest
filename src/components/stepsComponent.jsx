@@ -67,16 +67,10 @@ const StepsComponent = () => {
               className="steps__icon"
             />
             <p className="steps__text">
-              <span className="air__link2">
-                {" "}
-                <a
-                  target="_blank"
-                  href="https://apps.apple.com/us/app/openweather/id1535923697"
-                >
-                  Log In
-                </a>
-              </span>{" "}
-              to{" "}
+              <span className="air__link--allow">
+                  Allow
+              </span>
+              {" "}
               <span className="yellow__text">
                 <b>Open Weather App</b>
               </span>

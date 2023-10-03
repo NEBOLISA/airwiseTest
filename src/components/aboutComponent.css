@@ -21,13 +21,13 @@
 }
 
 .about__icons--wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    text-align: left;
-    max-width: 300px;
-    margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  text-align: left;
+  max-width: 300px;
+  margin: 0px;
 }
 
 .purple__ball {
@@ -43,33 +43,32 @@
   right: 2%;
   top: 15%;
   max-width: 1300px;
-} 
+}
 
 .about__icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .about__icons--title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .about__text {
-    margin: 0px;
-    font-size: 14px;
+  margin: 0px;
+  font-size: 14px;
 }
 
 .about__wrapper {
-    display: flex;
-    gap: 20px
+  display: flex;
+  gap: 20px;
 }
 
 .title-container {
   margin-bottom: 20px;
 }
-
 
 .content-container {
   display: flex;
@@ -100,7 +99,7 @@
 }
 
 .icon {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .steps {
@@ -109,4 +108,75 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+
+@media (max-width: 1339px) {
+  .content-container {
+    flex-direction: column;
+    margin-top: 0px;
+    padding-bottom: 100px;
+  }
+  .about__text--wrapper {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .about__icons--wrapper {
+    text-align: center;
+    align-items: center;
+  }
+  .purple__ball {
+    display: none;
+  }
+  .purple__smallball {
+    display: none;
+  }
+  .left-text {
+    max-width: 70%;
+  }
+  .about__wrapper {
+    justify-content: center;
+  }
+  .page-title {
+    text-align: center !important;
+  }
+  .right-image {
+    width: 40%;
+  }
+  .container__about {
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .page-title {
+    font-size: 29px;
+  }
+  .left-text {
+    max-width: 90%;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .about__text {
+    text-align: center;
+  }
+  .about__wrapper {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .about__icons--wrapper {
+    align-items: center;
+    max-width: 100%;
+  }
+  .right-image {
+    width: 60%;
+  }
+}
+@media (max-width: 500px) {
+  .right-image {
+    width: 80%;
+  }
 }

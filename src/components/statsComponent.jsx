@@ -9,12 +9,12 @@ const StatsComponent = () => {
        <div data-aos="fade-in" data-aos-duration="500" data-aos-delay="200" data-aos-once="true">
       <h1>Did you know that</h1>
       </div>
-      <div data-aos="fade-down" data-aos-duration="500" data-aos-delay="400" data-aos-once="true">
+      <div className="box__wrapper" data-aos="fade-down" data-aos-duration="500" data-aos-delay="400" data-aos-once="true">
         <div className="box">
           <TbGrave className="images"> </TbGrave>
           <div className="box-content">
             <h2>2,500,000</h2>
-            <p>
+            <p className="stats__text">
               People die worldwide due to{" "}
               <span class="highlighted-text">
                 <b>air pollution</b>
@@ -27,7 +27,7 @@ const StatsComponent = () => {
           <AiOutlineCloud className="images"> </AiOutlineCloud>
           <div className="box-content">
             <h2>1.00 %</h2>
-            <p>
+            <p className="stats__text">
               Of global land area has safe air{" "}
               <span class="highlighted-text">
                 <b>pollution levels</b>
@@ -40,7 +40,7 @@ const StatsComponent = () => {
           <AiOutlineAlert className="images"> </AiOutlineAlert>
           <div className="box-content">
             <h2>4th</h2>
-            <p style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+            <p className="stats__text" style={{ paddingLeft: "10px", paddingRight: "10px" }}>
               Greatest{" "}
               <span class="highlighted-text">
                 <b>threat to humanity</b>

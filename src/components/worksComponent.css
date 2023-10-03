@@ -237,3 +237,49 @@ img {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+@media (max-width: 1339px) {
+  .box {
+    width: 50%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+  }
+  .container {
+    margin-bottom: 10px;
+  }
+  .subtitle__works--wrapper {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 800px) {
+  .box {
+    width: 80%;
+  }
+  h1 {
+    font-size: 29px;
+  }
+}
+@media (max-width: 450px) {
+  .work__box {
+    width: 250px;
+  }
+  .oura__text {
+    padding: 20px;
+    height: 200px;
+    padding-top: 20px;
+    padding-bottom: 80px;
+  }
+  .openweather__logo {
+    margin: 12px;
+  }
+}
+@media (max-width: 300px) {
+  .work__box {
+    width: 210px;
+  }
+}

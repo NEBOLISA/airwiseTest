@@ -38,3 +38,9 @@
 .nav_middle ul li:hover {
   border-color: white;
 }
+
+@media (max-width: 750px) {
+  .nav_middle {
+    display: none;
+  }
+}

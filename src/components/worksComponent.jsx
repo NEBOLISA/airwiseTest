@@ -11,12 +11,13 @@ const WorksComponent = ({ worksRef }) => {
       </div>
       <div className="works__wrapper">
         <p
+        className="subtitle__works--wrapper"
           data-aos="fade-in"
           data-aos-offset="300"
           data-aos-once="true"
           data-aos-duration="200"
         >
-          Airwise: Real-time health and pollution insights for better outdoor
+          <span className="highlighted--text"><b>Air</b></span>wise: Real-time health and pollution insights for better outdoor
           living, powered by{" "}
           <a
             target="_blank"

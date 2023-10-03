@@ -2,16 +2,21 @@ import React from "react";
 import "./aboutComponent.css";
 import about from "../assets/images/about.svg";
 import { GiReceiveMoney, GiHealthCapsule } from "react-icons/gi";
-import ball from '../assets/images/ball.png'
-import smallball from '../assets/images/smallball.png'
+import ball from "../assets/images/ball.png";
+import smallball from "../assets/images/smallball.png";
 
 const AboutComponent = () => {
   return (
     <div className="container__about">
       <div className="title-container"></div>
-      <div className="content-container" data-aos="fade-right" data-aos-once="true" data-aos-offset="300">
-      <img src={ball} className="purple__ball" alt="" />
-      <img src={smallball} className="purple__smallball" alt="" />
+      <div
+        className="content-container"
+        data-aos="fade-right"
+        data-aos-once="true"
+        data-aos-offset="300"
+      >
+        <img src={ball} className="purple__ball" alt="" />
+        <img src={smallball} className="purple__smallball" alt="" />
         <p className="left-text">
           <h1 className="page-title" style={{ textAlign: "left" }}>
             About{" "}
@@ -20,33 +25,34 @@ const AboutComponent = () => {
             </span>
             Wise
           </h1>
-          <div></div>
-          The purpose of the "
-          <span className="highlighted-text">
-            <b>Air</b>
-          </span>
-          Wise" app is to provide users with{" "}
-          <span className="highlighted-text">
-            <b>essential</b>
-          </span>{" "}
-          information to{" "}
-          <span className="highlighted-text">
-            <b>monitor</b>
-          </span>{" "}
-          and{" "}
-          <span className="highlighted-text">
-            <b>manage</b>
-          </span>{" "}
-          their exposure to{" "}
-          <span className="highlighted-text">
-            <b>air pollution</b>
-          </span>{" "}
-          in their current location allowing them to make healthy decisions that
-          will{" "}
-          <span className="highlighted-text">
-            <b>benefit</b>
-          </span>{" "}
-          their life!
+          <div className="about__text--wrapper">
+            The purpose of the "
+            <span className="highlighted-text">
+              <b>Air</b>
+            </span>
+            Wise" app is to provide users with{" "}
+            <span className="highlighted-text">
+              <b>essential</b>
+            </span>{" "}
+            information to{" "}
+            <span className="highlighted-text">
+              <b>monitor</b>
+            </span>{" "}
+            and{" "}
+            <span className="highlighted-text">
+              <b>manage</b>
+            </span>{" "}
+            their exposure to{" "}
+            <span className="highlighted-text">
+              <b>air pollution</b>
+            </span>{" "}
+            in their current location allowing them to make healthy decisions
+            that will{" "}
+            <span className="highlighted-text">
+              <b>benefit</b>
+            </span>{" "}
+            their life!
+          </div>
           <div className="about__wrapper">
             <div className="about__icons--wrapper">
               <div className="about__icons">

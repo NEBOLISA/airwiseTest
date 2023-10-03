@@ -7,7 +7,6 @@ body {
 
 html {
   scroll-behavior: smooth;
-
 }
 
 .hero_section {
@@ -22,6 +21,7 @@ html {
   color: white;
   max-width: 500px;
   font-size: 16px;
+  margin-bottom: 0px;
 }
 
 
@@ -40,7 +40,7 @@ html {
   color: white;
   font-size: 46px;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
@@ -74,4 +74,74 @@ html {
 }
 .image_div img {
   width: 450px;
+}
+
+@media (max-width: 1339px) {
+  .hero_text_img_div {
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+    padding-top: 4rem;
+  }
+  .image_div {
+    text-align: center;
+  }
+  .text_div {
+    width: 70%;
+    text-align: center;
+  }
+  .text_bottom_div {
+    justify-content: center;
+  }
+  .hero_section {
+    margin-bottom: 50px;
+  }
+  .subtitle__wrapper {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .right_image {
+      width: 50% !important;
+  }
+}
+@media (max-width: 800px) {
+  .text_bottom_div {
+    flex-direction: column;
+  }
+  .hero_text_img_div {
+    padding-top: 8rem;
+  }
+  .top_text {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+  .top_text,
+  .top_text_span {
+    font-size: 31px;
+  }
+  .text_div {
+    width: 90%;
+  }
+  .hero_text_img_div {
+    padding-top: 2rem;
+  }
+  .right_image {
+    width: 70% !important;
+}
+}
+@media (max-width: 500px) {
+  .image_div img {
+    width: 350px;
+  }
+}
+@media (max-width: 350px) {
+  .image_div img {
+    width: 250px;
+  }
 }

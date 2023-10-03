@@ -50,10 +50,11 @@ function App() {
                 </span>{" "}
                 let pollution destroy your health!{" "}
               </p>
-              <div
+              <div className="subtitle__wrapper"
                 data-aos="fade-left"
                 data-aos-delay="500"
                 data-aos-duration="500"
+                style={{ marginBottom: "20px" }}
               >
                 <p
                   className="hero__subtitle"
