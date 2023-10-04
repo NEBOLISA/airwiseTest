@@ -15,7 +15,6 @@ const FeaturesComponent = ({ featuresRef }) => {
       ref={featuresRef}
       data-aos="fade-left"
       data-aos-once="true"
-      data-aos-offset="300"
     >
       <div className="title-container"></div>
       <div className="content-container features">

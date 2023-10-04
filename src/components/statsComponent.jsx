@@ -6,10 +6,10 @@ import { AiOutlineCloud } from "react-icons/ai";
 const StatsComponent = () => {
   return (
     <div className="container">
-       <div data-aos="fade-in" data-aos-duration="500" data-aos-delay="200" data-aos-once="true">
+       <div data-aos="fade-in" data-aos-duration="500" data-aos-once="true">
       <h1>Did you know that</h1>
       </div>
-      <div className="box__wrapper" data-aos="fade-down" data-aos-duration="500" data-aos-delay="400" data-aos-once="true">
+      <div className="box__wrapper" data-aos="fade-down" data-aos-duration="500" data-aos-once="true">
         <div className="box">
           <TbGrave className="images"> </TbGrave>
           <div className="box-content">

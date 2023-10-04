@@ -13,7 +13,6 @@ const AboutComponent = () => {
         className="content-container"
         data-aos="fade-right"
         data-aos-once="true"
-        data-aos-offset="300"
       >
         <img src={ball} className="purple__ball" alt="" />
         <img src={smallball} className="purple__smallball" alt="" />
