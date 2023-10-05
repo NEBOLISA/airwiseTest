@@ -5,13 +5,26 @@ import steps3 from "../assets/images/steps3.png";
 import { PiSignIn } from "react-icons/pi";
 import { GiRing } from "react-icons/gi";
 import { AiOutlineCloudDownload } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const StepsComponent = () => {
   return (
     <div className="steps__container">
-      <div className="steps__header" data-aos="fade-in" data-aos-once="true" data-aos-offset="300">
+      <div
+        className="steps__header"
+        data-aos="fade-in"
+        data-aos-once="true"
+        data-aos-offset="300"
+      >
         <h1 className="steps__title">Steps</h1>
-        <p style={{ maxWidth: "initial" }} className="steps__text" data-aos="fade-in" data-aos-offset="300" data-aos-once="true" data-aos-duration='200'>
+        <p
+          style={{ maxWidth: "initial" }}
+          className="steps__text"
+          data-aos="fade-in"
+          data-aos-offset="300"
+          data-aos-once="true"
+          data-aos-duration="200"
+        >
           Check the{" "}
           <span className="highlighted-text">
             <b>step-by-step</b>
@@ -20,12 +33,21 @@ const StepsComponent = () => {
         </p>
       </div>
       <div className="steps__content">
-        <div className="steps__content--wrapper" data-aos="fade-left" data-aos-offset="300" data-aos-once="true" data-aos-duration='200' data-aos-delay='200'>
+        <div
+          className="steps__content--wrapper"
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-once="true"
+          data-aos-duration="200"
+          data-aos-delay="200"
+        >
           <img className="steps__img " src={steps1} alt="" />
           <div className="steps">
             <PiSignIn className="steps__icon" />
             <p className="steps__text">
-              <span className="air__link">Sign In</span> to{" "}
+              <Link to={"/login"}>
+                <span className="air__link">Sign In</span> to{" "}
+              </Link>
               <span className="highlighted-text">
                 <b>Air</b>
               </span>
@@ -37,7 +59,14 @@ const StepsComponent = () => {
             </p>
           </div>
         </div>
-        <div className="steps__content--wrapper" data-aos="fade-left" data-aos-offset="300" data-aos-once="true" data-aos-duration='200' data-aos-delay='400'>
+        <div
+          className="steps__content--wrapper"
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-once="true"
+          data-aos-duration="200"
+          data-aos-delay="400"
+        >
           <img className="steps__img " src={steps2} alt="" />
           <div className="steps">
             <GiRing style={{ color: "#f71065" }} className="steps__icon" />
@@ -59,7 +88,14 @@ const StepsComponent = () => {
             </p>
           </div>
         </div>
-        <div className="steps__content--wrapper" data-aos="fade-left" data-aos-offset="300" data-aos-once="true" data-aos-duration='200' data-aos-delay='600'>
+        <div
+          className="steps__content--wrapper"
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-once="true"
+          data-aos-duration="200"
+          data-aos-delay="600"
+        >
           <img className="steps__img " src={steps3} alt="" />
           <div className="steps">
             <AiOutlineCloudDownload
@@ -67,10 +103,7 @@ const StepsComponent = () => {
               className="steps__icon"
             />
             <p className="steps__text">
-              <span className="air__link--allow">
-                  Allow
-              </span>
-              {" "}
+              <span className="air__link--allow">Allow</span>{" "}
               <span className="yellow__text">
                 <b>Open Weather App</b>
               </span>

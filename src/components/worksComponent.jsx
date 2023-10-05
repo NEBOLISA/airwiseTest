@@ -2,6 +2,7 @@ import "./worksComponent.css";
 import oura from "../assets/images/oura.jpg";
 import airwise from "../assets/images/Airwisewhite.svg";
 import openWeather from "../assets/images/openweather.png";
+import { Link } from "react-router-dom";
 
 const WorksComponent = ({ worksRef }) => {
   return (
@@ -11,13 +12,16 @@ const WorksComponent = ({ worksRef }) => {
       </div>
       <div className="works__wrapper">
         <p
-        className="subtitle__works--wrapper"
+          className="subtitle__works--wrapper"
           data-aos="fade-in"
           data-aos-offset="300"
           data-aos-once="true"
           data-aos-duration="200"
         >
-          <span className="highlighted--text"><b>Air</b></span>wise: Real-time health and pollution insights for better outdoor
+          <span className="highlighted--text">
+            <b>Air</b>
+          </span>
+          wise: Real-time health and pollution insights for better outdoor
           living, powered by{" "}
           <a
             target="_blank"
@@ -86,7 +90,9 @@ const WorksComponent = ({ worksRef }) => {
               </p>
               <p style={{ fontSize: "14px" }}>Your Well-being Partner</p>
             </div>
-            <button className="airwise__btn">Get Started</button>
+            <Link to={"/login"}>
+              <button className="airwise__btn">Get Started</button>
+            </Link>
           </div>
           <div
             className="work__box"
