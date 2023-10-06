@@ -52,7 +52,7 @@ export default function Landing() {
           <div className="text_div">
             <div
               data-aos="fade-left"
-              data-aos-delay="500"
+              data-aos-delay="300"
               data-aos-duration="500"
               data-aos-once="true"
             >
@@ -66,7 +66,7 @@ export default function Landing() {
               <div
                 className="subtitle__wrapper"
                 data-aos="fade-left"
-                data-aos-delay="500"
+                data-aos-delay="300"
                 data-aos-duration="500"
                 style={{ marginBottom: "20px" }}
               >
@@ -101,7 +101,7 @@ export default function Landing() {
               <div className="group1">
                 <div
                   data-aos="fade-left"
-                  data-aos-delay="700"
+                  data-aos-delay="500"
                   data-aos-duration="500"
                 >
                   <p className="bottom_text">
@@ -110,7 +110,7 @@ export default function Landing() {
                 </div>
                 <div
                   data-aos="fade-in"
-                  data-aos-delay="1000"
+                  data-aos-delay="800"
                   data-aos-once="true"
                 >
                   <img className="group1_icon" src={mark} alt="heroicon" />
@@ -118,7 +118,7 @@ export default function Landing() {
               </div>
               <div
                 data-aos="fade-down"
-                data-aos-delay="1500"
+                data-aos-delay="1300"
                 data-aos-duration="500"
                 data-aos-once="true"
               >
@@ -128,7 +128,7 @@ export default function Landing() {
           </div>
           <div
             data-aos="fade-in"
-            data-aos-delay="1500"
+            data-aos-delay="1300"
             data-aos-duration="500"
             data-aos-once="true"
           >
