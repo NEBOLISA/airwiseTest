@@ -2,168 +2,168 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap");
 
 .login__text {
-    color: white;
-    font-size: 16px;
-    letter-spacing: 1px;
+  color: var(--text_color);
+  font-size: 16px;
+  letter-spacing: 1px;
 }
 
 .login__title {
-    color: white;
+  color: var(--text_color);
 }
 
 .login__subtitle {
-    color: #AAAAAA;
-    letter-spacing: 1px;
+  color: #aaaaaa;
+  letter-spacing: 1px;
 }
 
 .login__box {
-    color: white;
+  color: white;
 }
 
 .login__wrapper--section {
-    margin-top: 200px;
+  margin-top: 200px;
 }
 
 .login__wrapper {
-    width: 50vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex-direction: column;
-    gap: 100px;
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 100px;
 }
 
 .login__section--wrapper {
-    display: flex;
+  display: flex;
 }
 
 .login__img--wrapper {
-    background-color: #DCD8FF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
+  background-color: #dcd8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
 }
 
 .login__img {
-    width: 80%;
+  width: 80%;
 }
 
 .airwise__logo--login {
-    width: 50%;
+  width: 50%;
 }
 
 .login__wrapper--header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 100px;
 }
 
 .login__box--wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: start !important;
-    color: white;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start !important;
+  color: white;
+  gap: 10px;
 }
 
 .login__box--icon {
-    font-size: 20px;
-    transition: all 200ms ease;
-    cursor: not-allowed;
+  font-size: 20px;
+  transition: all 200ms ease;
+  cursor: not-allowed;
 }
 
 .login__box--icon:hover {
-    background-color: white;
+  background-color: white;
 }
 
 .google__title {
-    color: white;
-    font-family: 'Poppins';
-    font-weight: bold;
+  color: white;
+  font-family: "Poppins";
+  font-weight: bold;
 }
 
 .google__btn {
-    display: flex;
-    align-items: center;
-    background-color: #F45742;
-    border-radius: 15px;
-    width: 80%;
-    gap: 40px;
-    border: none;
-    font-size: 14px;
-    padding: 5px 20px;
-    height: 45px;
-    margin-bottom: 20px;
-    transition: all 300ms ease;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: #f45742;
+  border-radius: 15px;
+  width: 80%;
+  gap: 40px;
+  border: none;
+  font-size: 14px;
+  padding: 5px 20px;
+  height: 45px;
+  margin-bottom: 20px;
+  transition: all 300ms ease;
+  cursor: pointer;
 }
 
 .google__btn:hover {
-    background-color: #8b2f22;
+  background-color: #8b2f22;
 }
 
 .facebook__title {
-    color: white;
-    font-family: 'Poppins';
-    font-weight: bold;
+  color: white;
+  font-family: "Poppins";
+  font-weight: bold;
 }
 
 .error__text {
-    font-family: 'Poppins';
-    font-weight: bold;
-    color: rgb(218, 82, 82);
+  font-family: "Poppins";
+  font-weight: bold;
+  color: rgb(218, 82, 82);
 }
 
 .error__icon {
-    color: rgb(218, 82, 82);
-    font-size: 24px;
+  color: rgb(218, 82, 82);
+  font-size: 24px;
 }
 
 .error__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .facebook__btn {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    background-color: #3B5999;
-    border-radius: 15px;
-    width: 80%;
-    gap: 80px;
-    border: none;
-    font-size: 14px;
-    padding: 5px 20px;
-    height: 45px;
-    transition: all 300ms ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: #3b5999;
+  border-radius: 15px;
+  width: 80%;
+  gap: 80px;
+  border: none;
+  font-size: 14px;
+  padding: 5px 20px;
+  height: 45px;
+  transition: all 300ms ease;
 }
 
 .facebook__btn:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 .facebook__icon {
-    width: 30px;
+  width: 30px;
 }
 
 .google__icon {
-    width: 30px;
+  width: 30px;
 }
 
 .login__wrapper--content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login__title--wrapper {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }

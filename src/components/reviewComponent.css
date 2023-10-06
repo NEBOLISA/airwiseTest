@@ -1,6 +1,7 @@
 .comment__title {
-  color: white;
+  color: var(--text_color);
   margin-bottom: 30px;
+  transition: color var(--transition-duration);
 }
 
 .comment__container {
@@ -9,20 +10,22 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-  background-color: #120e14;
+  background-color: var(--about_container_background);
+  transition: background-color var(--transition-duration);
   padding-top: 50px;
   padding-bottom: 100px;
 }
 
 .comment__img {
-  width: 100%;
+  width: var(--comment_image_width);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .comment__subtitle {
-  color: white;
+  color: var(--text_color);
+  transition: color var(--transition-duration);
   text-align: center;
 }
 

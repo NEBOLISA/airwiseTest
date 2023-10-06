@@ -6,10 +6,15 @@ import { AiOutlineCloud } from "react-icons/ai";
 const StatsComponent = () => {
   return (
     <div className="container">
-       <div data-aos="fade-in" data-aos-duration="500" data-aos-once="true">
-      <h1>Did you know that</h1>
+      <div data-aos="fade-in" data-aos-duration="500" data-aos-once="true">
+        <h1>Did you know that</h1>
       </div>
-      <div className="box__wrapper" data-aos="fade-down" data-aos-duration="500" data-aos-once="true">
+      <div
+        className="box__wrapper"
+        data-aos="fade-down"
+        data-aos-duration="500"
+        data-aos-once="true"
+      >
         <div className="box">
           <TbGrave className="images"> </TbGrave>
           <div className="box-content">
@@ -40,7 +45,10 @@ const StatsComponent = () => {
           <AiOutlineAlert className="images"> </AiOutlineAlert>
           <div className="box-content">
             <h2>4th</h2>
-            <p className="stats__text" style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+            <p
+              className="stats__text"
+              style={{ paddingLeft: "10px", paddingRight: "10px" }}
+            >
               Greatest{" "}
               <span class="highlighted-text">
                 <b>threat to humanity</b>

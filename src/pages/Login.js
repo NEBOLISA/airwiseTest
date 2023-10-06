@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   FacebookAuthProvider,
   GoogleAuthProvider,
@@ -7,14 +7,18 @@ import {
 import { auth } from "../firebase";
 import "../components/login.css";
 import Airwise from "../assets/images/Airwise.svg";
+import AirwiseLight from "../assets/images/AirewiseLoginLight.svg";
 import LoginImg from "../assets/images/login.svg";
 import { BsSquare } from "react-icons/bs";
 import Google from "../assets/images/googleLogin.svg";
 import Facebook from "../assets/images/facebookLogin.svg";
 import { Orbit } from "@uiball/loaders";
 import { TbUserExclamation } from "react-icons/tb";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function Login() {
+  const { isDarkMode } = useContext(ThemeContext);
+
   const [googleloading, setGoogleLoading] = useState(false);
   const [facebookloading, setFacebookLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -39,6 +43,21 @@ export default function Login() {
       setFacebookLoading(false);
     }
   }
+  useEffect(() => {
+    // Update CSS variables for background color
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.style.setProperty(
+        "--background_color",
+        "var(--body_background_light)"
+      );
+    } else {
+      root.style.setProperty(
+        "--background_color",
+        "var(--body_background_dark)"
+      );
+    }
+  }, [isDarkMode]);
 
   return (
     <div
@@ -47,12 +66,20 @@ export default function Login() {
       data-aos-once="true"
       data-aos-duration="200"
       data-aos-delay="300"
-      className="login__section--wrapper"
+      className={
+        isDarkMode
+          ? "login__section--wrapper light_mode"
+          : "login__section--wrapper"
+      }
     >
       <div className="login__wrapper">
         <div className="login__wrapper--section">
           <div className="login__wrapper--header">
-            <img src={Airwise} className="airwise__logo--login" />
+            <img
+              src={isDarkMode ? AirwiseLight : Airwise}
+              className="airwise__logo--login"
+              alt="airwise"
+            />
             <p className="login__text">Better outdoor living</p>
           </div>
           <div className="login__wrapper--content">

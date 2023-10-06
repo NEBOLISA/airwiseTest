@@ -1,3 +1,18 @@
+:root {
+  --background_color: #140f18;
+  --header_color: #140f18;
+  --text_color: #ffffff;
+  --hover_list_border_color: white;
+  --font_weight: 300;
+}
+.light_mode {
+  --background_color: #ffffff;
+  --header_color: #f6f5ff;
+  --text_color: #000000;
+  --hover_list_border_color: #562eff;
+  --font_weight: bold;
+}
+
 .nav_bar {
   position: fixed;
   top: 0;
@@ -5,17 +20,20 @@
   right: 0;
   font-family: "Open Sans", sans-serif;
   height: 80px;
-  background-color: #140f18;
+  background-color: var(--header_color);
+  transition: background-color var(--transition-duration);
   display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 500;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--header_box_shadow);
 }
 .nav_left img {
   width: 120px;
 }
-
+.hide {
+  display: none;
+}
 .nav_middle ul {
   list-style-type: none;
   display: flex;
@@ -23,12 +41,20 @@
   padding-left: 0;
   gap: 3rem;
 }
+.nav_right_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
 .nav_middle ul li {
-  color: white;
+  color: var(--text_color);
   cursor: pointer;
-  font-weight: 300;
+  font-weight: var(--font_weight);
+  transition: font-weight var(--transition-duration),
+    color var(--transition-duration);
   font-size: 16px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   position: relative;
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
@@ -36,7 +62,8 @@
 }
 
 .nav_middle ul li:hover {
-  border-color: white;
+  border-color: var(--hover_list_border_color);
+  transition: all 0.4s ease-in-out;
 }
 
 @media (max-width: 750px) {
