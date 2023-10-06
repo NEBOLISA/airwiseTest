@@ -13,17 +13,21 @@ import Google from "../assets/images/googleLogin.svg";
 import Facebook from "../assets/images/facebookLogin.svg";
 import { Orbit } from "@uiball/loaders";
 import { TbUserExclamation } from "react-icons/tb";
+import { BsPersonCheckFill } from "react-icons/bs";
 
 export default function Login() {
   const [googleloading, setGoogleLoading] = useState(false);
   const [facebookloading, setFacebookLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [userIn, setUserIn] = useState(false);
 
   async function handleGoogleSignIn() {
     setGoogleLoading(true);
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
+      setGoogleLoading(false);
+      setUserIn(true);
     } catch (error) {
       setError(error);
       setGoogleLoading(false);
@@ -34,6 +38,8 @@ export default function Login() {
     try {
       const Facebookprovider = new FacebookAuthProvider();
       await signInWithPopup(auth, Facebookprovider);
+      setFacebookLoading(false);
+      setUserIn(true);
     } catch (error) {
       setError(error);
       setFacebookLoading(false);
@@ -65,6 +71,12 @@ export default function Login() {
                 <div className="error__wrapper">
                   <TbUserExclamation className="error__icon" />
                   <p className="error__text">Something went wrong.</p>
+                </div>
+              )}
+              {userIn && (
+                <div className="userin__wrapper">
+                  <BsPersonCheckFill className="userin__icon" />
+                  <p className="userin__text">Welcome to AirWise.</p>
                 </div>
               )}
             </div>
