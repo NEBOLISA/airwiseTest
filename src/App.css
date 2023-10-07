@@ -20,7 +20,7 @@
   --steps_content_gap: 0;
   --steps_yellow_text: #fed749;
   --steps_container_margin_bottom: 100px;
-
+  --steps_circle_width: 60%;
   --transition-duration: 0.8s;
   --comment_image_width: 100%;
   --footer_background_color: #120e14;
@@ -32,24 +32,24 @@
   --header_box_shadow: none;
   --text_color: #000000;
   --top_text: #201359;
-  --nav_button_background_color: #562eff;
-  --nav_button_hover_color: #4021c0;
-  --hero_section_bottom_margin: 180px;
+  --nav_button_background_color: #9747ff;
+  --nav_button_hover_color: #8742e2;
+  --hero_section_bottom_margin: 280px;
   --stats_box_color: white;
-  --stats_container_bottom_margin: 10px;
-  --about_container_bottom_padding: 30px;
+  --stats_container_bottom_margin: 100px;
+  --about_container_bottom_padding: 150px;
   --stats_box_shadow: 5px 5px 0px 1px rgba(208, 172, 255, 0.75);
   --about_container_background: var(--background_color);
-  --about_left_text_font: 500;
+  --about_left_text_font: 300;
   --work_box_color: black;
-  --steps_content_gap: 2rem;
+  --steps_content_gap: 0rem;
   --steps_yellow_text: #4021c0;
   --steps_container_margin_bottom: 100px;
-
+  --steps_circle_width: 60%;
   --transition-duration: 0.8s;
   --comment_image_width: 100%;
   --footer_background_color: #562eff;
-  --footer_font_weight: 600;
+  --footer_font_weight: 300;
 }
 
 body {

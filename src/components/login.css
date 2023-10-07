@@ -18,7 +18,7 @@
 }
 
 .login__box {
-  color: white;
+  color: var(--text_color);
 }
 
 .login__wrapper--section {
@@ -81,7 +81,7 @@
   display: flex;
   align-items: center;
   justify-content: start !important;
-  color: white;
+  color: var(--text_color);
   gap: 10px;
 }
 

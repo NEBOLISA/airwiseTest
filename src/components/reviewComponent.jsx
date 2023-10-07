@@ -1,10 +1,11 @@
 import "./reviewComponent.css";
 import world from "../assets/images/world.png";
-import worldLight from "../assets/images/worldMap.svg";
+import worldLight from "../assets/images/worldwhite.png";
 import profileImage1 from "../assets/images/profile1.png";
 import profileImage2 from "../assets/images/profile2.png";
 import profileImage3 from "../assets/images/profile3.png";
 import profileImage4 from "../assets/images/profile4.png";
+
 import box1 from "../assets/images/firstbox.svg";
 import box2 from "../assets/images/secondbox.svg";
 import box3 from "../assets/images/thirdbox.svg";

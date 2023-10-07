@@ -38,7 +38,7 @@
 }
 
 .steps__img {
-  width: 60%;
+  width: var(--steps_circle_width);
 }
 
 .steps__text {
