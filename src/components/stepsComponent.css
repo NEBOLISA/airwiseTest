@@ -3,7 +3,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: var(--steps_container_margin_bottom);
+  padding-bottom: var(--steps_container_margin_bottom);
+  background: var(--background_color);
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
 }
 
 .steps__title {

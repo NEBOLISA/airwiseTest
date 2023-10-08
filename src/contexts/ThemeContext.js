@@ -7,6 +7,7 @@ const ThemeProvider = ({ children }) => {
     const storedTheme = localStorage.getItem("isDarkMode");
     return storedTheme ? JSON.parse(storedTheme) : false;
   });
+
   const toggleTheme = () => {
     setIsDarkMode((prevIsDarkMode) => {
       const newIsDarkMode = !prevIsDarkMode;

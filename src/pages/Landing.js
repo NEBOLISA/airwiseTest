@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NavComp from "../components/navComp";
 import mark from "../assets/images/mark.png";
 import heroVector2 from "../assets/images/heroVector2.svg";
@@ -15,7 +15,8 @@ import ReviewComponent from "../components/reviewComponent";
 import { useRef } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 export default function Landing() {
-  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+  const { isDarkMode } = useContext(ThemeContext);
+
   const worksRef = useRef(null);
   const featuresRef = useRef(null);
   const HomeRef = useRef(null);
@@ -23,8 +24,10 @@ export default function Landing() {
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
+
   useEffect(() => {
     // Update CSS variables for background color
+
     const root = document.documentElement;
     if (isDarkMode) {
       root.style.setProperty(
@@ -38,6 +41,7 @@ export default function Landing() {
       );
     }
   }, [isDarkMode]);
+
   return (
     <div className={isDarkMode ? "App light_mode" : "App"}>
       <NavComp
