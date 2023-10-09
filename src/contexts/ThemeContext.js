@@ -17,6 +17,7 @@ const ThemeProvider = ({ children }) => {
   };
   useEffect(() => {
     localStorage.setItem("isDarkMode", JSON.stringify(isDarkMode));
+    setIsDarkMode(JSON.parse(localStorage.getItem("isDarkMode")));
   }, [isDarkMode]);
 
   return (
