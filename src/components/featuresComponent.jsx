@@ -49,7 +49,7 @@ const FeaturesComponent = ({ featuresRef }) => {
               </span>
             </div>
             <div className="features__icon--wrapper">
-              <TiWeatherCloudy 
+              <TiWeatherCloudy
                 style={{ fontSize: "30px" }}
                 className="features__icon cloud"
               />

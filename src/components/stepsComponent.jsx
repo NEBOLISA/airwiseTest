@@ -2,12 +2,18 @@ import "./stepsComponent.css";
 import steps1 from "../assets/images/steps1.png";
 import steps2 from "../assets/images/steps2.png";
 import steps3 from "../assets/images/steps3.png";
+import stepsLight1 from "../assets/images/step1.png";
+import stepsLight2 from "../assets/images/step2.png";
+import stepsLight3 from "../assets/images/step3.png";
 import { PiSignIn } from "react-icons/pi";
 import { GiRing } from "react-icons/gi";
 import { AiOutlineCloudDownload } from "react-icons/ai";
+import { ThemeContext } from "../contexts/ThemeContext";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const StepsComponent = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   return (
     <div className="steps__container">
       <div
@@ -41,7 +47,11 @@ const StepsComponent = () => {
           data-aos-duration="200"
           data-aos-delay="200"
         >
-          <img className="steps__img " src={steps1} alt="" />
+          <img
+            className="steps__img steps__img1"
+            src={isDarkMode ? stepsLight1 : steps1}
+            alt="steps1"
+          />
           <div className="steps">
             <PiSignIn className="steps__icon" />
             <p className="steps__text">
@@ -67,7 +77,11 @@ const StepsComponent = () => {
           data-aos-duration="200"
           data-aos-delay="400"
         >
-          <img className="steps__img " src={steps2} alt="" />
+          <img
+            className="steps__img steps__img2 "
+            src={isDarkMode ? stepsLight2 : steps2}
+            alt="steps2"
+          />
           <div className="steps">
             <GiRing style={{ color: "#f71065" }} className="steps__icon" />
             <p className="steps__text">
@@ -96,7 +110,11 @@ const StepsComponent = () => {
           data-aos-duration="200"
           data-aos-delay="600"
         >
-          <img className="steps__img " src={steps3} alt="" />
+          <img
+            className="steps__img steps__img3"
+            src={isDarkMode ? stepsLight3 : steps3}
+            alt="steps3"
+          />
           <div className="steps">
             <AiOutlineCloudDownload
               style={{ color: "#fed749" }}

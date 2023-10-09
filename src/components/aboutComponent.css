@@ -9,14 +9,16 @@
   margin-bottom: 0px;
 }
 .container__about {
-  background: #120e14;
+  background-color: var(--about_container_background);
   padding: 20px;
-  color: white;
+  color: var(--text_color);
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
   display: flex;
   flex-direction: column;
   font-size: 26px;
   font-family: "openSans";
-  padding-bottom: 150px;
+  padding-bottom: var(--about_container_bottom_padding);
   position: relative;
 }
 
@@ -59,6 +61,8 @@
 .about__text {
   margin: 0px;
   font-size: 14px;
+  font-weight: var(--about_left_text_font);
+  transition: font-weight var(--transition-duration);
 }
 
 .about__wrapper {
@@ -86,7 +90,8 @@
   margin-top: 0;
   padding-right: 15px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: var(--about_left_text_font);
+  transition: font-weight var(--transition-duration);
   font-family: "Open Sans";
   line-height: 2.2;
   max-width: 40%;

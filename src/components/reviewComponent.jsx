@@ -1,15 +1,19 @@
 import "./reviewComponent.css";
 import world from "../assets/images/world.png";
+import worldLight from "../assets/images/worldwhite.png";
 import profileImage1 from "../assets/images/profile1.png";
 import profileImage2 from "../assets/images/profile2.png";
 import profileImage3 from "../assets/images/profile3.png";
 import profileImage4 from "../assets/images/profile4.png";
+
 import box1 from "../assets/images/firstbox.svg";
 import box2 from "../assets/images/secondbox.svg";
 import box3 from "../assets/images/thirdbox.svg";
 import box4 from "../assets/images/fourthbox.svg";
-
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 const ReviewComponent = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   return (
     <div className="comment__container">
       <div>
@@ -42,7 +46,11 @@ const ReviewComponent = () => {
         data-aos-offset="300"
       >
         <div className="comment__content">
-          <img className="comment__img" src={world} alt="" />
+          <img
+            className="comment__img"
+            src={isDarkMode ? worldLight : world}
+            alt="world"
+          />
           <img src={profileImage1} alt="" className="first__profile" />
           <img src={box1} className="hide1" alt="" />
 

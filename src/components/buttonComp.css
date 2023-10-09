@@ -8,7 +8,7 @@
   font-size: 14px;
   font-family: "Poppins";
   padding: 10px 1.5rem;
-  background-color: #9747ff;
+  background-color: var(--nav_button_background_color);
   opacity: 1;
   margin-bottom: 28px;
   transition: all 300ms ease;
@@ -24,15 +24,15 @@
   font-size: 14px;
   font-family: "Poppins";
   padding: 10px 1.5rem;
-  background-color: #9747ff;
+  background-color: var(--nav_button_background_color);
   opacity: 1;
   transition: all 300ms ease;
 }
 
 .btn_comp2:hover {
-  background-color: #8742e2;
+  background-color: var(--nav_button_hover_color);
 }
 
 .btn_comp:hover {
-  background-color: #8742e2;
+  background-color: var(--nav_button_hover_color);
 }

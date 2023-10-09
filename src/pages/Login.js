@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   FacebookAuthProvider,
   GoogleAuthProvider,
@@ -7,15 +7,19 @@ import {
 import { auth } from "../firebase";
 import "../components/login.css";
 import Airwise from "../assets/images/Airwise.svg";
+import AirwiseLight from "../assets/images/AirewiseLoginLight.svg";
 import LoginImg from "../assets/images/login.svg";
 import { BsSquare } from "react-icons/bs";
+import { BsPersonCheckFill } from "react-icons/bs";
 import Google from "../assets/images/googleLogin.svg";
 import Facebook from "../assets/images/facebookLogin.svg";
 import { Orbit } from "@uiball/loaders";
 import { TbUserExclamation } from "react-icons/tb";
-import { BsPersonCheckFill } from "react-icons/bs";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function Login() {
+  const { isDarkMode } = useContext(ThemeContext);
+
   const [googleloading, setGoogleLoading] = useState(false);
   const [facebookloading, setFacebookLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -45,6 +49,21 @@ export default function Login() {
       setFacebookLoading(false);
     }
   }
+  useEffect(() => {
+    // Update CSS variables for background color
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.style.setProperty(
+        "--background_color",
+        "var(--body_background_light)"
+      );
+    } else {
+      root.style.setProperty(
+        "--background_color",
+        "var(--body_background_dark)"
+      );
+    }
+  }, [isDarkMode]);
 
   return (
     <div
@@ -53,12 +72,20 @@ export default function Login() {
       data-aos-once="true"
       data-aos-duration="200"
       data-aos-delay="300"
-      className="login__section--wrapper"
+      className={
+        isDarkMode
+          ? "login__section--wrapper light_mode"
+          : "login__section--wrapper"
+      }
     >
       <div className="login__wrapper">
         <div className="login__wrapper--section">
           <div className="login__wrapper--header">
-            <img src={Airwise} className="airwise__logo--login" />
+            <img
+              src={isDarkMode ? AirwiseLight : Airwise}
+              className="airwise__logo--login"
+              alt="airwise"
+            />
             <p className="login__text">Better outdoor living</p>
           </div>
           <div className="login__wrapper--content">
@@ -80,42 +107,42 @@ export default function Login() {
                 </div>
               )}
             </div>
-            <button onClick={handleGoogleSignIn} className="google__btn">
-              {googleloading ? (
-                <div
-                  style={{
-                    display: "flex",
-                    width: "100%",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Orbit color={"white"} />
-                </div>
-              ) : (
-                <div style={{ display: "flex", gap: "80px" }}>
-                  <img className="google__icon" src={Google} />
-                  <p className="google__title">Log in with Gmail</p>
-                </div>
-              )}
-            </button>
-            <button onClick={handleFacebookSignIn} className="facebook__btn">
-              {facebookloading ? (
-                <div
-                  style={{
-                    display: "flex",
-                    width: "100%",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Orbit color={"white"} />
-                </div>
-              ) : (
-                <div style={{ display: "flex", gap: "80px" }}>
-                  <img className="facebook__icon" src={Facebook} />
-                  <p className="facebook__title">Log in with Facebook</p>
-                </div>
-              )}
-            </button>
+              <button onClick={handleGoogleSignIn} className="google__btn">
+                {googleloading ? (
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "100%",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Orbit color={"white"} />
+                  </div>
+                ) : (
+                  <div style={{ display: "flex", gap: "80px" }}>
+                    <img className="google__icon" src={Google} />
+                    <p className="google__title">Log in with Gmail</p>
+                  </div>
+                )}
+              </button>
+              <button onClick={handleFacebookSignIn} className="facebook__btn">
+                {facebookloading ? (
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "100%",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Orbit color={"white"} />
+                  </div>
+                ) : (
+                  <div style={{ display: "flex", gap: "80px" }}>
+                    <img className="facebook__icon" src={Facebook} />
+                    <p className="facebook__title">Log in with Facebook</p>
+                  </div>
+                )}
+              </button>
             <div className="login__box--wrapper">
               <BsSquare className="login__box--icon" />
               <p className="login__box">Keep me logged in</p>

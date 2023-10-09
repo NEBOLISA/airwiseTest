@@ -3,78 +3,81 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 100px;
-}
-
-.steps__title {
-    color: white;
-}
-
-.steps__header {
+    margin-bottom: var(--steps_container_margin_bottom);
+  }
+  
+  .steps__title {
+    color: var(--text_color);
+    transition: color var(--transition-duration);
+  }
+  
+  .steps__header {
     margin-bottom: 70px;
-}
-
-.air__link {
-    border-bottom: 2px white solid;
+  }
+  
+  .air__link {
+    border-bottom: 2px var(--text_color) solid;
     cursor: pointer;
     font-weight: bold;
     transition: all 300ms ease;
-}
-
-.air__link:hover {
+  }
+  
+  .air__link:hover {
     opacity: 0.9;
-}
-
-.air__link2:hover {
+  }
+  
+  .air__link2:hover {
     opacity: 0.9;
-}
-
-.air__link2 {
-    border-bottom: 2px white solid;
+  }
+  
+  .air__link2 {
+    border-bottom: 2px var(--text_color) solid;
     cursor: pointer;
     font-weight: bold;
     transition: all 300ms ease;
-}
-
-.steps__img {
-    width: 60%;
-}
-
-.steps__text {
-    color: white;
+  }
+  
+  .steps__img {
+    width: var(--steps_circle_width);
+  }
+  
+  .steps__text {
+    color: var(--text_color);
+    transition: color var(--transition-duration);
     text-align: center;
     max-width: 300px;
-}
-
-.steps {
+  }
+  
+  .steps {
     margin-top: 40px;
-}
-
-.steps__content {
+  }
+  
+  .steps__content {
     display: flex;
     max-width: 1300px;
-}
-
-.steps__content--wrapper {
+    gap: var(--steps_content_gap);
+  }
+  
+  .steps__content--wrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-
-.steps__icon {
+  }
+  
+  .steps__icon {
     color: #9747ff;
     font-size: 35px;
-}
-
-.pink__text {
+  }
+  
+  .pink__text {
     color: #f71065;
-}
-
-.yellow__text {
-    color: #fed749;
-}
-
-@media (max-width: 1339px) {
+  }
+  
+  .yellow__text {
+    color: var(--steps_yellow_text);
+  }
+  
+  @media (max-width: 1339px) {
     .box_wrapper {
       display: flex;
       justify-content: center;
@@ -91,17 +94,17 @@
       margin-bottom: 70px;
     }
     .steps__content--wrapper:nth-child(3) {
-        margin-bottom: 0px;
+      margin-bottom: 0px;
     }
-
+  
     .steps__text {
-        font-size: 14px;
-        padding: 15px;
+      font-size: 14px;
+      padding: 15px;
     }
     .steps__content--wrapper {
-        margin-bottom: 50px
+      margin-bottom: 50px;
     }
     .steps__header {
-        margin-bottom: 50px;
+      margin-bottom: 50px;
     }
   }

@@ -1,12 +1,13 @@
 .container__features {
   padding: 20px;
-  color: white;
+  color: var(--text_color);
   display: flex;
   flex-direction: column;
   font-size: 26px;
   font-family: "openSans";
   padding-bottom: 100px;
   position: relative;
+  transition: color var(--transition-duration);
 }
 
 .purple__ball--features {
@@ -47,7 +48,7 @@
   .purple__smallball--features {
     display: none;
   }
-  .features{
+  .features {
     margin-top: 50px;
     padding-bottom: 0px;
   }
@@ -59,7 +60,7 @@
   }
   .page-title {
     margin-bottom: 50px !important;
-  } 
+  }
 
   .left-text {
     padding: 0px;
