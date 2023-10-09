@@ -142,7 +142,7 @@ html {
     flex-direction: column;
     width: 100%;
     gap: 2rem;
-    padding-top: 4rem;
+    padding-top: 10.25rem;
   }
   .image_div {
     text-align: center;
@@ -155,7 +155,7 @@ html {
     justify-content: center;
   }
   .hero_section {
-    margin-bottom: 50px;
+    padding-bottom: 50px;
   }
   .subtitle__wrapper {
     text-align: center;
@@ -190,7 +190,7 @@ html {
     width: 90%;
   }
   .hero_text_img_div {
-    padding-top: 2rem;
+    padding-top: 8.25rem;
   }
   .right_image {
     width: 70% !important;

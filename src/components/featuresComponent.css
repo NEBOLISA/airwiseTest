@@ -1,6 +1,7 @@
 .container__features {
   padding: 20px;
   color: var(--text_color);
+  background-color: var(--background_color);
   display: flex;
   flex-direction: column;
   font-size: 26px;

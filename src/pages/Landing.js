@@ -14,7 +14,6 @@ import StepsComponent from "../components/stepsComponent";
 import ReviewComponent from "../components/reviewComponent";
 import { useRef } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
-
 export default function Landing() {
   const { isDarkMode } = useContext(ThemeContext);
 
