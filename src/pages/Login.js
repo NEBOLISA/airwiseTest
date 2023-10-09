@@ -107,6 +107,7 @@ export default function Login() {
                 </div>
               )}
             </div>
+
             <button onClick={handleGoogleSignIn} className="google__btn">
               {googleloading ? (
                 <div
@@ -143,6 +144,7 @@ export default function Login() {
                 </div>
               )}
             </button>
+
             <div className="login__box--wrapper">
               <BsSquare className="login__box--icon" />
               <p className="login__box">Keep me logged in</p>

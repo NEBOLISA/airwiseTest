@@ -23,6 +23,7 @@
 
 .login__wrapper--section {
   margin-top: 200px;
+  /* remove this margin-top */
 }
 
 .login__wrapper {
@@ -31,6 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: start;
+  /* justify-content: center; */
   flex-direction: column;
   position: relative;
 }
