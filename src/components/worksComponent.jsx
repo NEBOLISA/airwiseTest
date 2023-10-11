@@ -90,9 +90,7 @@ const WorksComponent = ({ worksRef }) => {
               </p>
               <p style={{ fontSize: "14px" }}>Your Well-being Partner</p>
             </div>
-            <Link to={"/login"}>
               <button className="airwise__btn">Get Started</button>
-            </Link>
           </div>
           <div
             className="work__box"
