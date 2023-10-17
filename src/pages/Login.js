@@ -34,7 +34,11 @@ export default function Login() {
       setUserIn(true);
     } catch (error) {
       setError(error);
+
       setGoogleLoading(false);
+      // setTimeout(() => {
+      //   setError("");
+      // }, 3000);
     }
   }
   async function handleFacebookSignIn() {
@@ -47,6 +51,9 @@ export default function Login() {
     } catch (error) {
       setError(error);
       setFacebookLoading(false);
+      // setTimeout(() => {
+      //   setError("");
+      // }, 3000);
     }
   }
   useEffect(() => {
@@ -107,42 +114,42 @@ export default function Login() {
                 </div>
               )}
             </div>
-              <button onClick={handleGoogleSignIn} className="google__btn">
-                {googleloading ? (
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "100%",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Orbit color={"white"} />
-                  </div>
-                ) : (
-                  <div style={{ display: "flex", gap: "80px" }}>
-                    <img className="google__icon" src={Google} />
-                    <p className="google__title">Log in with Gmail</p>
-                  </div>
-                )}
-              </button>
-              <button onClick={handleFacebookSignIn} className="facebook__btn">
-                {facebookloading ? (
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "100%",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Orbit color={"white"} />
-                  </div>
-                ) : (
-                  <div style={{ display: "flex", gap: "80px" }}>
-                    <img className="facebook__icon" src={Facebook} />
-                    <p className="facebook__title">Log in with Facebook</p>
-                  </div>
-                )}
-              </button>
+            <button onClick={handleGoogleSignIn} className="google__btn">
+              {googleloading ? (
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Orbit color={"white"} />
+                </div>
+              ) : (
+                <div style={{ display: "flex", gap: "80px" }}>
+                  <img className="google__icon" src={Google} />
+                  <p className="google__title">Log in with Gmail</p>
+                </div>
+              )}
+            </button>
+            <button onClick={handleFacebookSignIn} className="facebook__btn">
+              {facebookloading ? (
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Orbit color={"white"} />
+                </div>
+              ) : (
+                <div style={{ display: "flex", gap: "80px" }}>
+                  <img className="facebook__icon" src={Facebook} />
+                  <p className="facebook__title">Log in with Facebook</p>
+                </div>
+              )}
+            </button>
             <div className="login__box--wrapper">
               <BsSquare className="login__box--icon" />
               <p className="login__box">Keep me logged in</p>
