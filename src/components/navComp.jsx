@@ -21,7 +21,7 @@ function NavComp({ scrollToSection, worksRef, featuresRef, HomeRef }) {
       </div>
       <div className="nav_right">
         <div className="nav_right_wrapper">
-          <ButtonComp text="Login" />
+          <ButtonComp text="Get Started " />
           <ToggleButton className="toggle" />
         </div>
       </div>

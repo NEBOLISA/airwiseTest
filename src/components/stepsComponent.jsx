@@ -55,9 +55,7 @@ const StepsComponent = () => {
           <div className="steps">
             <PiSignIn className="steps__icon" />
             <p className="steps__text">
-              <Link to={"/login"}>
                 <span className="air__link">Sign In</span> to{" "}
-              </Link>
               <span className="highlighted-text">
                 <b>Air</b>
               </span>
