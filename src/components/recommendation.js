@@ -6,6 +6,7 @@ import windows from "../assets/images/recommenWeather/windows.svg";
 import middle from "../assets/images/recommenWeather/middle.svg";
 function Recommendation() {
   return (
+    <div className="middle__box">
     <div className="middle__box--wrapper">
       <img src={middle} className="middle__img" alt="" />
       <div className="middle__box--content">
@@ -33,6 +34,7 @@ function Recommendation() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
