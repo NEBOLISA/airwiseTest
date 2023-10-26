@@ -3,10 +3,11 @@ import cycling from "../assets/images/recommenWeather/cycling.svg";
 import hiking from "../assets/images/recommenWeather/hiking.svg";
 import running from "../assets/images/recommenWeather/running.svg";
 import windows from "../assets/images/recommenWeather/windows.svg";
+import middle from "../assets/images/recommenWeather/middle.svg";
 function Recommendation() {
   return (
     <div className="middle__box--wrapper">
-      <img src="assets/middle.svg" className="middle__img" alt="" />
+      <img src={middle} className="middle__img" alt="" />
       <div className="middle__box--content">
         <p className="middle__box--title">Enjoy outdoors from 9AM-11AM</p>
         <div className="recommendations__wrapper">

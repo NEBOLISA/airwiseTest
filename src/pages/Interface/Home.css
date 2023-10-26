@@ -3,9 +3,11 @@
   grid-template-areas:
     "recommendation weather"
     "health weather";
-  /* grid-template-columns: 70% 20%;
-} */
+  grid-template-columns: 67% 30%;
+  grid-template-rows: 40% 60%;
+  row-gap: 3rem;
 }
+
 .healthReport {
   grid-area: health;
 }

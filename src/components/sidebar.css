@@ -2,6 +2,7 @@
   box-sizing: border-box;
   width: 178px;
   min-height: 100vh;
+  height: 100%;
   background-color: #562eff;
 }
 .sidebar .logo_div {
