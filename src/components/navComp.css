@@ -65,10 +65,12 @@
   border-color: var(--hover_list_border_color);
   transition: all 0.4s ease-in-out;
 }
-
+.nav_middle ul li.active {
+  border-color: var(--hover_list_border_color);
+  transition: all 0.4s ease-in-out;
+}
 @media (max-width: 750px) {
   .nav_middle {
     display: none;
   }
-  
 }

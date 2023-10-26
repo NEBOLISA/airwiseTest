@@ -1,0 +1,17 @@
+.Home {
+  display: grid;
+  grid-template-areas:
+    "recommendation weather"
+    "health weather";
+  /* grid-template-columns: 70% 20%;
+} */
+}
+.healthReport {
+  grid-area: health;
+}
+.middle__box--content {
+  grid-area: recommendation;
+}
+.right-side__wrapper {
+  grid-area: weather;
+}

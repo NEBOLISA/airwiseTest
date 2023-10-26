@@ -8,7 +8,7 @@ const WorksComponent = ({ worksRef }) => {
   return (
     <div className="container__work" ref={worksRef}>
       <div data-aos="fade-in" data-aos-once="true" data-aos-offset="300">
-        <h1>How it Works</h1>
+        <h1 className="container__work__header">How it Works</h1>
       </div>
       <div className="works__wrapper">
         <p
@@ -50,14 +50,18 @@ const WorksComponent = ({ worksRef }) => {
           >
             <div className="oura__detail"></div>
             <div className="logo__wrapper">
-              <img src={oura} className="oura__logo" alt="" />
+              <img src={oura} className="oura__logo works_logo" alt="" />
             </div>
             <div className="oura__text">
-              <p style={{ fontWeight: "bold" }}>Stylish wearable rings</p>
-              <p style={{ fontSize: "14px" }}>
+              <p className="oura_text_subtitle" style={{ fontWeight: "bold" }}>
+                Stylish wearable rings
+              </p>
+              <p className="oura_text_subtitle" style={{ fontSize: "14px" }}>
                 Tracks sleep, activity, and health metrics
               </p>
-              <p style={{ fontSize: "14px" }}>Offers valuable insights</p>
+              <p className="oura_text_subtitle" style={{ fontSize: "14px" }}>
+                Offers valuable insights
+              </p>
               <p style={{ fontSize: "14px" }}>
                 Optimizes well-being and performance
               </p>
@@ -78,7 +82,7 @@ const WorksComponent = ({ worksRef }) => {
             data-aos-delay="600"
           >
             <div className="logo__wrapper">
-              <img src={airwise} className="airwise__logo" alt="" />
+              <img src={airwise} className="airwise__logo works_logo" alt="" />
             </div>
             <div className="oura__text">
               <p style={{ fontWeight: "bold" }}>Oura + OpenWeatherMap data</p>
@@ -90,7 +94,7 @@ const WorksComponent = ({ worksRef }) => {
               </p>
               <p style={{ fontSize: "14px" }}>Your Well-being Partner</p>
             </div>
-              <button className="airwise__btn">Get Started</button>
+            <button className="airwise__btn">Get Started</button>
           </div>
           <div
             className="work__box"
@@ -102,7 +106,11 @@ const WorksComponent = ({ worksRef }) => {
           >
             <div className="openweather__detail"></div>
             <div className="logo__wrapper">
-              <img src={openWeather} className="openweather__logo" alt="" />
+              <img
+                src={openWeather}
+                className="openweather__logo works_logo "
+                alt=""
+              />
             </div>
             <div className="oura__text">
               <p style={{ fontWeight: "bold" }}>

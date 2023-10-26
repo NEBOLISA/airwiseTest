@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,100;1,9..40,200&family=Plus+Jakarta+Sans:wght@300;500;600;700&display=swap");
+
+.right-side__wrapper {
+  background-color: #93869cb0;
+  width: 356px;
+  height: 787px;
+  border-radius: 15px;
+  display: flex;
+  margin: 20px;
+  margin-top: 80px;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+}
+.weather__box {
+  width: 305px;
+  height: 255px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: #0e518e;
+  border-radius: 20px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.weather__number {
+  font-size: 60px;
+  font-weight: bold;
+  font-family: "Plus Jakarta Sans";
+  background-image: linear-gradient(180deg, #0084ff 60%, #fff 120%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.week__box {
+  background-color: #0e518e;
+  width: 100%;
+  height: 138px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dates__wrapper {
+  display: flex;
+  gap: 18px;
+  align-items: start;
+}
+.dates__icon--weather {
+  width: 28px;
+}
+.division__line {
+  width: 1px;
+  height: 85px;
+  background-color: white;
+}
+.dates__header {
+  color: white;
+}
+.dates__number--weather {
+  font-weight: 300;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14 px;
+}
+.dates__header--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.weather__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  font-family: "Plus Jakarta Sans";
+}
+.weather__header--right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.weather__info__title {
+  font-weight: 200;
+  font-size: 14px;
+}
+.weather__info__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+.weather__info--subtitle {
+  display: flex;
+  font-size: 14px;
+  gap: 3px;
+  margin-top: 10px;
+}
+.weather__info--arrow {
+  width: 12px;
+}
+.air__box {
+  width: 301px;
+  height: 205px;
+  background-color: #0e518e;
+  border-radius: 20px;
+  margin-top: 40px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.weather__info--wrapper {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+.air__box--number {
+  font-size: 35px;
+  color: #4ae700;
+  font-weight: bold;
+  background-image: linear-gradient(180deg, #4ae700 0%, #fff 120%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.air__box--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.air__box--title {
+  color: #4ae600;
+  font-size: 22px;
+  font-weight: 500;
+}
+.air__box--subtitle {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+}
+.pollution__btn {
+  width: 205px;
+  height: 41px;
+  background-color: #0e518e;
+  border-radius: 25px;
+  margin-top: 20px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.pollution__btn:hover {
+  background-color: #0c4275;
+}
+.pollutants__text {
+  font-size: 16px;
+}
+.pollutants__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.pollutants__icon {
+  width: 20px;
+}
+.air__title {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  padding: 25px;
+  padding-bottom: 20px;
+}
+.info__icon {
+  position: absolute;
+  right: 8%;
+  top: 13%;
+  width: 18px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.info__icon:hover {
+  opacity: 0.8;
+}
+.air__line {
+  width: 80%;
+  margin: 0 auto;
+}
+.air__subtitle--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.line__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.air__point {
+  position: absolute;
+  left: 18%;
+}
+.middle__box--wrapper {
+  width: 855px;
+  height: 295px;
+  background-color: #37218dbe;
+  border: 2px solid #562eff;
+  border-radius: 15px;
+  position: relative;
+  margin: 20px;
+  margin-top: 80px;
+}
+.recommendations__title {
+  font-size: 16px;
+}
+.middle__box--title {
+  font-size: 48px;
+  font-weight: 500;
+  font-family: "DM Sans";
+  line-height: initial;
+}
+.middle__box--content {
+  margin: 30px;
+}
+.middle__img {
+  position: absolute;
+  width: 220px;
+  right: 2%;
+  bottom: 2%;
+}
+.recommendations__wrapper {
+  margin-top: 60px;
+}
+.recommendations__box {
+  background-color: #372383;
+  width: 93px;
+  height: 93px;
+  border-radius: 20px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.recommendations__text {
+  font-size: 14px;
+}
+.recommendations__box--wrapper {
+  display: flex;
+  gap: 20px;
+}
+.recommendations__division {
+  width: 1px;
+  height: 70px;
+  background-color: #4737ff;
+  margin-top: 25px;
+  opacity: 0.6;
+}

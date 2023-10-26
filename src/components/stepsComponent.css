@@ -12,6 +12,7 @@
 .steps__title {
   color: var(--text_color);
   transition: color var(--transition-duration);
+  text-align: center;
 }
 
 .steps__header {
