@@ -1,5 +1,5 @@
 .container__work {
-  background: var(--background_color);
+  background: var(--work__background--color);
   padding: 20px;
   color: var(--text_color);
   text-align: center;
@@ -120,7 +120,7 @@ a {
   font-size: 14px;
   font-weight: bold;
   font-family: "poppins";
-  cursor: pointer;
+  cursor: not-allowed;
   transition: all 300ms ease;
 }
 
@@ -176,49 +176,29 @@ a {
   display: inline-block;
 }
 
-p {
+.oura_text_subtitle {
   font-family: "Open Sans";
   line-height: 2;
   font-weight: 300;
   font-weight: var(--about_left_text_font);
   transition: font-weight var(--transition-duration);
 }
-h1 {
+.container__work__header {
   font-size: 36px;
   text-align: center;
   font-family: "Poppins";
 }
-h2 {
-  font-size: 24px;
-  text-align: center;
-  font-family: "Poppins";
-}
-h3 {
-  font-size: 20px;
-  text-align: left;
-  padding-left: 5%;
-  line-height: 30pt;
-}
-h4 {
-  font-size: 24px;
-  text-align: left;
-  padding-left: 5%;
-  padding-top: 5%;
-  padding-bottom: 1%;
-}
+
 .highlighted-text {
   color: #9747ff;
 }
-h3,
-h4 {
-  flex: 1;
-}
+
 .image {
   float: right;
   margin-left: 10px;
 }
 
-img {
+.works_logo {
   width: 30%;
 }
 

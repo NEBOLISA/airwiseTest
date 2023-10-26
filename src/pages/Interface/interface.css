@@ -1,0 +1,13 @@
+.interface {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 180px 1fr;
+  grid-template-areas: "sidebar healthReport";
+}
+.sidebar {
+  grid-area: sidebar;
+}
+.healthReport {
+  grid-area: healthReport;
+  width: 100%;
+}

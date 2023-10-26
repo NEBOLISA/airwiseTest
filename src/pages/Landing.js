@@ -16,18 +16,26 @@ import { useRef } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 export default function Landing() {
   const { isDarkMode } = useContext(ThemeContext);
-
+  const [activeIndex, setActiveIndex] = useState("home");
   const worksRef = useRef(null);
   const featuresRef = useRef(null);
   const HomeRef = useRef(null);
 
-  const scrollToSection = (ref) => {
+  const scrollToSection = (ref, text) => {
+    if (text === "home") {
+      setActiveIndex("home");
+    } else if (text === "features") {
+      setActiveIndex("features");
+    } else {
+      setActiveIndex("works");
+    }
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
     // Update CSS variables for background color
 
+    // Restore the scroll position when the component unmounts
     const root = document.documentElement;
     if (isDarkMode) {
       root.style.setProperty(
@@ -50,6 +58,7 @@ export default function Landing() {
         worksRef={worksRef}
         featuresRef={featuresRef}
         HomeRef={HomeRef}
+        activeIndex={activeIndex}
       />
       <section className="hero_section" ref={HomeRef}>
         <div className="hero_text_img_div">

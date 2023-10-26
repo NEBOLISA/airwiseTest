@@ -8,8 +8,7 @@
   font-family: "openSans";
   padding-bottom: 100px;
   position: relative;
-  transition: background-color var(--transition-duration),
-    color var(--transition-duration);
+  transition: all var(--transition-duration);
 }
 
 .purple__ball--features {

@@ -3,14 +3,14 @@
   --header_color: #140f18;
   --text_color: #ffffff;
   --hover_list_border_color: white;
-  --font_weight: 300;
+  --font_weight: 400;
 }
 .light_mode {
   --background_color: #ffffff;
   --header_color: #f6f5ff;
-  --text_color: #000000;
+  --text_color: #140f18;
   --hover_list_border_color: #9747ff;
-  --font_weight: 300;
+  --font_weight: 400;
 }
 
 .nav_bar {
@@ -65,7 +65,10 @@
   border-color: var(--hover_list_border_color);
   transition: all 0.4s ease-in-out;
 }
-
+.nav_middle ul li.active {
+  border-color: var(--hover_list_border_color);
+  transition: all 0.4s ease-in-out;
+}
 @media (max-width: 750px) {
   .nav_middle {
     display: none;

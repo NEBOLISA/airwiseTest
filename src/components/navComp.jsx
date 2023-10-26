@@ -5,7 +5,13 @@ import ButtonComp from "./buttonComp";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import ToggleButton from "./toggleButton";
-function NavComp({ scrollToSection, worksRef, featuresRef, HomeRef }) {
+function NavComp({
+  scrollToSection,
+  worksRef,
+  featuresRef,
+  HomeRef,
+  activeIndex,
+}) {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   return (
     <nav className={isDarkMode ? "nav_bar light_mode" : "nav_bar"}>
@@ -14,14 +20,29 @@ function NavComp({ scrollToSection, worksRef, featuresRef, HomeRef }) {
       </div>
       <div className="nav_middle">
         <ul>
-          <li onClick={() => scrollToSection(HomeRef)}>Home</li>
-          <li onClick={() => scrollToSection(featuresRef)}>Features</li>
-          <li onClick={() => scrollToSection(worksRef)}>How it works</li>
+          <li
+            className={activeIndex === "home" ? "active" : ""}
+            onClick={() => scrollToSection(HomeRef, "home")}
+          >
+            Home
+          </li>
+          <li
+            className={activeIndex === "features" ? "active" : ""}
+            onClick={() => scrollToSection(featuresRef, "features")}
+          >
+            Features
+          </li>
+          <li
+            className={activeIndex === "works" ? "active" : ""}
+            onClick={() => scrollToSection(worksRef, "works")}
+          >
+            How it works
+          </li>
         </ul>
       </div>
       <div className="nav_right">
         <div className="nav_right_wrapper">
-          <ButtonComp text="Login" />
+          <ButtonComp text="Get Started " />
           <ToggleButton className="toggle" />
         </div>
       </div>

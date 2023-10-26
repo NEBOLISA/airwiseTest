@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 :root {
   --background_color: #140f18;
+  --work__background--color: #120e14;
   --header_color: #140f18;
   --header_box_shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
   --text_color: #ffffff;
@@ -15,7 +16,7 @@
   --stats_container_bottom_margin: 100px;
   --about_container_background: #120e14;
   --about_container_bottom_padding: 150px;
-  --about_left_text_font: 300;
+  --about_left_text_font: 400;
   --work_box_color: #281f2d53;
   --steps_content_gap: 0;
   --steps_yellow_text: #fed749;
@@ -24,13 +25,14 @@
   --transition-duration: 0.8s;
   --comment_image_width: 100%;
   --footer_background_color: #120e14;
-  --footer_font_weight: 300;
+  --footer_font_weight: 400;
 }
 .light_mode {
   --background_color: #ffffff;
+  --work__background--color: #fafafd;
   --header_color: #f6f5ff;
   --header_box_shadow: none;
-  --text_color: #000000;
+  --text_color: #140f18;
   --top_text: #201359;
   --nav_button_background_color: #9747ff;
   --nav_button_hover_color: #8742e2;
@@ -39,17 +41,17 @@
   --stats_container_bottom_margin: 100px;
   --about_container_bottom_padding: 150px;
   --stats_box_shadow: 5px 5px 0px 1px rgba(208, 172, 255, 0.75);
-  --about_container_background: var(--background_color);
-  --about_left_text_font: 300;
-  --work_box_color: black;
+  --about_container_background: #fafafd;
+  --about_left_text_font: 400;
+  --work_box_color: #140f18;
   --steps_content_gap: 0rem;
-  --steps_yellow_text: #4021c0;
+  --steps_yellow_text: #fed749;
   --steps_container_margin_bottom: 100px;
   --steps_circle_width: 60%;
   --transition-duration: 0.8s;
   --comment_image_width: 100%;
   --footer_background_color: #9747ff;
-  --footer_font_weight: 300;
+  --footer_font_weight: 400;
 }
 
 body {

@@ -4,7 +4,7 @@
   font-weight: 600;
   border-radius: 8px;
   color: white;
-  cursor: pointer;
+  cursor: not-allowed;
   font-size: 14px;
   font-family: "Poppins";
   padding: 10px 1.5rem;
@@ -35,4 +35,10 @@
 
 .btn_comp:hover {
   background-color: var(--nav_button_hover_color);
+}
+
+@media (max-width: 1339px) {
+  .btn_comp2 {
+    display: none;
+  }
 }

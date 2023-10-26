@@ -1,0 +1,85 @@
+.sidebar {
+  box-sizing: border-box;
+  width: 178px;
+  min-height: 100vh;
+  background-color: #562eff;
+}
+.sidebar .logo_div {
+  padding-top: 2rem;
+  text-align: center;
+}
+.sidebar .logo_img {
+  width: 100px;
+}
+.sidebar ul {
+  padding-left: 0px;
+  margin-top: 6rem;
+}
+.sidebar .menu_logo {
+  width: 15%;
+}
+.sidebar li {
+  position: relative;
+  list-style-type: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-left: auto;
+  width: 75%;
+  padding-right: 14px;
+  background-color: #562eff;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  transition: background-color 0.3s ease-in;
+}
+.sidebar li div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+
+  margin-left: 1rem;
+}
+.sidebar li div:before {
+  background: #562eff;
+  box-shadow: 0 17px 0 #562eff;
+  position: absolute;
+  content: "";
+  height: 0px;
+  width: 40px;
+  right: 0;
+  bottom: 100%;
+  border-bottom-right-radius: 17px;
+  transition: box-shadow 0.3s ease-in;
+}
+.sidebar li.active div:before {
+  background: #562eff;
+  box-shadow: 0 17px 0 #140f18;
+  height: 30px;
+}
+.sidebar li div:after {
+  position: absolute;
+  content: "";
+  height: 0px;
+  width: 40px;
+  background: #562eff;
+  right: 0;
+  top: 100%;
+  border-top-right-radius: 17px;
+  box-shadow: 0 -17px 0 #562eff;
+  transition: box-shadow 0.3s ease-in;
+}
+
+.sidebar li.active div:after {
+  height: 30px;
+  background: #562eff;
+  box-shadow: 0 -17px 0 #140f18;
+}
+
+.sidebar .title {
+  margin: 8px 0;
+  font-weight: 700;
+  z-index: 3;
+}
+.sidebar li.active {
+  background-color: #140f18;
+}
