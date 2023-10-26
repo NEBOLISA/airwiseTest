@@ -1,4 +1,3 @@
-import ReactSlider from "react-slider";
 function TodayTab() {
   return (
     <div className="todayTab">

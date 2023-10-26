@@ -32,6 +32,8 @@
   background-image: linear-gradient(180deg, #0084ff 60%, #fff 120%);
   -webkit-background-clip: text;
   color: transparent;
+  padding: 0;
+  margin: 0;
 }
 .week__box {
   background-color: #0e518e;
@@ -57,12 +59,18 @@
 }
 .dates__header {
   color: white;
+  padding: 0;
+  margin: 0;
 }
+
 .dates__number--weather {
   font-weight: 300;
   font-family: "Plus Jakarta Sans";
-  font-size: 14 px;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
 }
+
 .dates__header--wrapper {
   display: flex;
   align-items: center;
@@ -85,7 +93,10 @@
 }
 .weather__info__title {
   font-weight: 200;
+  padding: 0;
+  margin: 0;
   font-size: 14px;
+  font-family: "DM Sans";
 }
 .weather__info__header {
   display: flex;
@@ -101,6 +112,19 @@
   gap: 3px;
   margin-top: 10px;
 }
+
+.weather__subtitle {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans";
+}
+
+.weather__info--subtitle p {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans";
+}
+
 .weather__info--arrow {
   width: 12px;
 }
@@ -125,6 +149,9 @@
   background-image: linear-gradient(180deg, #4ae700 0%, #fff 120%);
   -webkit-background-clip: text;
   color: transparent;
+  padding: 0;
+  font-family: "DM Sans";
+  margin: 0;
 }
 .air__box--wrapper {
   display: flex;
@@ -136,11 +163,15 @@
   color: #4ae600;
   font-size: 22px;
   font-weight: 500;
+  padding: 0;
+  margin: 0;
+  font-family: "DM Sans";
 }
 .air__box--subtitle {
   font-size: 14px;
   text-align: center;
   margin-top: 20px;
+  font-family: "DM Sans";
 }
 .pollution__btn {
   width: 205px;
@@ -160,6 +191,7 @@
 }
 .pollutants__text {
   font-size: 16px;
+  font-family: "DM Sans";
 }
 .pollutants__wrapper {
   display: flex;
@@ -171,11 +203,14 @@
   width: 20px;
 }
 .air__title {
+  padding: 0;
+  margin: 0;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 0.5px;
   padding: 25px;
   padding-bottom: 20px;
+  font-family: "DM Sans";
 }
 .info__icon {
   position: absolute;
@@ -221,12 +256,17 @@
 }
 .recommendations__title {
   font-size: 16px;
+  font-family: "DM Sans";
+  padding: 0;
+  margin: 0;
 }
 .middle__box--title {
   font-size: 48px;
   font-weight: 500;
   font-family: "DM Sans";
   line-height: initial;
+  padding: 0;
+  margin: 0;
 }
 .middle__box--content {
   margin: 30px;
@@ -254,6 +294,9 @@
 }
 .recommendations__text {
   font-size: 14px;
+  font-family: "DM Sans";
+  padding: 0;
+  margin: 0;
 }
 .recommendations__box--wrapper {
   display: flex;
