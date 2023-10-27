@@ -5,8 +5,11 @@ import "./Home.css";
 function Home() {
   return (
     <div className="Home">
-      <HealthReport />
+      <div className="home__middle--wrapper">
+      <p className="home__title">Keep track of your outdoor living!</p>
       <Recommendation />
+      <HealthReport />
+      </div>
       <WeatherComponent />
     </div>
   );

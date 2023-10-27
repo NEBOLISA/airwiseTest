@@ -3,8 +3,8 @@
 }
 .health_report_header {
   text-align: left;
-  margin-left: 8%;
-  font-size: 16px;
+  font-size: 24px;
+  font-family: "DM Sans";
 }
 .selection_ul {
   margin-left: auto;
@@ -57,10 +57,9 @@
   margin-top: 3.5rem;
   display: grid;
   grid-template-columns: 25% 25% 25%;
-
-  justify-content: center;
   grid-template-areas: "ready sleep heart";
   gap: 3rem;
+  justify-content: center;
 }
 .readiness {
   grid-area: ready;
