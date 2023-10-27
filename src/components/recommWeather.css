@@ -2,18 +2,20 @@
 
 .right-side__wrapper {
   background-color: #93869cb0;
-  width: 356px;
+  /* width: 356px; */
   height: 787px;
   border-radius: 15px;
   display: flex;
   margin: 20px;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   align-items: center;
   justify-content: start;
   flex-direction: column;
 }
 .weather__box {
   width: 305px;
+  margin-left: 30px;
+  margin-right: 30px;
   height: 255px;
   margin-top: 20px;
   margin-bottom: 30px;
@@ -245,14 +247,14 @@
   left: 18%;
 }
 .middle__box--wrapper {
-  width: 855px;
+  /* width: 855px; */
   height: 295px;
   background-color: #37218dbe;
   border: 2px solid #562eff;
   border-radius: 15px;
   position: relative;
   margin: 20px;
-  margin-top: 80px;
+  /* margin-top: 80px; */
 }
 .recommendations__title {
   font-size: 16px;

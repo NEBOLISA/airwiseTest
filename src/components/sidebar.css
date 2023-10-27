@@ -3,6 +3,7 @@
   width: 178px;
   min-height: 100vh;
   height: 100%;
+
   background-color: #562eff;
 }
 .sidebar .logo_div {
@@ -23,7 +24,7 @@
   position: relative;
   list-style-type: none;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-left: auto;
   width: 75%;
   padding-right: 14px;
@@ -77,7 +78,6 @@
 }
 
 .sidebar .title {
-  margin: 8px 0;
   font-weight: 700;
   z-index: 3;
 }

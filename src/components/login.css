@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap");
+
+.login__text {
+  color: var(--text_color);
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.login__title {
+  color: var(--text_color);
+}
+
+.login__subtitle {
+  color: #aaaaaa;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.login__box {
+  color: var(--text_color);
+}
+
+.login__wrapper--section {
+  margin-top: 200px;
+  /* remove this margin-top */
+}
+
+.login__wrapper {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  /* justify-content: center; */
+  flex-direction: column;
+  position: relative;
+}
+
+.back__arrow {
+  position: absolute;
+  color: #9747ff;
+  font-size: 50px;
+  left: 3%;
+  top: 50%;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.back__arrow:hover {
+  color: #8742e2;
+}
+
+.login__section--wrapper {
+  display: flex;
+}
+
+.login__img--wrapper {
+  background-color: #dcd8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.login__img {
+  width: 80%;
+}
+
+.airwise__logo--login {
+  width: 50%;
+}
+
+.login__wrapper--header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+.login__box--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: start !important;
+  color: var(--text_color);
+  gap: 10px;
+}
+
+.login__box--icon {
+  font-size: 20px;
+  transition: all 200ms ease;
+  cursor: not-allowed;
+}
+
+.google__title {
+  color: white;
+  font-family: "Poppins";
+  font-weight: bold;
+}
+
+.google__btn {
+  display: flex;
+  align-items: center;
+  background-color: #f45742;
+  border-radius: 15px;
+  width: 360px;
+  gap: 40px;
+  border: none;
+  font-size: 14px;
+  padding: 5px 20px;
+  height: 45px;
+  margin-bottom: 20px;
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+
+.facebook__title {
+  color: white;
+  font-family: "Poppins";
+  font-weight: bold;
+}
+
+.error__text {
+  font-family: "Poppins";
+  font-weight: bold;
+  color: rgb(218, 82, 82);
+}
+
+.error__icon {
+  color: rgb(218, 82, 82);
+  font-size: 24px;
+}
+
+.error__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.userin__text {
+  font-family: "Poppins";
+  font-weight: bold;
+  color: rgb(32, 199, 32);
+}
+
+.userin__icon {
+  color: rgb(32, 199, 32);
+  font-size: 24px;
+}
+
+.userin__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.facebook__btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: #3b5999;
+  border-radius: 15px;
+  width: 360px;
+  gap: 80px;
+  border: none;
+  font-size: 14px;
+  padding: 5px 20px;
+  height: 45px;
+  transition: all 300ms ease;
+}
+
+.facebook__btn:hover {
+  opacity: 0.9;
+}
+
+.google__btn:hover {
+  opacity: 0.9;
+}
+
+.facebook__icon {
+  width: 30px;
+}
+
+.google__icon {
+  width: 30px;
+}
+
+.login__wrapper--content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login__title--wrapper {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1339px) {
+  .login__img--wrapper {
+    display: none;
+  }
+  .login__section--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .login__wrapper--section {
+    margin-top: 100px;
+  }
+}

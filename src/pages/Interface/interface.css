@@ -3,6 +3,8 @@
   height: 100vh;
   grid-template-columns: 180px 1fr;
   grid-template-areas: "sidebar healthReport";
+  overflow-y: hidden;
+  position: relative;
 }
 .sidebar {
   grid-area: sidebar;
