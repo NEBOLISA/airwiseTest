@@ -1,10 +1,9 @@
 .healthReport {
-  margin-top: 2rem;
 }
 .health_report_header {
   text-align: left;
-  font-size: 24px;
-  font-family: "DM Sans";
+  margin-left: 8%;
+  font-size: 16px;
 }
 .selection_ul {
   margin-left: auto;
@@ -49,17 +48,15 @@
 } */
 .selection.active .time {
   font-weight: 600;
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
-    1px 1px 0 black;
+
   transition: all 0.5s ease-out;
 }
 .weekTab {
   margin-top: 3.5rem;
   display: grid;
-  grid-template-columns: 25% 25% 25%;
+  margin-left: 20px;
   grid-template-areas: "ready sleep heart";
   gap: 3rem;
-  justify-content: center;
 }
 .readiness {
   grid-area: ready;
@@ -128,7 +125,6 @@
   margin-bottom: 0;
 }
 .peak_reading p:nth-child(2) {
-  margin-top: -7px;
 }
 .todayTab {
   display: flex;

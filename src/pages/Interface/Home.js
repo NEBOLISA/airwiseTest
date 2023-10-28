@@ -1,15 +1,14 @@
 import HealthReport from "../../components/HealthReport/healthReport";
+import HomeHeader from "../../components/homeHeader";
 import Recommendation from "../../components/recommendation";
 import WeatherComponent from "../../components/weatherComponent";
 import "./Home.css";
 function Home() {
   return (
     <div className="Home">
-      <div className="home__middle--wrapper">
-      <p className="home__title">Keep track of your outdoor living!</p>
-      <Recommendation />
+      <HomeHeader />
       <HealthReport />
-      </div>
+      <Recommendation />
       <WeatherComponent />
     </div>
   );

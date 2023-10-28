@@ -13,7 +13,15 @@ function Sidebar() {
     setActiveItem(index);
   };
 
-  const items = ["Home", "Air ", "Settings", "Q&A"];
+  const items = ["Home", "Air Quality", "Settings", "Q&A"];
+  const fieldNamesMapping = {
+    Home: "",
+    "Air Quality": "/interface/airQuality",
+    Settings: "/interface/settings",
+    "Q&A": "/interface/Q&A",
+  };
+  const linkNames = items.map((item) => fieldNamesMapping[item]);
+  console.log(linkNames);
   const logos = [home, qualityIcon, settings, questionIcon];
   // const pages = ["/", "interface"];
   return (
@@ -24,16 +32,18 @@ function Sidebar() {
       <ul>
         {items.map((item, index) => (
           // <Link to={pages[index]}></Link>
-          <li
-            key={index}
-            className={index === activeItem ? "active" : ""}
-            onClick={() => handleItemClick(index)}
-          >
-            <div className="menu_div">
-              <img className="menu_logo" src={logos[index]} alt="icons" />
-              <p className="title">{item}</p>
-            </div>
-          </li>
+          <Link to={`${linkNames[index]}`}>
+            <li
+              key={index}
+              className={index === activeItem ? "active" : ""}
+              onClick={() => handleItemClick(index)}
+            >
+              <div className="menu_div">
+                <img className="menu_logo" src={logos[index]} alt="icons" />
+                <p className="title">{item}</p>
+              </div>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

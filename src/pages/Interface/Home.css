@@ -1,14 +1,26 @@
 .Home {
   display: grid;
+  height: 100vh;
   grid-template-areas:
+    "home_header home_header"
     "recommendation weather"
     "health weather";
+  grid-template-columns: 2fr 0.6fr;
+  grid-template-rows: 12% 350px 1fr;
+  overflow-y: scroll;
   /* grid-template-columns: 70% 20%;
 } */
 }
 .healthReport {
   grid-area: health;
 }
+.home_header {
+  grid-area: home_header;
+  margin: 20px;
+}
+/* .home_header {
+  grid-area: header;
+} */
 .middle__box--content {
   grid-area: recommendation;
 }

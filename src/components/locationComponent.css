@@ -1,0 +1,13 @@
+.location {
+  display: flex;
+  background-color: #2a1966;
+  padding: 10px 15px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.location_text {
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
