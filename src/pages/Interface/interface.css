@@ -5,6 +5,7 @@
   grid-template-areas: "sidebar healthReport";
   overflow-y: hidden;
   position: relative;
+  overflow-x: hidden;
 }
 .sidebar {
   grid-area: sidebar;

@@ -3,7 +3,6 @@
   width: 178px;
   min-height: 100vh;
   height: 100%;
-
   background-color: #562eff;
 }
 .sidebar .logo_div {
@@ -11,14 +10,14 @@
   text-align: center;
 }
 .sidebar .logo_img {
-  width: 100px;
+  width: 120px;
 }
 .sidebar ul {
   padding-left: 0px;
-  margin-top: 6rem;
+  margin-top: 10rem;
 }
 .sidebar .menu_logo {
-  width: 15%;
+  width: 20%;
 }
 .sidebar li {
   position: relative;
@@ -29,8 +28,8 @@
   width: 75%;
   padding-right: 14px;
   background-color: #562eff;
-  border-bottom-left-radius: 20px;
-  border-top-left-radius: 20px;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
   transition: background-color 0.3s ease-in;
 }
 .sidebar li div {
@@ -78,9 +77,13 @@
 }
 
 .sidebar .title {
-  font-weight: 700;
+  font-weight: 400;
   z-index: 3;
+  font-family: 'DM Sans';
 }
 .sidebar li.active {
   background-color: #140f18;
+}
+.menu_div{
+  margin-bottom: 50px;
 }

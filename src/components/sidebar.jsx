@@ -29,7 +29,7 @@ function Sidebar() {
       <div className="logo_div">
         <img className="logo_img" src={logo} alt="logo" />
       </div>
-      <ul>
+      <ul className="nav__links--wrapper">
         {items.map((item, index) => (
           // <Link to={pages[index]}></Link>
           <Link to={`${linkNames[index]}`}>

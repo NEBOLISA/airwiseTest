@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 .header_left_text {
-  font-size: 26px;
-  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+  font-family: "DM Sans", sans-serif;
   font-weight: bold;
 }

@@ -1,10 +1,7 @@
 function MonthTab() {
   return (
-    <div
-      className="monthTab
-  "
-    >
-      monthTab
+    <div data-aos="fade-in" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <p style={{marginTop: '30px', fontFamily: 'DM Sans'}}>Still in Development</p>
     </div>
   );
 }

@@ -2,16 +2,22 @@
 
 .right-side__wrapper {
   background-color: #93869cb0;
-  /* width: 356px; */
-  height: 787px;
-  border-radius: 15px;
-  display: flex;
-  margin: 20px;
-  margin-top: 80px;
-  align-items: center;
-  justify-content: start;
-  flex-direction: column;
+    border-radius: 15px;
+    height: 787px;
+    width: 380px;
+    justify-content: start;
+    margin: 20px;
+    margin-right: 50px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
+
+.middle__box {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .weather__box {
   width: 305px;
   margin-left: 30px;
@@ -246,21 +252,15 @@
   position: absolute;
   left: 18%;
 }
-
-.middle__box {
-  display: flex;
-  justify-content: center;
-}
-
 .middle__box--wrapper {
-  width: 855px;
-  height: 295px;
+  height: auto;
   background-color: #37218dbe;
-  border: 2px solid #562eff;
+  border: 3px solid #562eff;
   border-radius: 15px;
   position: relative;
   margin: 20px;
-  margin-top: 80px;
+  width: 1200px;
+  margin: 0 auto;
 }
 .recommendations__title {
   font-size: 16px;
@@ -276,18 +276,17 @@
   padding: 0;
   margin: 0;
 }
+
 .middle__box--content {
   margin: 30px;
 }
 .middle__img {
   position: absolute;
-  width: 220px;
+  width: 300px;
   right: 2%;
   bottom: 2%;
 }
-.recommendations__wrapper {
-  margin-top: 60px;
-}
+
 .recommendations__box {
   background-color: #372383;
   width: 93px;
@@ -316,4 +315,30 @@
   background-color: #4737ff;
   margin-top: 25px;
   opacity: 0.6;
+}
+
+.parameters__title {
+  font-size: 16px;
+  font-family: "DM Sans";
+  margin-bottom: 2px;
+}
+
+.parameters__content--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 40px;
+}
+
+.parameters__content {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.parameters__content p {
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-weight: 500;
 }

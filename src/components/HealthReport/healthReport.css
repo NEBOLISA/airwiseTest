@@ -1,9 +1,14 @@
 .healthReport {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .health_report_header {
   text-align: left;
-  margin-left: 8%;
-  font-size: 16px;
+  margin-left: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'DM Sans';
+  margin-top: 40px;
 }
 .selection_ul {
   margin-left: auto;
@@ -25,7 +30,11 @@
   list-style-type: none;
   cursor: pointer;
   padding: 0 1.7rem;
+  border-radius: 28px;
   transition: background-color 0.5s ease-out;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  font-family: 'DM Sans';
 }
 .selection p {
   line-height: 0;
@@ -34,7 +43,10 @@
   background-color: #312b7a;
   border-radius: 28px;
   transition: all 0.5s ease-in;
+  padding-top: 2px;
+  padding-bottom: 3px;
 }
+
 /* .selection:hover {
   background-color: #312b7a;
   border-radius: 28px;
@@ -86,11 +98,17 @@
 }
 .report_name {
   font-weight: 600;
+  font-family: 'DM Sans';
+  font-size: 20px;
 }
 .report_summary {
-  font-size: 14px;
+  font-size: 16px;
   padding-bottom: 2rem;
   border-bottom: 1px solid #302a39;
+  font-family: 'DM Sans';
+  color: #cfcfcf;
+  margin-top: 20px !important;
+  margin-left: 4px;
 }
 .report_summary,
 .report_name {
@@ -101,7 +119,8 @@
   margin-top: 2rem;
   background-color: #302a39;
   width: 100% !important;
-  height: auto !important;
+  height: 180px !important;
+  border-radius: 3px;
 }
 .heart_graph {
   position: relative;
@@ -112,17 +131,21 @@
   text-align: center;
   width: fit-content;
   padding: 2px 0.5rem;
-  font-size: 10px;
+  font-size: 16px;
   background-color: #302a39;
   top: 35px;
   right: 2px;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'DM Sans';
   color: white;
 }
 .peak_reading p {
   margin-top: 0;
   margin-bottom: 0;
+  background-color: #25212ca6;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 .peak_reading p:nth-child(2) {
 }

@@ -44,15 +44,14 @@ function WeekTab({ Line, options, options2 }) {
   weekMaxHeartReading = Math.max(...heartData.datasets[0].data);
   weekMinHeartReading = Math.min(...heartData.datasets[0].data);
   return (
-    <div className="weekTab">
+    <div data-aos="fade-in" className="weekTab">
       <div className="readiness flex1">
         <div className="top_header">
           <img src={readiness} alt="readiness" className="report_icon" />
           <p className="report_name">Readiness</p>
         </div>
         <p className="report_summary">
-          Your readiness has improved in <CountUp end={10} duration={10} />%
-          readiness
+          Your <span style={{color: '#74D413'}}><b>readiness</b></span> has improved in <b><CountUp end={10} duration={4} />%</b>
         </p>
         <div className="graph_div">
           <Line className="chart" data={readinessData} options={options} />
@@ -64,8 +63,8 @@ function WeekTab({ Line, options, options2 }) {
           <p className="report_name">Sleep duration</p>
         </div>
         <p className="report_summary">
-          Your sleep duration has increased in{" "}
-          <CountUp end={30} duration={10} /> min
+          Your <span style={{color: '#035BE2'}}><b>sleep duration</b></span> has increased in{" "}
+          <b><CountUp end={30} duration={4} /> min</b>
         </p>
         <div className="graph_div">
           <Line className="chart" data={sleepData} options={options} />
@@ -77,15 +76,12 @@ function WeekTab({ Line, options, options2 }) {
           <p className="report_name">Heart Rate</p>
         </div>
         <p className="report_summary">
-          Your heart rate is stable in <CountUp end={20} duration={10} />%
+          Your <span style={{color: '#FF5656'}}><b>heart rate</b></span> is stable in <b><CountUp end={20} duration={4} />%</b>
         </p>
         <div className="graph_div heart_graph">
           <div className="peak_reading">
             <p>
-              Max: <CountUp end={weekMaxHeartReading} duration={10} />
-            </p>
-            <p>
-              Min: <CountUp end={weekMinHeartReading} duration={10} />
+              <CountUp end={weekMaxHeartReading} duration={4} />
             </p>
           </div>
           <Line className="chart" data={heartData} options={options2} />

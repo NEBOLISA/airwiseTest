@@ -1,0 +1,16 @@
+.quality__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 200px;
+}
+
+.quality__wrapper img {
+    width: 500px;
+}
+
+.quality__wrapper p {
+    font-family: 'DM Sans';
+    font-weight: bold;
+}
