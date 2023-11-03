@@ -21,7 +21,6 @@ function Sidebar() {
     "Q&A": "/interface/Q&A",
   };
   const linkNames = items.map((item) => fieldNamesMapping[item]);
-  console.log(linkNames);
   const logos = [home, qualityIcon, settings, questionIcon];
   // const pages = ["/", "interface"];
   return (
