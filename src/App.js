@@ -25,18 +25,18 @@ AOS.init();
 
 function App() {
   const { setWeatherInformation } = useContext(ApiContext);
+  const { setAirInformation } = useContext(ApiContext);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
   const [forecastData, setForecastData] = useState(null); // State to hold forecast data
 
-
-    useEffect(() => {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-      });
-    }, []);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
+  }, []);
 
   useEffect(() => {
     if (latitude !== "" && longitude !== "") {
@@ -47,8 +47,8 @@ function App() {
         .then((response) => {
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
-          console.log("API Location:");
-          console.log(response.data);
+          //  console.log("API Location:");
+          //  console.log(response.data);
 
           // Fetch air pollution data using the retrieved latitude and longitude
           axios
@@ -56,11 +56,17 @@ function App() {
               `${API_pollution_endpoint}lat=${receivedLatitude}&lon=${receivedLongitude}&appid=${API_key}`
             )
             .then((airPollutionResponse) => {
-              setAirPollutionData(airPollutionResponse.data);
+              if (airPollutionResponse) {
+                setAirInformation(airPollutionResponse?.data);
+                localStorage.setItem(
+                  "airPollution",
+                  JSON.stringify(airPollutionResponse?.data)
+                );
+              }
 
               // Print air pollution data to the console
-              console.log("Air Pollution Data:");
-              console.log(airPollutionResponse.data);
+              //  console.log("Air Pollution Data:");
+              //   console.log(airPollutionResponse.data);
             })
             .catch((airPollutionError) => {
               console.error(
@@ -76,11 +82,15 @@ function App() {
             .then((forecastResponse) => {
               if (forecastResponse) {
                 setWeatherInformation(forecastResponse?.data);
+                localStorage.setItem(
+                  "forecast",
+                  JSON.stringify(forecastResponse?.data)
+                );
               }
 
               // Print forecast data to the console
-              console.log("Weather Forecast Data:");
-              console.log(forecastResponse?.data.list[0].weather[0].main);
+              //   console.log("Weather Forecast Data:");
+              //   console.log(forecastResponse?.data.list[0].weather[0].main);
             })
             .catch((forecastError) => {
               console.error(

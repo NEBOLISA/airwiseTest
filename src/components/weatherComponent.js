@@ -14,19 +14,29 @@ import danger from "../assets/images/recommenWeather/danger.svg";
 import arrow from "../assets/images/recommenWeather/arrow.svg";
 import info from "../assets/images/recommenWeather/info.svg";
 import point from "../assets/images/recommenWeather/point.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ApiContext } from "../contexts/ApiContext";
 
 function WeatherComponent() {
   const { weatherInformation } = useContext(ApiContext);
-  const windSpeed = weatherInformation?.list[0].wind.speed;
+  const { airInformation } = useContext(ApiContext);
+  const [weather, getWeather] = useState(
+    JSON.parse(localStorage.getItem("forecast"))
+  );
+  const [airPollution, getAirPollution] = useState(
+    JSON.parse(localStorage.getItem("airPollution"))
+  )
+
+  console.log(airPollution)
+
+  const windSpeed = weather?.list[0].wind.speed;
 
   let windCategory;
 
   if (windSpeed >= 0 && windSpeed <= 1.5) {
-    windCategory = "Calm:";
+    windCategory = "Calm";
   } else if (windSpeed <= 3.3) {
-    windCategory = "Light Air:";
+    windCategory = "Light Air";
   } else if (windSpeed <= 5.4) {
     windCategory = "Light Breeze";
   } else if (windSpeed <= 7.9) {
@@ -51,6 +61,28 @@ function WeatherComponent() {
     windCategory = "Hurricane Force";
   }
 
+  const aqi = airPollution?.list[0].main.aqi;
+  let aqiLevel;
+  let aqiColor;
+
+
+  if (aqi === 1) {
+    aqiLevel = "Excellent";
+    aqiColor = "Light Blue";
+  } else if (aqi === 2) {
+    aqiLevel = "Good";
+    aqiColor = "Green";
+  } else if (aqi === 3) {
+    aqiLevel = "Moderate";
+    aqiColor = "Yellow";
+  } else if (aqi === 4) {
+    aqiLevel = "Poor";
+    aqiColor = "Orange";
+  } else if (aqi === 5) {
+    aqiLevel = "Hazardous";
+    aqiColor = "Red";
+  }
+
   return (
     <div className="right-side__wrapper">
       <div className="weather__box">
@@ -58,10 +90,10 @@ function WeatherComponent() {
           <img className="weather__icon" src={sun} alt="IconWeather" />
           <div className="weather__header--right">
             <p className="weather__number">
-              {Math.floor(weatherInformation?.list[0].main.temp - 273.15)}°
+              {Math.floor(weather?.list[0].main.temp - 273.15)}°
             </p>
             <p className="weather__subtitle">
-              {weatherInformation?.list[0].weather[0].description}
+              {weather?.list[0].weather[0].description}
             </p>
           </div>
         </div>
@@ -72,9 +104,7 @@ function WeatherComponent() {
             <div className="weather__info--subtitle">
               <img className="weather__info--arrow" src={arrow} alt="" />
               <p>
-                {Math.floor(
-                  weatherInformation?.list[0].main.feels_like - 273.15
-                )}
+                {Math.floor(weather?.list[0].main.feels_like - 273.15)}
                 <b>°C</b>
               </p>
             </div>
@@ -91,14 +121,14 @@ function WeatherComponent() {
             <p className="weather__info__title">humidity</p>
             <div className="weather__info--subtitle">
               <img className="weather__info--arrow" src={arrow} alt="" />
-              <p>{weatherInformation?.list[0].main.humidity}%</p>
+              <p>{weather?.list[0].main.humidity}%</p>
             </div>
           </div>
           <div className="weather__info__header">
             <img src={pressure} alt="" />
             <p className="weather__info__title">pressure</p>
             <div className="weather__info--subtitle">
-              <p>{weatherInformation?.list[0].main.pressure} Pa</p>
+              <p>{weather?.list[0].main.pressure} Pa</p>
             </div>
           </div>
         </div>
@@ -142,8 +172,8 @@ function WeatherComponent() {
         <p className="air__title">Air Quality Index</p>
         <img className="info__icon" src={info} alt="" />
         <div className="air__box--wrapper">
-          <p className="air__box--number">21</p>
-          <p className="air__box--title">Good</p>
+          <p className="air__box--number">{aqi}</p>
+          <p className="air__box--title">{aqiLevel}</p>
         </div>
         <div className="air__subtitle--wrapper">
           <div className="line__wrapper">
