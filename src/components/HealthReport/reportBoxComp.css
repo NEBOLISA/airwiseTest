@@ -1,0 +1,52 @@
+.reportBoxComp {
+  padding: 1rem;
+}
+.p_tag {
+  margin: 0;
+}
+.repo_comp_header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.readiness_sleep_text,
+.readiness_text {
+  text-align: center;
+}
+.mid_time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sleep_duration_mid_div {
+  width: 75%;
+  margin: auto;
+}
+.sleep_duration_down_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left_side_down,
+.right_side_down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.3rem;
+}
+.heart_rate_reading_div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+}
+.exact_reading_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+.up_unit {
+}
+.down_unit {
+}

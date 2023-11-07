@@ -121,7 +121,9 @@ function HealthReport() {
         </li>
       </ul>
       <div className="tabs">
-        {activeTab === "today" && <TodayTab activeTab={activeTab} />}
+        {activeTab === "today" && (
+          <TodayTab activeTab={activeTab} Line={Line} options2={options2} />
+        )}
 
         {activeTab === "week" && (
           <WeekTab Line={Line} options={options} options2={options2} />
