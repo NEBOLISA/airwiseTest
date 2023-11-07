@@ -5,6 +5,8 @@ import WeatherComponent from "../../components/weatherComponent";
 import "./Home.css";
 
 function Home() {
+   
+
   return (
     <div
       data-aos="fade-left"

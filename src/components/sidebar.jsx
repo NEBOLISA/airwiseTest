@@ -21,7 +21,6 @@ function Sidebar() {
     "Q&A": "/interface/Q&A",
   };
   const linkNames = items.map((item) => fieldNamesMapping[item]);
-
   const logos = [home, qualityIcon, settings, questionIcon];
   // const pages = ["/", "interface"];
   return (
@@ -32,7 +31,7 @@ function Sidebar() {
       <ul className="nav__links--wrapper">
         {items.map((item, index) => (
           // <Link to={pages[index]}></Link>
-          <Link to={`${linkNames[index]}`}>
+          <Link key={index} to={`${linkNames[index]}`}>
             <li
               key={index}
               className={index === activeItem ? "active" : ""}

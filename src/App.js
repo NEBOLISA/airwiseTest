@@ -10,8 +10,9 @@ import Settings from "./pages/Interface/Settings";
 import QandA from "./pages/Interface/Q&A";
 
 ///////////////////Importing APIs - Geolocation API - Forecast API - Air Quality API
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { ApiContext } from "./contexts/ApiContext";
 
 const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
 const API_pollution_endpoint =
@@ -23,6 +24,7 @@ const API_key = "79cb096b547bbcc6543bf0b737909f6f"; //API key used for all API's
 AOS.init();
 
 function App() {
+  const { setWeatherInformation } = useContext(ApiContext);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
@@ -44,8 +46,8 @@ function App() {
         .then((response) => {
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
-          //   console.log("API Location:");
-          //   console.log(response.data);
+          console.log("API Location:");
+          console.log(response.data);
 
           // Fetch air pollution data using the retrieved latitude and longitude
           axios
@@ -53,6 +55,12 @@ function App() {
               `${API_pollution_endpoint}lat=${receivedLatitude}&lon=${receivedLongitude}&appid=${API_key}`
             )
             .then((airPollutionResponse) => {
+              if (airPollutionResponse) {
+                localStorage.setItem(
+                  "airPollution",
+                  JSON.stringify(airPollutionResponse?.data)
+                );
+              }
               setAirPollutionData(airPollutionResponse.data);
 
               // Print air pollution data to the console
@@ -71,11 +79,17 @@ function App() {
               `${API_forecast_endpoint}lat=${receivedLatitude}&lon=${receivedLongitude}&appid=${API_key}`
             )
             .then((forecastResponse) => {
-              setForecastData(forecastResponse.data);
+              if (forecastResponse) {
+                setWeatherInformation(forecastResponse?.data);
+                localStorage.setItem(
+                  "forecast",
+                  JSON.stringify(forecastResponse?.data)
+                );
+              }
 
               // Print forecast data to the console
               console.log("Weather Forecast Data:");
-              console.log(forecastResponse.data);
+              console.log(forecastResponse?.data.list[0].weather[0].main);
             })
             .catch((forecastError) => {
               console.error(
