@@ -27,7 +27,7 @@ const StatsComponent = () => {
             <h2 className="box-content-title">2,500,000</h2>
             <p className="stats__text">
               People die worldwide due to{" "}
-              <span class="highlighted-text">
+              <span className="highlighted-text">
                 <b>air pollution</b>
               </span>
               .
@@ -40,7 +40,7 @@ const StatsComponent = () => {
             <h2 className="box-content-title">1.00 %</h2>
             <p className="stats__text">
               Of global land area has safe air{" "}
-              <span class="highlighted-text">
+              <span className="highlighted-text">
                 <b>pollution levels</b>
               </span>
               .
@@ -56,7 +56,7 @@ const StatsComponent = () => {
               style={{ paddingLeft: "10px", paddingRight: "10px" }}
             >
               Greatest{" "}
-              <span class="highlighted-text">
+              <span className="highlighted-text">
                 <b>threat to humanity</b>
               </span>{" "}
               in a world full of problems.

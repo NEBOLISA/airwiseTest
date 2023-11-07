@@ -4,21 +4,42 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { ApiProvider } from "./contexts/ApiContext";
 
 ///////////////////Importing Fake Data
 
 //importing from mockups file - Prifina provided mockup data
-import { SleepData, SleepDataAsync, SleepSummary, SleepSummaryAsync, ActivitySummary, ActivitySummaryAsync, ReadinessSummary, ReadinessSummaryAsync } from "./mockups";
+import {
+  SleepData,
+  SleepDataAsync,
+  SleepSummary,
+  SleepSummaryAsync,
+  ActivitySummary,
+  ActivitySummaryAsync,
+  ReadinessSummary,
+  ReadinessSummaryAsync,
+} from "./mockups";
 
-const Data = { SleepData, SleepDataAsync, SleepSummary, SleepSummaryAsync, ActivitySummary, ActivitySummaryAsync, ReadinessSummary, ReadinessSummaryAsync };
+const Data = {
+  SleepData,
+  SleepDataAsync,
+  SleepSummary,
+  SleepSummaryAsync,
+  ActivitySummary,
+  ActivitySummaryAsync,
+  ReadinessSummary,
+  ReadinessSummaryAsync,
+};
 
-//console.log(SleepData);
+//sleepData);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <App />
+      <ApiProvider>
+        <App />
+      </ApiProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

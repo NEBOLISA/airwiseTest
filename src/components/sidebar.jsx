@@ -31,7 +31,7 @@ function Sidebar() {
       <ul className="nav__links--wrapper">
         {items.map((item, index) => (
           // <Link to={pages[index]}></Link>
-          <Link to={`${linkNames[index]}`}>
+          <Link key={index} to={`${linkNames[index]}`}>
             <li
               key={index}
               className={index === activeItem ? "active" : ""}
