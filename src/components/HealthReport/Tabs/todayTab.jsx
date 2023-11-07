@@ -58,6 +58,7 @@ function TodayTab({ Line, options2 }) {
               }}
               strokeWidth={10}
               strokeColor="#f00"
+              bgStrokeColor="#fff"
             />
           }
           summaryText="Bring it on"
