@@ -9,15 +9,19 @@ import cloudy from "../assets/images/recommenWeather/cloudy2.svg";
 import rainy from "../assets/images/recommenWeather/rainy2.svg";
 import thunderrain from "../assets/images/recommenWeather/thunder-rain2.svg";
 import sunny from "../assets/images/recommenWeather/sunny2.svg";
-import line from "../assets/images/recommenWeather/line.png";
 import danger from "../assets/images/recommenWeather/danger.svg";
 import arrow from "../assets/images/recommenWeather/arrow.svg";
 import info from "../assets/images/recommenWeather/info.svg";
-import point from "../assets/images/recommenWeather/point.png";
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ApiContext";
 import axios from "axios";
 import CircularProgress from "@mui/joy/CircularProgress";
+import green from "../assets/images/green_bar.svg";
+import yellow from "../assets/images/yellow_bar.svg";
+import orange from "../assets/images/orange_bar.svg";
+import red from "../assets/images/red_bar.svg";
+import darkred from "../assets/images/dark_redbar.svg";
+import { GiConfirmed } from "react-icons/gi";
 
 const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
 const API_pollution_endpoint =
@@ -117,55 +121,83 @@ function WeatherComponent() {
   const windSpeed = weatherInformation?.list[0].wind.speed;
 
   let windCategory;
+  let weatherAlgorithm;
 
   if (windSpeed >= 0 && windSpeed <= 1.5) {
     windCategory = "Calm";
+    weatherAlgorithm = 0;
   } else if (windSpeed <= 3.3) {
     windCategory = "Light Air";
+    weatherAlgorithm = 5;
   } else if (windSpeed <= 5.4) {
     windCategory = "Light Breeze";
+    weatherAlgorithm = 10;
   } else if (windSpeed <= 7.9) {
     windCategory = "Gentle Breeze";
+    weatherAlgorithm = 15;
   } else if (windSpeed <= 10.7) {
     windCategory = "Moderate Breeze";
+    weatherAlgorithm = 20;
   } else if (windSpeed <= 13.8) {
     windCategory = "Fresh Breeze";
+    weatherAlgorithm = 25;
   } else if (windSpeed <= 17.1) {
     windCategory = "Strong Breeze";
+    weatherAlgorithm = 30;
   } else if (windSpeed <= 20.7) {
     windCategory = "Near Gale";
+    weatherAlgorithm = 35;
   } else if (windSpeed <= 24.4) {
     windCategory = "Gale";
+    weatherAlgorithm = 40;
   } else if (windSpeed <= 28.4) {
     windCategory = "Strong Gale";
+    weatherAlgorithm = 45;
   } else if (windSpeed <= 32.6) {
     windCategory = "Storm";
+    weatherAlgorithm = 50;
   } else if (windSpeed <= 36.9) {
     windCategory = "Violent Storm";
+    weatherAlgorithm = 55;
   } else {
     windCategory = "Hurricane Force";
+    weatherAlgorithm = 60;
   }
 
   const aqi = airPollutionData?.list[0].main.aqi;
   let aqiLevel;
   let aqiColor;
+  let aqiCode;
+  let aqiAlgorithm;
 
   if (aqi === 1) {
     aqiLevel = "Excellent";
-    aqiColor = "Light Blue";
+    aqiColor = "green";
+    aqiCode = "#4AE600";
+    aqiAlgorithm = 10;
   } else if (aqi === 2) {
     aqiLevel = "Good";
-    aqiColor = "Green";
+    aqiColor = "yellow";
+    aqiCode = "#D9DD07";
+    aqiAlgorithm = 20;
   } else if (aqi === 3) {
     aqiLevel = "Moderate";
-    aqiColor = "Yellow";
+    aqiColor = "orange";
+    aqiCode = "#FFA800";
+    aqiAlgorithm = 30;
   } else if (aqi === 4) {
     aqiLevel = "Poor";
-    aqiColor = "Orange";
+    aqiColor = "red";
+    aqiCode = "#FF2450";
+    aqiAlgorithm = 40;
   } else if (aqi === 5) {
     aqiLevel = "Hazardous";
-    aqiColor = "Red";
+    aqiColor = "darkred";
+    aqiCode = "#9C0A08";
+    aqiAlgorithm = 50;
   }
+
+  console.log(aqiColor);
 
   return (
     <div className="right-side__wrapper">
@@ -215,13 +247,6 @@ function WeatherComponent() {
               <p>{weatherInformation?.list[0].main.humidity}%</p>
             </div>
           </div>
-          <div className="weather__info__header">
-            <img src={pressure} alt="" />
-            <p className="weather__info__title">pressure</p>
-            <div className="weather__info--subtitle">
-              <p>{weatherInformation?.list[0].main.pressure} Pa</p>
-            </div>
-          </div>
         </div>
       </div>
       <div className="week__box">
@@ -263,13 +288,36 @@ function WeatherComponent() {
         <p className="air__title">Air Quality Index</p>
         <img className="info__icon" src={info} alt="" />
         <div className="air__box--wrapper">
-          <p className="air__box--number">{aqi}</p>
-          <p className="air__box--title">{aqiLevel}</p>
+          <GiConfirmed
+            className="air__box--icon"
+            style={{ color: `${aqiCode}` }}
+          />
+          <p style={{ color: `${aqiCode}` }} className="air__box--title">
+            {aqiLevel}
+          </p>
         </div>
         <div className="air__subtitle--wrapper">
           <div className="line__wrapper">
-            <img src={line} className="air__line" alt="" />
-            <img className="air__point" src={point} alt="" />
+            <img
+              className={aqiColor === "green" ? "line" : "remove__line"}
+              src={green}
+            ></img>
+            <img
+              className={aqiColor === "yellow" ? "line" : "remove__line"}
+              src={yellow}
+            ></img>
+            <img
+              className={aqiColor === "orange" ? "line" : "remove__line"}
+              src={orange}
+            ></img>
+            <img
+              className={aqiColor === "red" ? "line" : "remove__line"}
+              src={red}
+            ></img>
+            <img
+              className={aqiColor === "darkred" ? "line" : "remove__line"}
+              src={darkred}
+            ></img>
           </div>
           <p className="air__box--subtitle">
             Air quality is considered satisfactory, and air pollution poses

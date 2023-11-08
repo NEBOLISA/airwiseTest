@@ -4,13 +4,15 @@ import hiking from "../assets/images/recommenWeather/hiking.svg";
 import running from "../assets/images/recommenWeather/running.svg";
 import windows from "../assets/images/recommenWeather/windows.svg";
 import middle from "../assets/images/recommenWeather/middle.svg";
+import middleModerate from "../assets/images/recommenWeather/Moderate.svg";
+import middlePoor from "../assets/images/recommenWeather/Poor.svg";
 import circle from "../assets/images/green-circle.svg";
 
 function Recommendation() {
   return (
     <div className="middle__box">
       <div className="middle__box--wrapper">
-        <img src={middle} className="middle__img" alt="" />
+        <img src={middleModerate} className="middle__img" alt="" />
         <div className="middle__box--content">
           <p className="middle__box--title">
             Today is the <span style={{ color: "#00E0FF" }}>perfect</span> day

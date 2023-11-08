@@ -247,7 +247,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2px;
 }
+
+.line {
+  opacity: 100%;
+}
+
+.remove__line {
+  opacity: 50%;
+}
+
+.air__box--icon {
+   font-size: 25px;
+   
+}
+
 .air__point {
   position: absolute;
   left: 18%;
