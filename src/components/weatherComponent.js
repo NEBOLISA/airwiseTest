@@ -16,44 +16,113 @@ import info from "../assets/images/recommenWeather/info.svg";
 import point from "../assets/images/recommenWeather/point.png";
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ApiContext";
+import axios from "axios";
+import CircularProgress from "@mui/joy/CircularProgress";
+
+const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
+const API_pollution_endpoint =
+  "http://api.openweathermap.org/data/2.5/air_pollution?"; // Air pollution API endpoint
+const API_forecast_endpoint =
+  "http://api.openweathermap.org/data/2.5/forecast?"; // Forecast API endpoint
+const API_key = "79cb096b547bbcc6543bf0b737909f6f"; //API key used for all API's from openweathermap
 
 function WeatherComponent() {
-  const { weatherInformation } = useContext(ApiContext);
-  const [weather, getWeather] = useState(
-    JSON.parse(localStorage.getItem("forecast"))
-  );
-  const [airPollution, getAirPollution] = useState(
-    JSON.parse(localStorage.getItem("airPollution"))
-  );
-  console.log(airPollution);
+  const [weatherInformation, setWeatherInformation] = useState(null);
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [airPollutionData, setAirPollutionData] = useState(null);
+  const [forecastData, setForecastData] = useState(null); // State to hold forecast data
 
-  const aqi = airPollution?.list[0].main.aqi;
-  let aqiLevel;
-  let aqiColor;
-  if (aqi === 1) {
-    aqiLevel = "Excellent";
-    aqiColor = "Light Blue";
-  } else if (aqi === 2) {
-    aqiLevel = "Good";
-    aqiColor = "Green";
-  } else if (aqi === 3) {
-    aqiLevel = "Moderate";
-    aqiColor = "Yellow";
-  } else if (aqi === 4) {
-    aqiLevel = "Poor";
-    aqiColor = "Orange";
-  } else if (aqi === 5) {
-    aqiLevel = "Hazardous";
-    aqiColor = "Red";
+  useEffect(() => {
+    if (!latitude && !longitude) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      });
+    }
+  }, [latitude, longitude]);
+
+  useEffect(() => {
+    if (latitude && longitude) {
+      axios
+        .get(
+          `${API_weather_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`
+        )
+        .then((response) => {
+          const receivedLatitude = response.data.coord.lat;
+          const receivedLongitude = response.data.coord.lon;
+          //  console.log("API Location:");
+          //  console.log(response.data);
+
+          // Fetch air pollution data using the retrieved latitude and longitude
+          axios
+            .get(
+              `${API_pollution_endpoint}lat=${receivedLatitude}&lon=${receivedLongitude}&appid=${API_key}`
+            )
+            .then((airPollutionResponse) => {
+              if (airPollutionResponse) {
+                setAirPollutionData(airPollutionResponse?.data);
+              }
+
+              // Print air pollution data to the console
+              //  console.log("Air Pollution Data:");
+              //   console.log(airPollutionResponse.data);
+            })
+            .catch((airPollutionError) => {
+              console.error(
+                "Error fetching air pollution data: " + airPollutionError
+              );
+            });
+
+          // Fetch weather forecast data using the retrieved latitude and longitude
+          axios
+            .get(
+              `${API_forecast_endpoint}lat=${receivedLatitude}&lon=${receivedLongitude}&appid=${API_key}`
+            )
+            .then((forecastResponse) => {
+              if (forecastResponse) {
+                setWeatherInformation(forecastResponse?.data);
+              }
+
+              // Print forecast data to the console
+              //   console.log("Weather Forecast Data:");
+              //   console.log(forecastResponse?.data.list[0].weather[0].main);
+            })
+            .catch((forecastError) => {
+              console.error(
+                "Error fetching weather forecast data: " + forecastError
+              );
+            });
+        })
+        .catch((error) => {
+          console.error("Error fetching weather data: " + error);
+        });
+    }
+  }, [latitude, longitude]);
+  if (!longitude && !latitude) {
+    return (
+      <div
+        style={{
+          margin: "auto",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress variant="solid" />
+      </div>
+    );
   }
-  let windSpeed = weather?.list[0].wind.speed;
+  console.log(weatherInformation);
+
+  const windSpeed = weatherInformation?.list[0].wind.speed;
 
   let windCategory;
 
   if (windSpeed >= 0 && windSpeed <= 1.5) {
-    windCategory = "Calm:";
+    windCategory = "Calm";
   } else if (windSpeed <= 3.3) {
-    windCategory = "Light Air:";
+    windCategory = "Light Air";
   } else if (windSpeed <= 5.4) {
     windCategory = "Light Breeze";
   } else if (windSpeed <= 7.9) {
@@ -78,6 +147,27 @@ function WeatherComponent() {
     windCategory = "Hurricane Force";
   }
 
+  const aqi = airPollutionData?.list[0].main.aqi;
+  let aqiLevel;
+  let aqiColor;
+
+  if (aqi === 1) {
+    aqiLevel = "Excellent";
+    aqiColor = "Light Blue";
+  } else if (aqi === 2) {
+    aqiLevel = "Good";
+    aqiColor = "Green";
+  } else if (aqi === 3) {
+    aqiLevel = "Moderate";
+    aqiColor = "Yellow";
+  } else if (aqi === 4) {
+    aqiLevel = "Poor";
+    aqiColor = "Orange";
+  } else if (aqi === 5) {
+    aqiLevel = "Hazardous";
+    aqiColor = "Red";
+  }
+
   return (
     <div className="right-side__wrapper">
       <div className="weather__box">
@@ -85,10 +175,10 @@ function WeatherComponent() {
           <img className="weather__icon" src={sun} alt="IconWeather" />
           <div className="weather__header--right">
             <p className="weather__number">
-              {Math.floor(weather?.list[0]?.main?.temp - 273.15)}°
+              {Math.floor(weatherInformation?.list[0].main.temp - 273.15)}°
             </p>
             <p className="weather__subtitle">
-              {weather?.list[0].weather[0].description}
+              {weatherInformation?.list[0].weather[0].description}
             </p>
           </div>
         </div>
@@ -99,7 +189,9 @@ function WeatherComponent() {
             <div className="weather__info--subtitle">
               <img className="weather__info--arrow" src={arrow} alt="" />
               <p>
-                {Math.floor(weather?.list[0].main.feels_like - 273.15)}
+                {Math.floor(
+                  weatherInformation?.list[0].main.feels_like - 273.15
+                )}
                 <b>°C</b>
               </p>
             </div>
@@ -116,14 +208,14 @@ function WeatherComponent() {
             <p className="weather__info__title">humidity</p>
             <div className="weather__info--subtitle">
               <img className="weather__info--arrow" src={arrow} alt="" />
-              <p>{weather?.list[0].main.humidity}%</p>
+              <p>{weatherInformation?.list[0].main.humidity}%</p>
             </div>
           </div>
           <div className="weather__info__header">
             <img src={pressure} alt="" />
             <p className="weather__info__title">pressure</p>
             <div className="weather__info--subtitle">
-              <p>{weather?.list[0].main.pressure} Pa</p>
+              <p>{weatherInformation?.list[0].main.pressure} Pa</p>
             </div>
           </div>
         </div>
@@ -167,8 +259,8 @@ function WeatherComponent() {
         <p className="air__title">Air Quality Index</p>
         <img className="info__icon" src={info} alt="" />
         <div className="air__box--wrapper">
-          <p className="air__box--number">21</p>
-          <p className="air__box--title">Good</p>
+          <p className="air__box--number">{aqi}</p>
+          <p className="air__box--title">{aqiLevel}</p>
         </div>
         <div className="air__subtitle--wrapper">
           <div className="line__wrapper">
