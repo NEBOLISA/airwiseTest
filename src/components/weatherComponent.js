@@ -31,7 +31,6 @@ function WeatherComponent() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
-  const [forecastData, setForecastData] = useState(null); // State to hold forecast data
 
   useEffect(() => {
     if (!latitude && !longitude) {
@@ -175,10 +174,15 @@ function WeatherComponent() {
           <img className="weather__icon" src={sun} alt="IconWeather" />
           <div className="weather__header--right">
             <p className="weather__number">
-              {Math.floor(weatherInformation?.list[0].main.temp - 273.15)}°
+              {weatherInformation
+                ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
+                : ""}
+              °
             </p>
             <p className="weather__subtitle">
-              {weatherInformation?.list[0].weather[0].description}
+              {weatherInformation
+                ? weatherInformation?.list[0].weather[0].description
+                : ""}
             </p>
           </div>
         </div>

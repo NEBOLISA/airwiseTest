@@ -13,6 +13,8 @@ import { useState } from "react";
 
 function TodayTab({ Line, options2 }) {
   console.log(ActivitySummary.SleepSummaryAsync[0]);
+  const [sleepReadingValue, setSleepReadingValue] = useState(87);
+  const [readinessReadingValue, setReadinessReadingValue] = useState(86);
   const readiness = {
     percentage: 66,
     strokeWidth: 7,
@@ -47,36 +49,48 @@ function TodayTab({ Line, options2 }) {
     <div data-aos="fade-in" className="todayTab">
       <div className="today_readiness_div">
         <ReportBoxComp
+          className="readiness"
           icon={readinessIcon}
           title="Readiness"
           image={
             <SemiCircleProgress
-              percentage={80}
+              percentage={readinessReadingValue - 14}
               size={{
-                width: 200,
-                height: 200,
+                width: 300,
+                height: 250,
               }}
-              strokeWidth={10}
-              strokeColor="#f00"
-              bgStrokeColor="#fff"
+              hasBackground="true"
+              strokeLinecap="butt"
+              strokeWidth={5}
+              strokeColor="#74D413"
+              bgStrokeColor="#555555"
             />
           }
+          ReadingValue={readinessReadingValue}
           summaryText="Bring it on"
           readinessText="Your resting heart rate indicates that you’ve recovered well"
         />
       </div>
       <div className="today_sleep_div">
         <ReportBoxComp
+          className="sleep"
           icon={sleep}
           title="Sleep duration"
           image={
-            <CircularProgressBar
-              percentage={readiness.percentage}
-              strokeWidth={readiness.strokeWidth}
-              circleRatio={readiness.circleRatio}
-              rotation={readiness.rotation}
+            <SemiCircleProgress
+              percentage={sleepReadingValue - 14}
+              size={{
+                width: 300,
+                height: 250,
+              }}
+              hasBackground="true"
+              strokeLinecap="butt"
+              strokeWidth={5}
+              strokeColor="#0162F3"
+              bgStrokeColor="#555555"
             />
           }
+          ReadingValue={sleepReadingValue}
           summaryText="Optimal"
           sleepMidIcon={sleepMidIcon}
           sleepStart={"10:00pm"}
@@ -89,9 +103,16 @@ function TodayTab({ Line, options2 }) {
       </div>
       <div className="today_heart_div">
         <ReportBoxComp
+          className="heart"
           icon={heart}
           title="Heart Rate"
-          image={<Line className="chart" data={heartData} options={options2} />}
+          image={
+            <Line
+              className="chart todayChart"
+              data={heartData}
+              options={options2}
+            />
+          }
           heartColoredIcon={heartColoredIcon}
           heartBPMvalue={"63"}
           topUnit={"BPM"}

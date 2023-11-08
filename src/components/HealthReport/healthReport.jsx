@@ -111,14 +111,14 @@ function HealthReport() {
         >
           <p className="time">Week</p>
         </li>
-        <li
+        {/* <li
           className={activeTab === "month" ? "selection active" : "selection"}
           onClick={() => {
             handleTabClick("month");
           }}
         >
           <p className="time">Month</p>
-        </li>
+        </li> */}
       </ul>
       <div className="tabs">
         {activeTab === "today" && (
@@ -128,7 +128,7 @@ function HealthReport() {
         {activeTab === "week" && (
           <WeekTab Line={Line} options={options} options2={options2} />
         )}
-        {activeTab === "month" && <MonthTab />}
+        {/* {activeTab === "month" && <MonthTab />} */}
       </div>
     </div>
   );

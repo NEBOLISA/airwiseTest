@@ -7,7 +7,7 @@
   margin-left: 20px;
   font-size: 24px;
   font-weight: 600;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   margin-top: 40px;
 }
 .selection_ul {
@@ -34,7 +34,7 @@
   transition: background-color 0.5s ease-out;
   padding-top: 2px;
   padding-bottom: 3px;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
 }
 .selection p {
   line-height: 0;
@@ -68,6 +68,7 @@
   display: grid;
   margin-left: 20px;
   grid-template-areas: "ready sleep heart";
+  padding-bottom: 3rem;
   gap: 3rem;
 }
 .readiness {
@@ -98,14 +99,14 @@
 }
 .report_name {
   font-weight: 600;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-size: 20px;
 }
 .report_summary {
   font-size: 16px;
   padding-bottom: 2rem;
   border-bottom: 1px solid #302a39;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   color: #cfcfcf;
   margin-top: 20px !important;
   margin-left: 4px;
@@ -116,11 +117,18 @@
   margin-bottom: 0;
 }
 .chart {
-  margin-top: 2rem;
+  margin-top: 1rem;
   background-color: #302a39;
   width: 100% !important;
-  height: 180px !important;
+  height: 160px !important;
   border-radius: 3px;
+}
+.bg_color {
+  background-color: #302a39;
+}
+.todayChart {
+  margin-top: 0.5rem;
+  height: 160px !important;
 }
 .heart_graph {
   position: relative;
@@ -137,7 +145,7 @@
   right: 2px;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   color: white;
 }
 .peak_reading p {
@@ -151,9 +159,10 @@
 }
 .todayTab {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 /* .customSlider {} */
 /* max-width: 300px; */

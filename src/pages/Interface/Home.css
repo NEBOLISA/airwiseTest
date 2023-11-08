@@ -8,6 +8,7 @@
   grid-template-columns: 2fr 0.6fr;
   grid-template-rows: 12% 350px 1fr;
   overflow-y: scroll;
+
   /* grid-template-columns: 70% 20%;
 } */
 }
@@ -28,9 +29,9 @@
   grid-area: weather;
 }
 .home__title {
-   font-size: 32px;
-   font-family: "DM Sans";
-   font-weight: bold;
+  font-size: 32px;
+  font-family: "DM Sans";
+  font-weight: bold;
 }
 
 .home__middle--wrapper {
