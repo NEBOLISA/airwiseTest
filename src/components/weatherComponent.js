@@ -21,9 +21,9 @@ import CircularProgress from "@mui/joy/CircularProgress";
 
 const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
 const API_pollution_endpoint =
-  "http://api.openweathermap.org/data/2.5/air_pollution?"; // Air pollution API endpoint
+  "https://api.openweathermap.org/data/2.5/air_pollution?"; // Air pollution API endpoint
 const API_forecast_endpoint =
-  "http://api.openweathermap.org/data/2.5/forecast?"; // Forecast API endpoint
+  "https://api.openweathermap.org/data/2.5/forecast?"; // Forecast API endpoint
 const API_key = "79cb096b547bbcc6543bf0b737909f6f"; //API key used for all API's from openweathermap
 
 function WeatherComponent() {
