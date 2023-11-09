@@ -12,7 +12,7 @@ function Recommendation() {
   return (
     <div className="middle__box">
       <div className="middle__box--wrapper">
-        <img src={middleModerate} className="middle__img" alt="" />
+        <img src={middle} className="middle__img" alt="" />
         <div className="middle__box--content">
           <p className="middle__box--title">
             Today is the <span style={{ color: "#00E0FF" }}>perfect</span> day

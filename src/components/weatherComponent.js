@@ -9,6 +9,7 @@ import cloudy from "../assets/images/recommenWeather/cloudy2.svg";
 import rainy from "../assets/images/recommenWeather/rainy2.svg";
 import thunderrain from "../assets/images/recommenWeather/thunder-rain2.svg";
 import sunny from "../assets/images/recommenWeather/sunny2.svg";
+import location from "../assets/images/location.svg";
 import danger from "../assets/images/recommenWeather/danger.svg";
 import arrow from "../assets/images/recommenWeather/arrow.svg";
 import info from "../assets/images/recommenWeather/info.svg";
@@ -35,6 +36,7 @@ function WeatherComponent() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
+  const [locationData, setLocationData] = useState(null);
 
   useEffect(() => {
     if (!latitude && !longitude) {
@@ -52,10 +54,13 @@ function WeatherComponent() {
           `${API_weather_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`
         )
         .then((response) => {
+          if (response) {
+            setLocationData(response?.data.name);
+          }
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
-          //  console.log("API Location:");
-          //  console.log(response.data);
+          console.log("API Location:");
+          console.log(response.data);
 
           // Fetch air pollution data using the retrieved latitude and longitude
           axios
@@ -116,7 +121,7 @@ function WeatherComponent() {
       </div>
     );
   }
-  console.log(weatherInformation);
+  console.log(locationData);
 
   const windSpeed = weatherInformation?.list[0].wind.speed;
 
@@ -197,10 +202,14 @@ function WeatherComponent() {
     aqiAlgorithm = 50;
   }
 
-  console.log(aqiColor);
-
   return (
     <div className="right-side__wrapper">
+      <div className="location__wrapper">
+        <div className="location">
+          <img className="location__icon" src={location} alt="" />
+          <p className="location__text">{locationData}</p>
+        </div>
+      </div>
       <div className="weather__box">
         <div className="weather__header">
           <img className="weather__icon" src={sun} alt="IconWeather" />
@@ -288,10 +297,6 @@ function WeatherComponent() {
         <p className="air__title">Air Quality Index</p>
         <img className="info__icon" src={info} alt="" />
         <div className="air__box--wrapper">
-          <GiConfirmed
-            className="air__box--icon"
-            style={{ color: `${aqiCode}` }}
-          />
           <p style={{ color: `${aqiCode}` }} className="air__box--title">
             {aqiLevel}
           </p>
@@ -319,16 +324,12 @@ function WeatherComponent() {
               src={darkred}
             ></img>
           </div>
-          <p className="air__box--subtitle">
-            Air quality is considered satisfactory, and air pollution poses
-            little or no risk
-          </p>
-        </div>
-      </div>
-      <div className="pollution__btn">
-        <div className="pollutants__wrapper">
-          <img className="pollutants__icon" src={danger} alt="" />
-          <p className="pollutants__text">Check Pollutants</p>
+          <div className="pollution__btn">
+            <div className="pollutants__wrapper">
+              <img className="pollutants__icon" src={danger} alt="" />
+              <p className="pollutants__text">Check Pollutants</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

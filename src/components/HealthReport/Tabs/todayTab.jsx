@@ -31,7 +31,10 @@ function TodayTab({ Line, options2 }) {
         data: [20, 60, 90, 40, 60, 20, 50, 60],
         backgroundColor: ["#FF5656"],
         borderColor: ["#FF5656"],
+        pointHoverRadius: 5,
+        pointRotation: 2,
         tension: 0.4,
+        borderJoinStyle: 'round',
       },
     ],
   });

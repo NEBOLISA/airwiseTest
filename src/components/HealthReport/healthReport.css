@@ -19,8 +19,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  background-color: #2f1c3d;
+  gap: 0.5rem;
+  background-color: #211B26;
   width: fit-content;
   padding: 0.2rem 0;
   border-radius: 28px;
@@ -38,9 +38,10 @@
 }
 .selection p {
   line-height: 0;
+  font-weight: 600;
 }
 .selection.active {
-  background-color: #312b7a;
+  background-color: #562EFF;
   border-radius: 28px;
   transition: all 0.5s ease-in;
   padding-top: 2px;
@@ -121,7 +122,7 @@
   background-color: #302a39;
   width: 100% !important;
   height: 160px !important;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .bg_color {
   background-color: #302a39;
@@ -151,7 +152,6 @@
 .peak_reading p {
   margin-top: 0;
   margin-bottom: 0;
-  background-color: #25212ca6;
   padding: 5px 10px;
   border-radius: 10px;
 }

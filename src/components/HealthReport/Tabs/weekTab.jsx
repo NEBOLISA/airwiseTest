@@ -96,7 +96,7 @@ function WeekTab({ Line, options, options2 }) {
               <span style={{ color: "#035BE2" }}>
                 <b>sleep duration</b>
               </span>{" "}
-              has increased in{" "}
+              increased in{" "}
               <b>
                 <CountUp end={30} duration={4} /> min
               </b>

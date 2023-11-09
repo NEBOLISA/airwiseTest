@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,100;1,9..40,200&family=Plus+Jakarta+Sans:wght@300;500;600;700&display=swap");
 
 .right-side__wrapper {
-  background-color: #93869cb0;
     border-radius: 15px;
     height: 787px;
     width: 380px;
@@ -25,7 +24,7 @@
   height: 255px;
   margin-top: 20px;
   margin-bottom: 30px;
-  background-color: #0e518e;
+  background-color: #211B26;
   border-radius: 20px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -34,7 +33,7 @@
   flex-direction: column;
 }
 .weather__number {
-  font-size: 60px;
+  font-size: 58px;
   font-weight: bold;
   font-family: "Plus Jakarta Sans";
   background-image: linear-gradient(180deg, #0084ff 60%, #fff 120%);
@@ -44,7 +43,7 @@
   margin: 0;
 }
 .week__box {
-  background-color: #0e518e;
+  background-color: #211B26;
   width: 100%;
   height: 138px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
@@ -137,9 +136,9 @@
   width: 12px;
 }
 .air__box {
-  width: 301px;
-  height: 205px;
-  background-color: #0e518e;
+  width: 307px;
+  height: 256px;
+  background-color: #211B26;
   border-radius: 20px;
   margin-top: 40px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
@@ -147,7 +146,7 @@
 }
 .weather__info--wrapper {
   display: flex;
-  gap: 15px;
+  gap: 35px;
   margin-top: 30px;
 }
 .air__box--number {
@@ -166,11 +165,13 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 .air__box--title {
   color: #4ae600;
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 26px;
+  font-weight: 500; 
   padding: 0;
   margin: 0;
   font-family: "DM Sans";
@@ -184,9 +185,10 @@
 .pollution__btn {
   width: 205px;
   height: 41px;
-  background-color: #0e518e;
+  background-color: #211B26;
+  border: 2px solid #302A39;
   border-radius: 25px;
-  margin-top: 20px;
+  margin-top: 30px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
@@ -194,9 +196,35 @@
   cursor: pointer;
   transition: all 300ms ease;
 }
+
 .pollution__btn:hover {
-  background-color: #0c4275;
+  background-color: #302A39;
 }
+
+.location__wrapper {
+  width: 205px;
+  height: 41px;
+  background-color: #211B26;
+  border: 2px solid #302A39;
+  border-radius: 25px;
+  margin-top: 20px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease;
+  font-size: 20px;
+  cursor: default;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
 .pollutants__text {
   font-size: 16px;
   font-family: "DM Sans";
@@ -207,6 +235,17 @@
   justify-content: center;
   gap: 10px;
 }
+
+.location__text {
+  font-size: 20px;
+  font-family: "DM Sans";
+  font-weight: 600;
+}
+
+.location__icon {
+  width: 25px;
+}
+
 .pollutants__icon {
   width: 20px;
 }
@@ -255,7 +294,7 @@
 }
 
 .remove__line {
-  opacity: 50%;
+  opacity: 20%;
 }
 
 .air__box--icon {
@@ -356,4 +395,15 @@
   font-family: "DM Sans";
   font-size: 18px;
   font-weight: 500;
+}
+
+.repo_comp_text {
+  font-family: 'DM Sans';
+  font-size: 20px;
+}
+
+.subtitle_text {
+  font-family: 'DM Sans';
+  margin-bottom: 12px;
+  font-size: 16px;
 }
