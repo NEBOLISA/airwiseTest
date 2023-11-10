@@ -54,7 +54,7 @@
 }
 .sidebar li.active div:before {
   background: #562eff;
-  box-shadow: 0 17px 0 #140f18;
+  box-shadow: 0 17px 0 #1a0f22;
   height: 30px;
 }
 .sidebar li div:after {
@@ -73,7 +73,7 @@
 .sidebar li.active div:after {
   height: 30px;
   background: #562eff;
-  box-shadow: 0 -17px 0 #140f18;
+  box-shadow: 0 -17px 0 #1a0f22;
 }
 
 .sidebar .title {
@@ -82,7 +82,7 @@
   font-family: 'DM Sans';
 }
 .sidebar li.active {
-  background-color: #140f18;
+  background-color: #1a0f22;
 }
 .menu_div{
   margin-bottom: 50px;

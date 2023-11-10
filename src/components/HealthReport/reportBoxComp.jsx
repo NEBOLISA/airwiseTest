@@ -22,6 +22,7 @@ function ReportBoxComp({
   commonClass,
   ReadingValue,
   weekMaxHeartReading,
+  data,
 }) {
   return (
     <div

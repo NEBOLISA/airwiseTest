@@ -9,18 +9,29 @@ import heartColoredIcon from "../../../assets/images/heart_coloured_icon.svg";
 import ActivitySummary from "@dynamic-data/oura-data";
 import ReportBoxComp from "../reportBoxComp";
 import { SemiCircleProgress } from "react-semicircle-progressbar";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ApiContext } from "../../../contexts/ApiContext";
 
 function TodayTab({ Line, options2 }) {
-  console.log(ActivitySummary.SleepSummaryAsync[0]);
   const [sleepReadingValue, setSleepReadingValue] = useState(87);
   const [readinessReadingValue, setReadinessReadingValue] = useState(86);
+  const [heartInfo, setHeartInfo] = useState(63);
+  const { setHealthReportsData } = useContext(ApiContext);
   const readiness = {
     percentage: 66,
     strokeWidth: 7,
     rotation: 0.75,
     circleRatio: 0.5,
   };
+
+  useEffect(() => {
+    setHealthReportsData((prevState) => ({
+      ...prevState,
+      heart: heartInfo,
+      sleep: sleepReadingValue,
+      readiness: readinessReadingValue,
+    }));
+  }, [heartInfo, sleepReadingValue, readinessReadingValue]);
 
   const [heartData, setHeartData] = useState({
     labels: ["12am", "6am", "12pm", "6am"],
@@ -34,7 +45,7 @@ function TodayTab({ Line, options2 }) {
         pointHoverRadius: 5,
         pointRotation: 2,
         tension: 0.4,
-        borderJoinStyle: 'round',
+        borderJoinStyle: "round",
       },
     ],
   });
@@ -117,7 +128,7 @@ function TodayTab({ Line, options2 }) {
             />
           }
           heartColoredIcon={heartColoredIcon}
-          heartBPMvalue={"63"}
+          heartBPMvalue={heartInfo}
           topUnit={"BPM"}
           downUnit={"3minutes ago"}
         />

@@ -22,7 +22,6 @@ import yellow from "../assets/images/yellow_bar.svg";
 import orange from "../assets/images/orange_bar.svg";
 import red from "../assets/images/red_bar.svg";
 import darkred from "../assets/images/dark_redbar.svg";
-import { GiConfirmed } from "react-icons/gi";
 
 const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
 const API_pollution_endpoint =
@@ -37,6 +36,7 @@ function WeatherComponent() {
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
   const [locationData, setLocationData] = useState(null);
+  const { setWeatherAlgorithm, setAqiColorParameter } = useContext(ApiContext);
 
   useEffect(() => {
     if (!latitude && !longitude) {
@@ -59,8 +59,6 @@ function WeatherComponent() {
           }
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
-          console.log("API Location:");
-          console.log(response.data);
 
           // Fetch air pollution data using the retrieved latitude and longitude
           axios
@@ -121,10 +119,8 @@ function WeatherComponent() {
       </div>
     );
   }
-  console.log(locationData);
 
   const windSpeed = weatherInformation?.list[0].wind.speed;
-
   let windCategory;
   let weatherAlgorithm;
 
@@ -164,43 +160,41 @@ function WeatherComponent() {
   } else if (windSpeed <= 36.9) {
     windCategory = "Violent Storm";
     weatherAlgorithm = 55;
-  } else {
+  } else if (windSpeed < 37) {
     windCategory = "Hurricane Force";
     weatherAlgorithm = 60;
   }
+
+  setWeatherAlgorithm(weatherAlgorithm);
 
   const aqi = airPollutionData?.list[0].main.aqi;
   let aqiLevel;
   let aqiColor;
   let aqiCode;
-  let aqiAlgorithm;
 
   if (aqi === 1) {
     aqiLevel = "Excellent";
     aqiColor = "green";
     aqiCode = "#4AE600";
-    aqiAlgorithm = 10;
   } else if (aqi === 2) {
     aqiLevel = "Good";
     aqiColor = "yellow";
     aqiCode = "#D9DD07";
-    aqiAlgorithm = 20;
   } else if (aqi === 3) {
     aqiLevel = "Moderate";
     aqiColor = "orange";
     aqiCode = "#FFA800";
-    aqiAlgorithm = 30;
   } else if (aqi === 4) {
     aqiLevel = "Poor";
     aqiColor = "red";
     aqiCode = "#FF2450";
-    aqiAlgorithm = 40;
   } else if (aqi === 5) {
     aqiLevel = "Hazardous";
     aqiColor = "darkred";
     aqiCode = "#9C0A08";
-    aqiAlgorithm = 50;
   }
+
+  setAqiColorParameter(aqiColor);
 
   return (
     <div className="right-side__wrapper">

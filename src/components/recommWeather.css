@@ -391,6 +391,10 @@
   justify-content: center;
 }
 
+.parameters__content img {
+  width: 20px;
+}
+
 .parameters__content p {
   font-family: "DM Sans";
   font-size: 18px;
