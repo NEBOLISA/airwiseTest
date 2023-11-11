@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,100;1,9..40,200&family=Plus+Jakarta+Sans:wght@300;500;600;700&display=swap");
 
 .right-side__wrapper {
-    border-radius: 15px;
-    height: 787px;
-    width: 380px;
-    justify-content: start;
-    margin: 20px;
-    margin-right: 50px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+  border-radius: 15px;
+  height: 787px;
+  width: 380px;
+  justify-content: start;
+  margin: 20px;
+  margin-right: 50px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .middle__box {
@@ -24,7 +24,7 @@
   height: 255px;
   margin-top: 20px;
   margin-bottom: 30px;
-  background-color: #211B26;
+  background-color: #211b26;
   border-radius: 20px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -43,7 +43,7 @@
   margin: 0;
 }
 .week__box {
-  background-color: #211B26;
+  background-color: #211b26;
   width: 100%;
   height: 138px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
@@ -138,7 +138,7 @@
 .air__box {
   width: 307px;
   height: 256px;
-  background-color: #211B26;
+  background-color: #211b26;
   border-radius: 20px;
   margin-top: 40px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
@@ -171,7 +171,7 @@
 .air__box--title {
   color: #4ae600;
   font-size: 26px;
-  font-weight: 500; 
+  font-weight: 500;
   padding: 0;
   margin: 0;
   font-family: "DM Sans";
@@ -185,8 +185,8 @@
 .pollution__btn {
   width: 205px;
   height: 41px;
-  background-color: #211B26;
-  border: 2px solid #302A39;
+  background-color: #211b26;
+  border: 2px solid #302a39;
   border-radius: 25px;
   margin-top: 30px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
@@ -198,14 +198,14 @@
 }
 
 .pollution__btn:hover {
-  background-color: #302A39;
+  background-color: #302a39;
 }
 
 .location__wrapper {
   width: 205px;
   height: 41px;
-  background-color: #211B26;
-  border: 2px solid #302A39;
+  background-color: #211b26;
+  border: 2px solid #302a39;
   border-radius: 25px;
   margin-top: 20px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
@@ -223,7 +223,6 @@
   justify-content: center;
   gap: 10px;
 }
-
 
 .pollutants__text {
   font-size: 16px;
@@ -298,8 +297,7 @@
 }
 
 .air__box--icon {
-   font-size: 25px;
-   
+  font-size: 25px;
 }
 
 .air__point {
@@ -329,6 +327,12 @@
   line-height: initial;
   padding: 0;
   margin: 0;
+}
+
+.middle__box--subtitle {
+  font-size: 18px;
+  font-family: "DM Sans";
+  max-width: 700px;
 }
 
 .middle__box--content {
@@ -402,12 +406,12 @@
 }
 
 .repo_comp_text {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-size: 20px;
 }
 
 .subtitle_text {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   margin-bottom: 12px;
   font-size: 16px;
 }

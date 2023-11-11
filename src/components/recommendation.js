@@ -3,8 +3,12 @@ import cycling from "../assets/images/recommenWeather/cycling.svg";
 import hiking from "../assets/images/recommenWeather/hiking.svg";
 import running from "../assets/images/recommenWeather/running.svg";
 import windows from "../assets/images/recommenWeather/windows.svg";
-import middle from "../assets/images/recommenWeather/middle.svg";
-import circle from "../assets/images/green-circle.svg";
+import ExcellentImg from "../assets/images/recommenWeather/middle.svg";
+import GoodImg from "../assets/statusImg/good_status.svg";
+import AverageImg from "../assets/statusImg/average_status.svg";
+import BadImg from "../assets/statusImg/bad_status.svg";
+import VeryBadImg from "../assets/statusImg/verybad_status.svg";
+
 import greenBall from "../assets/ballParameters/green_ball.svg";
 import redBall from "../assets/ballParameters/red_ball.svg";
 import orangeBall from "../assets/ballParameters/orange_ball.svg";
@@ -88,6 +92,8 @@ function Recommendation() {
 
   healthAverage = sleepNumber + readinessNumber + heartRateNumber;
 
+  console.log(heartRateNumber, sleepNumber, readinessNumber);
+
   if (healthAverage <= 42) {
     healthBallColor = greenBall;
   } else if (healthAverage <= 54) {
@@ -96,34 +102,147 @@ function Recommendation() {
     healthBallColor = orangeBall;
   } else if (healthAverage <= 78) {
     healthBallColor = redBall;
-  } else if (healthAverage <= 90) {
+  } else if (healthAverage > 90) {
     healthBallColor = darkredBall;
   }
 
   dayStatus = healthAverage + weatherAlgorithm + aqiLevel;
 
-  let TopKeyword;
+  let TopSentence;
+  let TopSubtitle;
+  let TopImg;
 
   if (dayStatus <= 60) {
-    TopKeyword = "perfect";
+    TopSentence = (
+      <span>
+        Today is an{" "}
+        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>excellent</span>{" "}
+        day for outdoors.
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Based on your{" "}
+        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
+          health status
+        </span>{" "}
+        and the current{" "}
+        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
+          weather conditions
+        </span>{" "}
+        in your area, it appears to be an{" "}
+        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>excellent</span>{" "}
+        day for you to engage in outdoor activities.
+      </span>
+    );
+    TopImg = ExcellentImg;
   } else if (dayStatus <= 80) {
-    TopKeyword = "good";
+    TopSentence = (
+      <span>
+        Today is an{" "}
+        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
+        for outdoors.
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Given the current assessment of your{" "}
+        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
+          health status
+        </span>{" "}
+        and the{" "}
+        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
+          weather conditions
+        </span>{" "}
+        around you, it appears that today is a{" "}
+        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
+        to engage in outdoor activities!
+      </span>
+    );
+    TopImg = GoodImg;
   } else if (dayStatus <= 90) {
-    TopKeyword = "average";
+    TopSentence = (
+      <span>
+        Today is an{" "}
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>average</span>{" "}
+        day for outdoors.
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Considering the{" "}
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
+          weather conditions
+        </span>{" "}
+        and your current state of{" "}
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>health</span>,
+        the decision to spend the day outdoors ultimately{" "}
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
+          rests in your hands
+        </span>
+        !
+      </span>
+    );
+    TopImg = AverageImg;
   } else if (dayStatus <= 150) {
-    TopKeyword = "bad";
+    TopSentence = (
+      <span>
+        Today is a{" "}
+        <span style={{ color: "#FF2450", fontWeight: "bold" }}>bad day</span> to
+        be outside!
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Considering the{" "}
+        <span style={{ color: "#FF2450", fontWeight: "bold" }}>
+          current outdoors conditions
+        </span>
+        , it might be advisable to reconsider going outside today due to{" "}
+        <span style={{ color: "#FF2450", fontWeight: "bold" }}>
+          unfavorable circumstances
+        </span>
+        .
+      </span>
+    );
+    TopImg = BadImg;
   } else if (dayStatus > 150) {
-    TopKeyword = "very bad";
+    TopSentence = (
+      <span>
+        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+          Severe conditions
+        </span>{" "}
+        for outdoors activities!
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Considering your{" "}
+        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+          current health status
+        </span>{" "}
+        and the{" "}
+        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+          weather conditions
+        </span>
+        , it seems prudent to exercise caution and opt for indoor activities
+        today, as the circumstances are{" "}
+        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+          severly harmful
+        </span>
+        .
+      </span>
+    );
+    TopImg = VeryBadImg;
   }
+
   return (
     <div className="middle__box">
       <div className="middle__box--wrapper">
-        <img src={middle} className="middle__img" alt="" />
+        <img src={TopImg} className="middle__img" alt="" />
         <div className="middle__box--content">
-          <p className="middle__box--title">
-            Today is a <span style={{ color: "#00E0FF" }}>{TopKeyword}</span>{" "}
-            day for outdoors
-          </p>
+          <p className="middle__box--title">{TopSentence}</p>
+          <p className="middle__box--subtitle">{TopSubtitle}</p>
           <div className="parameters__wrapper">
             <p className="parameters__title">Check the main parameters</p>
             <div className="parameters__content--wrapper">

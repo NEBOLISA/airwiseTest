@@ -1,6 +1,7 @@
 .healthReport {
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 100px;
 }
 .health_report_header {
   text-align: left;
@@ -20,7 +21,7 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  background-color: #211B26;
+  background-color: #211b26;
   width: fit-content;
   padding: 0.2rem 0;
   border-radius: 28px;
@@ -41,7 +42,7 @@
   font-weight: 600;
 }
 .selection.active {
-  background-color: #562EFF;
+  background-color: #562eff;
   border-radius: 28px;
   transition: all 0.5s ease-in;
   padding-top: 2px;
