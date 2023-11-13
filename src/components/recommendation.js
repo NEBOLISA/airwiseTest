@@ -48,12 +48,12 @@ function Recommendation() {
 
   if (aqiColorParameter === "green") {
     aqiBallColor = greenBall;
-    aqiLevel = 10;
-    windowsAlgorithm = 'open'
+    aqiLevel = 70;
+    windowsAlgorithm = "open";
   } else if (aqiColorParameter === "yellow") {
     aqiBallColor = yellowBall;
     aqiLevel = 20;
-    windowsAlgorithm = 'open'
+    windowsAlgorithm = "open";
   } else if (aqiColorParameter === "orange") {
     aqiBallColor = orangeBall;
     aqiLevel = 30;
@@ -67,7 +67,6 @@ function Recommendation() {
     aqiLevel = 50;
     windowsAlgorithm = "close";
   }
-
 
   if (aqiLevel <= 20) {
     windowsAlgorithm = "open";
@@ -131,178 +130,214 @@ function Recommendation() {
   let recommendationsAlgorithm2;
   let recommendationsAlgorithm3;
 
-  console.log(weatherAlgorithm, aqiLevel, healthReportsData.heart, healthReportsData.readiness, healthReportsData.sleep)
+  console.log(
+    weatherAlgorithm,
+    aqiLevel,
+    healthReportsData.readiness,
+    healthReportsData.sleep
+  );
 
   if (
     weatherAlgorithm <= 30 &&
     aqiLevel <= 30 &&
     healthReportsData.readiness >= 85 &&
-    healthReportsData.sleep >= 80 
+    healthReportsData.sleep >= 80
   ) {
     recommendationsAlgorithm1 = "Cycling";
     recommendationsAlgorithm2 = "Soccer";
     recommendationsAlgorithm3 = "Swimming";
-  } 
-  if (
+  } else if (
     weatherAlgorithm > 30 &&
     aqiLevel > 30 &&
     healthReportsData.readiness >= 85 &&
-    healthReportsData.sleep >= 80 
+    healthReportsData.sleep >= 80
   ) {
     recommendationsAlgorithm1 = "Indoor";
     recommendationsAlgorithm2 = "Indoor";
     recommendationsAlgorithm3 = "Indoor";
-  } 
-  if (
+  } else if (
     weatherAlgorithm <= 30 &&
     aqiLevel <= 30 &&
     healthReportsData.readiness < 85 &&
-    healthReportsData.sleep < 80 
+    healthReportsData.sleep < 80
   ) {
     recommendationsAlgorithm1 = "Bed";
     recommendationsAlgorithm2 = "Bed";
     recommendationsAlgorithm3 = "Bed";
-  } 
-  if (
+  } else if (
     weatherAlgorithm > 30 &&
     aqiLevel > 30 &&
     healthReportsData.readiness < 85 &&
-    healthReportsData.sleep < 80 
+    healthReportsData.sleep < 80
   ) {
     recommendationsAlgorithm1 = "Rest";
     recommendationsAlgorithm2 = "Rest";
     recommendationsAlgorithm3 = "Rest";
+  } else if (
+    weatherAlgorithm < 30 &&
+    aqiLevel > 30 &&
+    healthReportsData.readiness >= 85 &&
+    healthReportsData.sleep >= 80
+  ) {
+    recommendationsAlgorithm1 = "Indoor Activities";
+    recommendationsAlgorithm2 = "Indoor Activities";
+    recommendationsAlgorithm3 = "Indoor Activities";
+  } else if (
+    weatherAlgorithm > 30 &&
+    aqiLevel < 30 &&
+    healthReportsData.readiness >= 85 &&
+    healthReportsData.sleep >= 80
+  ) {
+    recommendationsAlgorithm1 = "Indoor Activities2";
+    recommendationsAlgorithm2 = "Indoor Activities2";
+    recommendationsAlgorithm3 = "Indoor Activities2";
+  } else if (
+    weatherAlgorithm < 30 &&
+    aqiLevel > 30 &&
+    healthReportsData.readiness < 85 &&
+    healthReportsData.sleep < 80
+  ) {
+    recommendationsAlgorithm1 = "Rest";
+    recommendationsAlgorithm2 = "Rest";
+    recommendationsAlgorithm3 = "Rest";
+  } else if (
+    weatherAlgorithm > 30 &&
+    aqiLevel < 30 &&
+    healthReportsData.readiness < 85 &&
+    healthReportsData.sleep < 80
+  ) {
+    recommendationsAlgorithm1 = "Rest Here";
+    recommendationsAlgorithm2 = "Rest Here";
+    recommendationsAlgorithm3 = "Rest Here";
   }
 
-  console.log(recommendationsAlgorithm1)
-
-  // wind < 30 , air pollution < 30, readiness < 85, sleep duration < 80, heart rate is NOT 70 - 90 rest day - your health is not doing too well! Seek doctor attention if needed
-
-  // wind > 30 air pollution > 30, readiness > 85, sleep duration > 80, heart rate is 70 - 9 indoor running, indoor soccer, indoor swimming
-
-  if (dayStatus <= 60) {
-    TopSentence = (
-      <span>
-        Today is an{" "}
-        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>excellent</span>{" "}
-        day for outdoors.
-      </span>
-    );
-    TopSubtitle = (
-      <span>
-        Based on your{" "}
-        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
-          health status
-        </span>{" "}
-        and the current{" "}
-        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
-          weather conditions
-        </span>{" "}
-        in your area, it appears to be an{" "}
-        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>excellent</span>{" "}
-        day for you to engage in outdoor activities.
-      </span>
-    );
-    TopImg = ExcellentImg;
-  } else if (dayStatus <= 80) {
-    TopSentence = (
-      <span>
-        Today is an{" "}
-        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
-        for outdoors.
-      </span>
-    );
-    TopSubtitle = (
-      <span>
-        Given the current assessment of your{" "}
-        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
-          health status
-        </span>{" "}
-        and the{" "}
-        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
-          weather conditions
-        </span>{" "}
-        around you, it appears that today is a{" "}
-        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
-        to engage in outdoor activities!
-      </span>
-    );
-    TopImg = GoodImg;
-  } else if (dayStatus <= 90) {
-    TopSentence = (
-      <span>
-        Today is an{" "}
-        <span style={{ color: "#FFA800", fontWeight: "bold" }}>average</span>{" "}
-        day for outdoors.
-      </span>
-    );
-    TopSubtitle = (
-      <span>
-        Considering the{" "}
-        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
-          weather conditions
-        </span>{" "}
-        and your current state of{" "}
-        <span style={{ color: "#FFA800", fontWeight: "bold" }}>health</span>,
-        the decision to spend the day outdoors ultimately{" "}
-        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
-          rests in your hands
+    if (dayStatus <= 60) {
+      TopSentence = (
+        <span>
+          Today is an{" "}
+          <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
+            excellent
+          </span>{" "}
+          day for outdoors.
         </span>
-        !
-      </span>
-    );
-    TopImg = AverageImg;
-  } else if (dayStatus <= 150) {
-    TopSentence = (
-      <span>
-        Today is a{" "}
-        <span style={{ color: "#FF2450", fontWeight: "bold" }}>bad day</span> to
-        be outside!
-      </span>
-    );
-    TopSubtitle = (
-      <span>
-        Considering the{" "}
-        <span style={{ color: "#FF2450", fontWeight: "bold" }}>
-          current outdoors conditions
+      );
+      TopSubtitle = (
+        <span>
+          Based on your{" "}
+          <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
+            health status
+          </span>{" "}
+          and the current{" "}
+          <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
+            weather conditions
+          </span>{" "}
+          in your area, it appears to be an{" "}
+          <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
+            excellent
+          </span>{" "}
+          day for you to engage in outdoor activities.
         </span>
-        , it might be advisable to reconsider going outside today due to{" "}
-        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
-          unfavorable circumstances
+      );
+      TopImg = ExcellentImg;
+    } else if (dayStatus <= 80) {
+      TopSentence = (
+        <span>
+          Today is an{" "}
+          <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
+          for outdoors.
         </span>
-        .
-      </span>
-    );
-    TopImg = BadImg;
-  } else if (dayStatus > 150) {
-    TopSentence = (
-      <span>
-        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-          Severe conditions
-        </span>{" "}
-        for outdoors activities!
-      </span>
-    );
-    TopSubtitle = (
-      <span>
-        Considering your{" "}
-        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-          current health status
-        </span>{" "}
-        and the{" "}
-        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-          weather conditions
+      );
+      TopSubtitle = (
+        <span>
+          Given the current assessment of your{" "}
+          <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
+            health status
+          </span>{" "}
+          and the{" "}
+          <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
+            weather conditions
+          </span>{" "}
+          around you, it appears that today is a{" "}
+          <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
+          to engage in outdoor activities!
         </span>
-        , it seems prudent to exercise caution and opt for indoor activities
-        today, as the circumstances are{" "}
-        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-          severly harmful
+      );
+      TopImg = GoodImg;
+    } else if (dayStatus <= 90) {
+      TopSentence = (
+        <span>
+          Today is an{" "}
+          <span style={{ color: "#FFA800", fontWeight: "bold" }}>average</span>{" "}
+          day for outdoors.
         </span>
-        .
-      </span>
-    );
-    TopImg = VeryBadImg;
-  }
+      );
+      TopSubtitle = (
+        <span>
+          Considering the{" "}
+          <span style={{ color: "#FFA800", fontWeight: "bold" }}>
+            weather conditions
+          </span>{" "}
+          and your current state of{" "}
+          <span style={{ color: "#FFA800", fontWeight: "bold" }}>health</span>,
+          the decision to spend the day outdoors ultimately{" "}
+          <span style={{ color: "#FFA800", fontWeight: "bold" }}>
+            rests in your hands
+          </span>
+          !
+        </span>
+      );
+      TopImg = AverageImg;
+    } else if (dayStatus <= 150) {
+      TopSentence = (
+        <span>
+          Today is a{" "}
+          <span style={{ color: "#FF2450", fontWeight: "bold" }}>bad day</span>{" "}
+          to be outside!
+        </span>
+      );
+      TopSubtitle = (
+        <span>
+          Considering the{" "}
+          <span style={{ color: "#FF2450", fontWeight: "bold" }}>
+            current outdoors conditions
+          </span>
+          , it might be advisable to reconsider going outside today due to{" "}
+          <span style={{ color: "#FFA800", fontWeight: "bold" }}>
+            unfavorable circumstances
+          </span>
+          .
+        </span>
+      );
+      TopImg = BadImg;
+    } else if (dayStatus > 150) {
+      TopSentence = (
+        <span>
+          <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+            Severe conditions
+          </span>{" "}
+          for outdoors activities!
+        </span>
+      );
+      TopSubtitle = (
+        <span>
+          Considering your{" "}
+          <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+            current health status
+          </span>{" "}
+          and the{" "}
+          <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+            weather conditions
+          </span>
+          , it seems prudent to exercise caution and opt for indoor activities
+          today, as the circumstances are{" "}
+          <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+            severly harmful
+          </span>
+          .
+        </span>
+      );
+      TopImg = VeryBadImg;
+    }
 
   return (
     <div className="middle__box">
@@ -333,13 +368,19 @@ function Recommendation() {
             <p className="recommendations__title">Our Recommendations</p>
             <div className="recommendations__box--wrapper">
               <div className="recommendations__box">
-                <p className="recommendations__text">{recommendationsAlgorithm1}</p>
+                <p className="recommendations__text">
+                  {recommendationsAlgorithm1}
+                </p>
               </div>
               <div className="recommendations__box">
-                <p className="recommendations__text">{recommendationsAlgorithm2}</p>
+                <p className="recommendations__text">
+                  {recommendationsAlgorithm2}
+                </p>
               </div>
               <div className="recommendations__box">
-                <p className="recommendations__text">{recommendationsAlgorithm3}</p>
+                <p className="recommendations__text">
+                  {recommendationsAlgorithm3}
+                </p>
               </div>
               <div className="recommendations__division"></div>
               <div className="recommendations__box">
