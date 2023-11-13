@@ -48,7 +48,7 @@ function Recommendation() {
 
   if (aqiColorParameter === "green") {
     aqiBallColor = greenBall;
-    aqiLevel = 70;
+    aqiLevel = 10;
     windowsAlgorithm = "open";
   } else if (aqiColorParameter === "yellow") {
     aqiBallColor = yellowBall;
