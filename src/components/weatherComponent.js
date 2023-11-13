@@ -3,7 +3,6 @@ import sun from "../assets/images/recommenWeather/sun.svg";
 import feels from "../assets/images/recommenWeather/feels.svg";
 import wind from "../assets/images/recommenWeather/wind.svg";
 import humidity from "../assets/images/recommenWeather/humidity.svg";
-import pressure from "../assets/images/recommenWeather/pressure.svg";
 import windy from "../assets/images/recommenWeather/windy2.png";
 import cloudy from "../assets/images/recommenWeather/cloudy2.svg";
 import rainy from "../assets/images/recommenWeather/rainy2.svg";

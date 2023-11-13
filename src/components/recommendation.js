@@ -62,6 +62,14 @@ function Recommendation() {
     aqiLevel = 50;
   }
 
+  let windowsAlgorithm;
+
+  if (weatherAlgorithm <= 25 || aqiLevel <= 20) {
+    windowsAlgorithm = "open";
+  } else {
+    windowsAlgorithm = "close";
+  }
+
   if (healthReportsData.heart <= 60) {
     heartRateNumber = 30;
   } else if (healthReportsData.heart <= 70) {
@@ -92,7 +100,7 @@ function Recommendation() {
 
   healthAverage = sleepNumber + readinessNumber + heartRateNumber;
 
-  console.log(heartRateNumber, sleepNumber, readinessNumber);
+  // console.log(heartRateNumber, sleepNumber, readinessNumber);
 
   if (healthAverage <= 42) {
     healthBallColor = greenBall;
@@ -111,6 +119,67 @@ function Recommendation() {
   let TopSentence;
   let TopSubtitle;
   let TopImg;
+
+  //wind < 30 , air pollution < 30, readiness > 85, sleep duration > 80, heart rate is 70 - 90 cycling soccer hiking running tennis swimming
+
+  let recommendationsAlgorithm1;
+  let recommendationsAlgorithm2;
+  let recommendationsAlgorithm3;
+
+  console.log(
+    weatherAlgorithm,
+    aqiLevel,
+    healthReportsData.heart,
+    healthReportsData.readiness,
+    healthReportsData.sleep
+  );
+
+  if (
+    weatherAlgorithm <= 30 &&
+    aqiLevel <= 30 &&
+    healthReportsData.readiness >= 85 &&
+    healthReportsData.sleep >= 80
+  ) {
+    recommendationsAlgorithm1 = "Cycling";
+    recommendationsAlgorithm2 = "Soccer";
+    recommendationsAlgorithm3 = "Swimming";
+  }
+  if (
+    weatherAlgorithm > 30 &&
+    aqiLevel > 30 &&
+    healthReportsData.readiness >= 85 &&
+    healthReportsData.sleep >= 80
+  ) {
+    recommendationsAlgorithm1 = "Indoor";
+    recommendationsAlgorithm2 = "Indoor";
+    recommendationsAlgorithm3 = "Indoor";
+  }
+  if (
+    weatherAlgorithm <= 30 &&
+    aqiLevel <= 30 &&
+    healthReportsData.readiness < 85 &&
+    healthReportsData.sleep < 80
+  ) {
+    recommendationsAlgorithm1 = "Bed";
+    recommendationsAlgorithm2 = "Bed";
+    recommendationsAlgorithm3 = "Bed";
+  }
+  if (
+    weatherAlgorithm > 30 &&
+    aqiLevel > 30 &&
+    healthReportsData.readiness < 85 &&
+    healthReportsData.sleep < 80
+  ) {
+    recommendationsAlgorithm1 = "Rest";
+    recommendationsAlgorithm2 = "Rest";
+    recommendationsAlgorithm3 = "Rest";
+  }
+
+  console.log(recommendationsAlgorithm1);
+
+  // wind < 30 , air pollution < 30, readiness < 85, sleep duration < 80, heart rate is NOT 70 - 90 rest day - your health is not doing too well! Seek doctor attention if needed
+
+  // wind > 30 air pollution > 30, readiness > 85, sleep duration > 80, heart rate is 70 - 9 indoor running, indoor soccer, indoor swimming
 
   if (dayStatus <= 60) {
     TopSentence = (
@@ -265,21 +334,23 @@ function Recommendation() {
             <p className="recommendations__title">Our Recommendations</p>
             <div className="recommendations__box--wrapper">
               <div className="recommendations__box">
-                <img src={cycling} alt="" />
-                <p className="recommendations__text">Cycling</p>
+                <p className="recommendations__text">
+                  {recommendationsAlgorithm1}
+                </p>
               </div>
               <div className="recommendations__box">
-                <img src={hiking} alt="" />
-                <p className="recommendations__text">Hiking</p>
+                <p className="recommendations__text">
+                  {recommendationsAlgorithm2}
+                </p>
               </div>
               <div className="recommendations__box">
-                <img style={{ padding: "5px" }} src={running} alt="" />
-                <p className="recommendations__text">Running</p>
+                <p className="recommendations__text">
+                  {recommendationsAlgorithm3}
+                </p>
               </div>
               <div className="recommendations__division"></div>
               <div className="recommendations__box">
-                <img src={windows} alt="" />
-                <p className="recommendations__text">Open Windows</p>
+                <p className="recommendations__text">{windowsAlgorithm}</p>
               </div>
             </div>
           </div>
