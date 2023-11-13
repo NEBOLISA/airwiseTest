@@ -199,7 +199,7 @@ function Recommendation() {
           current outdoors conditions
         </span>
         , it might be advisable to reconsider going outside today due to{" "}
-        <span style={{ color: "#FF2450", fontWeight: "bold" }}>
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
           unfavorable circumstances
         </span>
         .

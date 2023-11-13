@@ -21,7 +21,7 @@ import green from "../assets/images/green_bar.svg";
 import yellow from "../assets/images/yellow_bar.svg";
 import orange from "../assets/images/orange_bar.svg";
 import red from "../assets/images/red_bar.svg";
-import darkred from "../assets/images/dark_redbar.svg";
+import darkred from "../assets/images/darkred_bar.svg";
 
 const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
 const API_pollution_endpoint =
