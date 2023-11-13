@@ -56,15 +56,15 @@ function Recommendation() {
     windowsAlgorithm = "open";
   } else if (aqiColorParameter === "orange") {
     aqiBallColor = orangeBall;
-    aqiLevel = 30;
+    aqiLevel = 35;
     windowsAlgorithm = "close";
   } else if (aqiColorParameter === "red") {
     aqiBallColor = redBall;
-    aqiLevel = 40;
+    aqiLevel = 50;
     windowsAlgorithm = "close";
   } else if (aqiColorParameter === "darkred") {
     aqiBallColor = darkredBall;
-    aqiLevel = 50;
+    aqiLevel = 60;
     windowsAlgorithm = "close";
   }
 
