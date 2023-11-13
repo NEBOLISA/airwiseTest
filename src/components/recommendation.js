@@ -44,27 +44,32 @@ function Recommendation() {
   }
 
   let aqiLevel;
+  let windowsAlgorithm;
 
   if (aqiColorParameter === "green") {
     aqiBallColor = greenBall;
     aqiLevel = 10;
+    windowsAlgorithm = 'open'
   } else if (aqiColorParameter === "yellow") {
     aqiBallColor = yellowBall;
     aqiLevel = 20;
+    windowsAlgorithm = 'open'
   } else if (aqiColorParameter === "orange") {
     aqiBallColor = orangeBall;
     aqiLevel = 30;
+    windowsAlgorithm = "close";
   } else if (aqiColorParameter === "red") {
     aqiBallColor = redBall;
     aqiLevel = 40;
+    windowsAlgorithm = "close";
   } else if (aqiColorParameter === "darkred") {
     aqiBallColor = darkredBall;
     aqiLevel = 50;
+    windowsAlgorithm = "close";
   }
 
-  let windowsAlgorithm;
 
-  if (weatherAlgorithm <= 25 || aqiLevel <= 20) {
+  if (aqiLevel <= 20) {
     windowsAlgorithm = "open";
   } else {
     windowsAlgorithm = "close";
@@ -126,56 +131,50 @@ function Recommendation() {
   let recommendationsAlgorithm2;
   let recommendationsAlgorithm3;
 
-  console.log(
-    weatherAlgorithm,
-    aqiLevel,
-    healthReportsData.heart,
-    healthReportsData.readiness,
-    healthReportsData.sleep
-  );
+  console.log(weatherAlgorithm, aqiLevel, healthReportsData.heart, healthReportsData.readiness, healthReportsData.sleep)
 
   if (
     weatherAlgorithm <= 30 &&
     aqiLevel <= 30 &&
     healthReportsData.readiness >= 85 &&
-    healthReportsData.sleep >= 80
+    healthReportsData.sleep >= 80 
   ) {
     recommendationsAlgorithm1 = "Cycling";
     recommendationsAlgorithm2 = "Soccer";
     recommendationsAlgorithm3 = "Swimming";
-  }
+  } 
   if (
     weatherAlgorithm > 30 &&
     aqiLevel > 30 &&
     healthReportsData.readiness >= 85 &&
-    healthReportsData.sleep >= 80
+    healthReportsData.sleep >= 80 
   ) {
     recommendationsAlgorithm1 = "Indoor";
     recommendationsAlgorithm2 = "Indoor";
     recommendationsAlgorithm3 = "Indoor";
-  }
+  } 
   if (
     weatherAlgorithm <= 30 &&
     aqiLevel <= 30 &&
     healthReportsData.readiness < 85 &&
-    healthReportsData.sleep < 80
+    healthReportsData.sleep < 80 
   ) {
     recommendationsAlgorithm1 = "Bed";
     recommendationsAlgorithm2 = "Bed";
     recommendationsAlgorithm3 = "Bed";
-  }
+  } 
   if (
     weatherAlgorithm > 30 &&
     aqiLevel > 30 &&
     healthReportsData.readiness < 85 &&
-    healthReportsData.sleep < 80
+    healthReportsData.sleep < 80 
   ) {
     recommendationsAlgorithm1 = "Rest";
     recommendationsAlgorithm2 = "Rest";
     recommendationsAlgorithm3 = "Rest";
   }
 
-  console.log(recommendationsAlgorithm1);
+  console.log(recommendationsAlgorithm1)
 
   // wind < 30 , air pollution < 30, readiness < 85, sleep duration < 80, heart rate is NOT 70 - 90 rest day - your health is not doing too well! Seek doctor attention if needed
 
@@ -334,19 +333,13 @@ function Recommendation() {
             <p className="recommendations__title">Our Recommendations</p>
             <div className="recommendations__box--wrapper">
               <div className="recommendations__box">
-                <p className="recommendations__text">
-                  {recommendationsAlgorithm1}
-                </p>
+                <p className="recommendations__text">{recommendationsAlgorithm1}</p>
               </div>
               <div className="recommendations__box">
-                <p className="recommendations__text">
-                  {recommendationsAlgorithm2}
-                </p>
+                <p className="recommendations__text">{recommendationsAlgorithm2}</p>
               </div>
               <div className="recommendations__box">
-                <p className="recommendations__text">
-                  {recommendationsAlgorithm3}
-                </p>
+                <p className="recommendations__text">{recommendationsAlgorithm3}</p>
               </div>
               <div className="recommendations__division"></div>
               <div className="recommendations__box">
