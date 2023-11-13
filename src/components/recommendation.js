@@ -130,13 +130,6 @@ function Recommendation() {
   let recommendationsAlgorithm2;
   let recommendationsAlgorithm3;
 
-  console.log(
-    weatherAlgorithm,
-    aqiLevel,
-    healthReportsData.readiness,
-    healthReportsData.sleep
-  );
-
   if (
     weatherAlgorithm <= 30 &&
     aqiLevel <= 30 &&

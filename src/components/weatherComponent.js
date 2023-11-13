@@ -59,6 +59,9 @@ function WeatherComponent() {
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
 
+          console.log("API Location");
+          console.log(response?.data);
+
           // Fetch air pollution data using the retrieved latitude and longitude
           axios
             .get(
@@ -70,8 +73,8 @@ function WeatherComponent() {
               }
 
               // Print air pollution data to the console
-              //  console.log("Air Pollution Data:");
-              //   console.log(airPollutionResponse.data);
+              console.log("Air Pollution Data:");
+              console.log(airPollutionResponse.data);
             })
             .catch((airPollutionError) => {
               console.error(
@@ -90,8 +93,8 @@ function WeatherComponent() {
               }
 
               // Print forecast data to the console
-              //   console.log("Weather Forecast Data:");
-              //   console.log(forecastResponse?.data.list[0].weather[0].main);
+              console.log("Weather Forecast Data:");
+              console.log(forecastResponse?.data);
             })
             .catch((forecastError) => {
               console.error(
@@ -195,6 +198,24 @@ function WeatherComponent() {
 
   setAqiColorParameter(aqiColor);
 
+  const date = new Date();
+  let hours = date.getHours();
+  function convertTo12HourFormat(hours) {
+    let period = hours >= 12 ? "PM" : "AM";
+    if (hours > 12) {
+      hours %= 12;
+    } else if (hours === 0) {
+      hours = 12;
+    }
+    return hours + " " + period;
+  }
+
+  const nowDate = convertTo12HourFormat(hours);
+  const after3Hours = convertTo12HourFormat((hours + 3) % 24);
+  const after6Hours = convertTo12HourFormat((hours + 6) % 24);
+  const after9Hours = convertTo12HourFormat((hours + 9) % 24);
+  const after12Hours = convertTo12HourFormat((hours + 12) % 24);
+
   return (
     <div className="right-side__wrapper">
       <div className="location__wrapper">
@@ -255,34 +276,59 @@ function WeatherComponent() {
         <div className="dates__wrapper">
           <div className="dates__header--wrapper">
             <p style={{ color: "#0084FF" }} className="dates__header">
-              MON
+              NOW
             </p>
             <img className="dates__icon--weather" src={sunny} alt="" />
-            <p className="dates__number--weather">16°</p>
+            <p className="dates__number--weather">
+              {weatherInformation
+                ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
+                : ""}
+              °
+            </p>
           </div>
           <div className="division__line"></div>
           <div className="dates__header--wrapper">
-            <p className="dates__header">TUE</p>
+            <p className="dates__header">{after3Hours}</p>
             <img className="dates__icon--weather" src={rainy} alt="" />
-            <p className="dates__number--weather">13°</p>
+            <p className="dates__number--weather">
+              {weatherInformation
+                ? Math.floor(weatherInformation?.list[1].main.temp - 273.15)
+                : ""}
+              °
+            </p>
           </div>
           <div className="division__line"></div>
           <div className="dates__header--wrapper">
-            <p className="dates__header">WED</p>
+            <p className="dates__header">{after6Hours}</p>
             <img className="dates__icon--weather" src={cloudy} alt="" />
-            <p className="dates__number--weather">13°</p>
+            <p className="dates__number--weather">
+              {weatherInformation
+                ? Math.floor(weatherInformation?.list[2].main.temp - 273.15)
+                : ""}
+              °
+            </p>
           </div>
           <div className="division__line"></div>
           <div className="dates__header--wrapper">
-            <p className="dates__header">THU</p>
+            <p className="dates__header">{after9Hours}</p>
             <img className="dates__icon--weather" src={windy} alt="" />
-            <p className="dates__number--weather">8°</p>
+            <p className="dates__number--weather">
+              {weatherInformation
+                ? Math.floor(weatherInformation?.list[3].main.temp - 273.15)
+                : ""}
+              °
+            </p>
           </div>
           <div className="division__line"></div>
           <div className="dates__header--wrapper">
-            <p className="dates__header">FRI</p>
+            <p className="dates__header">{after12Hours}</p>
             <img className="dates__icon--weather" src={thunderrain} alt="" />
-            <p className="dates__number--weather">4°</p>
+            <p className="dates__number--weather">
+              {weatherInformation
+                ? Math.floor(weatherInformation?.list[4].main.temp - 273.15)
+                : ""}
+              °
+            </p>
           </div>
         </div>
       </div>
