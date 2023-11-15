@@ -249,11 +249,13 @@ function WeatherComponent() {
     return hours + " " + period;
   }
 
-  const nowDate = convertTo12HourFormat(hours);
-  const after3Hours = convertTo12HourFormat((hours + 3) % 24);
-  const after6Hours = convertTo12HourFormat((hours + 6) % 24);
-  const after9Hours = convertTo12HourFormat((hours + 9) % 24);
-  const after12Hours = convertTo12HourFormat((hours + 12) % 24);
+  if (hours % 3 === 0) {
+    const nowDate = convertTo12HourFormat(hours);
+    const after3Hours = convertTo12HourFormat((hours + 3) % 24);
+    const after6Hours = convertTo12HourFormat((hours + 6) % 24);
+    const after9Hours = convertTo12HourFormat((hours + 9) % 24);
+    const after12Hours = convertTo12HourFormat((hours + 12) % 24);
+  }
 
   return (
     <div className="right-side__wrapper">
