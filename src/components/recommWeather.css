@@ -292,8 +292,8 @@
 .info__icon {
   position: absolute;
   right: 8%;
-  top: 13%;
-  width: 18px;
+  top: 11%;
+  width: 20px;
   cursor: pointer;
   transition: all 300ms ease;
 }

@@ -237,8 +237,6 @@ function WeatherComponent() {
 
   setAqiColorParameter(aqiColor);
 
-  const date = new Date();
-  let hours = date.getHours();
   function convertTo12HourFormat(hours) {
     let period = hours >= 12 ? "PM" : "AM";
     if (hours > 12) {
@@ -249,13 +247,28 @@ function WeatherComponent() {
     return hours + " " + period;
   }
 
-  if (hours % 3 === 0) {
-    const nowDate = convertTo12HourFormat(hours);
-    const after3Hours = convertTo12HourFormat((hours + 3) % 24);
-    const after6Hours = convertTo12HourFormat((hours + 6) % 24);
-    const after9Hours = convertTo12HourFormat((hours + 9) % 24);
-    const after12Hours = convertTo12HourFormat((hours + 12) % 24);
-  }
+  let nowDate;
+  let after3Hours;
+  let after6Hours;
+  let after9Hours;
+  let after12Hours;
+
+    const date = new Date();
+    let hours = date.getHours();
+    if (hours % 3 === 0) {
+      nowDate = convertTo12HourFormat(hours);
+      after3Hours = convertTo12HourFormat((hours + 6) % 24);
+      after6Hours = convertTo12HourFormat((hours + 9) % 24);
+      after9Hours = convertTo12HourFormat((hours + 12) % 24);
+      after12Hours = convertTo12HourFormat((hours + 15) % 24);
+    } else {
+      let nowDateFinder = hours - (hours % 3);
+      nowDate = convertTo12HourFormat(nowDateFinder);
+      after3Hours = convertTo12HourFormat((nowDateFinder + 6) % 24);
+      after6Hours = convertTo12HourFormat((nowDateFinder + 9) % 24);
+      after9Hours = convertTo12HourFormat((nowDateFinder + 12) % 24);
+      after12Hours = convertTo12HourFormat((nowDateFinder + 15) % 24);
+    }
 
   return (
     <div className="right-side__wrapper">
