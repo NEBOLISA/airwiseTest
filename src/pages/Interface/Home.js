@@ -5,8 +5,6 @@ import WeatherComponent from "../../components/weatherComponent";
 import "./Home.css";
 
 function Home() {
-   
-
   return (
     <div
       data-aos="fade-left"
@@ -15,7 +13,7 @@ function Home() {
       data-aos-once="true"
       className="Home"
     >
-      <HomeHeader />
+      {/* <HomeHeader /> */}
       <HealthReport />
       <Recommendation />
       <WeatherComponent />

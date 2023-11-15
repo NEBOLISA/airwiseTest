@@ -253,22 +253,22 @@ function WeatherComponent() {
   let after9Hours;
   let after12Hours;
 
-    const date = new Date();
-    let hours = date.getHours();
-    if (hours % 3 === 0) {
-      nowDate = convertTo12HourFormat(hours);
-      after3Hours = convertTo12HourFormat((hours + 6) % 24);
-      after6Hours = convertTo12HourFormat((hours + 9) % 24);
-      after9Hours = convertTo12HourFormat((hours + 12) % 24);
-      after12Hours = convertTo12HourFormat((hours + 15) % 24);
-    } else {
-      let nowDateFinder = hours - (hours % 3);
-      nowDate = convertTo12HourFormat(nowDateFinder);
-      after3Hours = convertTo12HourFormat((nowDateFinder + 6) % 24);
-      after6Hours = convertTo12HourFormat((nowDateFinder + 9) % 24);
-      after9Hours = convertTo12HourFormat((nowDateFinder + 12) % 24);
-      after12Hours = convertTo12HourFormat((nowDateFinder + 15) % 24);
-    }
+  const date = new Date();
+  let hours = date.getHours();
+  if (hours % 3 === 0) {
+    nowDate = convertTo12HourFormat(hours);
+    after3Hours = convertTo12HourFormat((hours + 6) % 24);
+    after6Hours = convertTo12HourFormat((hours + 9) % 24);
+    after9Hours = convertTo12HourFormat((hours + 12) % 24);
+    after12Hours = convertTo12HourFormat((hours + 15) % 24);
+  } else {
+    let nowDateFinder = hours - (hours % 3);
+    nowDate = convertTo12HourFormat(nowDateFinder);
+    after3Hours = convertTo12HourFormat((nowDateFinder + 6) % 24);
+    after6Hours = convertTo12HourFormat((nowDateFinder + 9) % 24);
+    after9Hours = convertTo12HourFormat((nowDateFinder + 12) % 24);
+    after12Hours = convertTo12HourFormat((nowDateFinder + 15) % 24);
+  }
 
   return (
     <div className="right-side__wrapper">
@@ -324,7 +324,7 @@ function WeatherComponent() {
             <img src={humidity} alt="Humidity" />
             <p className="weather__info__title">humidity</p>
             <div className="weather__info--subtitle">
-              <img className="weather__info--arrow" src={arrow} alt="arrow" />
+              {/* <img className="weather__info--arrow" src={arrow} alt="arrow" /> */}
               <p>{weatherInformation?.list[0].main.humidity}%</p>
             </div>
           </div>

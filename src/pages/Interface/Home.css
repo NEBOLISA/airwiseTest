@@ -1,8 +1,9 @@
 .Home {
+  position: relative;
   display: grid;
   height: 100vh;
   grid-template-areas:
-    "home_header home_header"
+    ". location"
     "recommendation weather"
     "health weather";
   grid-template-columns: 2fr 0.6fr;
@@ -19,10 +20,10 @@
   grid-area: home_header;
   margin: 20px;
 }
-/* .home_header {
-  grid-area: header;
-} */
-.middle__box--content {
+.location__wrapper {
+  grid-area: location;
+}
+.middle__box {
   grid-area: recommendation;
 }
 .right-side__wrapper {

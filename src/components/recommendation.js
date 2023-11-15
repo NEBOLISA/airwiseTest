@@ -204,180 +204,196 @@ function Recommendation() {
     recommendationsAlgorithm3 = "Rest Here";
   }
 
-    if (dayStatus <= 60) {
-      TopSentence = (
-        <span>
-          Today is an{" "}
-          <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
-            excellent
-          </span>{" "}
-          day for outdoors.
+  if (dayStatus <= 60) {
+    TopSentence = (
+      <span>
+        Today is an{" "}
+        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>excellent</span>{" "}
+        day for outdoors.
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Based on your{" "}
+        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
+          health status
+        </span>{" "}
+        and the current{" "}
+        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
+          weather conditions
+        </span>{" "}
+        in your area, it appears to be an{" "}
+        <span style={{ color: "#00E0FF", fontWeight: "bold" }}>excellent</span>{" "}
+        day for you to engage in outdoor activities.
+      </span>
+    );
+    TopImg = ExcellentImg;
+  } else if (dayStatus <= 80) {
+    TopSentence = (
+      <span>
+        Today is an{" "}
+        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
+        for outdoors.
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Given the current assessment of your{" "}
+        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
+          health status
+        </span>{" "}
+        and the{" "}
+        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
+          weather conditions
+        </span>{" "}
+        around you, it appears that today is a{" "}
+        <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
+        to engage in outdoor activities!
+      </span>
+    );
+    TopImg = GoodImg;
+  } else if (dayStatus <= 90) {
+    TopSentence = (
+      <span>
+        Today is an{" "}
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>average</span>{" "}
+        day for outdoors.
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Considering the{" "}
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
+          weather conditions
+        </span>{" "}
+        and your current state of{" "}
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>health</span>,
+        the decision to spend the day outdoors ultimately{" "}
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
+          rests in your hands
         </span>
-      );
-      TopSubtitle = (
-        <span>
-          Based on your{" "}
-          <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
-            health status
-          </span>{" "}
-          and the current{" "}
-          <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
-            weather conditions
-          </span>{" "}
-          in your area, it appears to be an{" "}
-          <span style={{ color: "#00E0FF", fontWeight: "bold" }}>
-            excellent
-          </span>{" "}
-          day for you to engage in outdoor activities.
+        !
+      </span>
+    );
+    TopImg = AverageImg;
+  } else if (dayStatus <= 150) {
+    TopSentence = (
+      <span>
+        Today is a{" "}
+        <span style={{ color: "#FF2450", fontWeight: "bold" }}>bad day</span> to
+        be outside!
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Considering the{" "}
+        <span style={{ color: "#FF2450", fontWeight: "bold" }}>
+          current outdoors conditions
         </span>
-      );
-      TopImg = ExcellentImg;
-    } else if (dayStatus <= 80) {
-      TopSentence = (
-        <span>
-          Today is an{" "}
-          <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
-          for outdoors.
+        , it might be advisable to reconsider going outside today due to{" "}
+        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
+          unfavorable circumstances
         </span>
-      );
-      TopSubtitle = (
-        <span>
-          Given the current assessment of your{" "}
-          <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
-            health status
-          </span>{" "}
-          and the{" "}
-          <span style={{ color: "#D9DD07", fontWeight: "bold" }}>
-            weather conditions
-          </span>{" "}
-          around you, it appears that today is a{" "}
-          <span style={{ color: "#D9DD07", fontWeight: "bold" }}>good</span> day
-          to engage in outdoor activities!
+        .
+      </span>
+    );
+    TopImg = BadImg;
+  } else if (dayStatus > 150) {
+    TopSentence = (
+      <span>
+        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+          Severe conditions
+        </span>{" "}
+        for outdoors activities!
+      </span>
+    );
+    TopSubtitle = (
+      <span>
+        Considering your{" "}
+        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+          current health status
+        </span>{" "}
+        and the{" "}
+        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+          weather conditions
         </span>
-      );
-      TopImg = GoodImg;
-    } else if (dayStatus <= 90) {
-      TopSentence = (
-        <span>
-          Today is an{" "}
-          <span style={{ color: "#FFA800", fontWeight: "bold" }}>average</span>{" "}
-          day for outdoors.
+        , it seems prudent to exercise caution and opt for indoor activities
+        today, as the circumstances are{" "}
+        <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
+          severly harmful
         </span>
-      );
-      TopSubtitle = (
-        <span>
-          Considering the{" "}
-          <span style={{ color: "#FFA800", fontWeight: "bold" }}>
-            weather conditions
-          </span>{" "}
-          and your current state of{" "}
-          <span style={{ color: "#FFA800", fontWeight: "bold" }}>health</span>,
-          the decision to spend the day outdoors ultimately{" "}
-          <span style={{ color: "#FFA800", fontWeight: "bold" }}>
-            rests in your hands
-          </span>
-          !
-        </span>
-      );
-      TopImg = AverageImg;
-    } else if (dayStatus <= 150) {
-      TopSentence = (
-        <span>
-          Today is a{" "}
-          <span style={{ color: "#FF2450", fontWeight: "bold" }}>bad day</span>{" "}
-          to be outside!
-        </span>
-      );
-      TopSubtitle = (
-        <span>
-          Considering the{" "}
-          <span style={{ color: "#FF2450", fontWeight: "bold" }}>
-            current outdoors conditions
-          </span>
-          , it might be advisable to reconsider going outside today due to{" "}
-          <span style={{ color: "#FFA800", fontWeight: "bold" }}>
-            unfavorable circumstances
-          </span>
-          .
-        </span>
-      );
-      TopImg = BadImg;
-    } else if (dayStatus > 150) {
-      TopSentence = (
-        <span>
-          <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-            Severe conditions
-          </span>{" "}
-          for outdoors activities!
-        </span>
-      );
-      TopSubtitle = (
-        <span>
-          Considering your{" "}
-          <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-            current health status
-          </span>{" "}
-          and the{" "}
-          <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-            weather conditions
-          </span>
-          , it seems prudent to exercise caution and opt for indoor activities
-          today, as the circumstances are{" "}
-          <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-            severly harmful
-          </span>
-          .
-        </span>
-      );
-      TopImg = VeryBadImg;
-    }
+        .
+      </span>
+    );
+    TopImg = VeryBadImg;
+  }
 
   return (
     <div className="middle__box">
       <div className="middle__box--wrapper">
-        <img src={TopImg} className="middle__img" alt="recommendation img" />
         <div className="middle__box--content">
-          <p className="middle__box--title">{TopSentence}</p>
-          <p className="middle__box--subtitle">{TopSubtitle}</p>
-          <div className="parameters__wrapper">
-            <p className="parameters__title">Check the main parameters</p>
-            <div className="parameters__content--wrapper">
-              <div className="parameters__content">
-                <img src={ballColor} alt="ball status" />
-                <p>Weather</p>
-              </div>
-              <div className="parameters__content">
-                <img src={aqiBallColor} alt="ball status" />
-                <p>Air Quality index</p>
-              </div>
-              <div className="parameters__content">
-                <img src={healthBallColor} alt="ball status" />
-                <p>Health parameters</p>
+          <div className="top_box">
+            <p className="middle__box--title">{TopSentence}</p>
+            <p className="middle__box--subtitle">{TopSubtitle}</p>
+            <img
+              src={TopImg}
+              className="middle__img"
+              alt="recommendation img"
+            />
+          </div>
+          <div className="param_recommen_wrapper">
+            <div className="parameters__wrapper">
+              <p className="parameters__title">Check the main parameters</p>
+              <div className="parameters__content--wrapper">
+                <div className="parameters__content">
+                  <div className="circle_shape">
+                    <img src={ballColor} alt="ball status" />
+                  </div>
+                  <div className="curved_rec">
+                    <p>Weather</p>
+                  </div>
+                </div>
+                <div className="parameters__content">
+                  <div className="circle_shape">
+                    <img src={aqiBallColor} alt="ball status" />
+                  </div>
+                  <div className="curved_rec">
+                    <p>Air Quality index</p>
+                  </div>
+                </div>
+                <div className="parameters__content">
+                  <div className="circle_shape">
+                    <img src={healthBallColor} alt="ball status" />
+                  </div>
+                  <div className="curved_rec">
+                    <p>Health parameters</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="middle__box--division"></div>
-          <div className="recommendations__wrapper">
-            <p className="recommendations__title">Our Recommendations</p>
-            <div className="recommendations__box--wrapper">
-              <div className="recommendations__box">
-                <p className="recommendations__text">
-                  {recommendationsAlgorithm1}
-                </p>
-              </div>
-              <div className="recommendations__box">
-                <p className="recommendations__text">
-                  {recommendationsAlgorithm2}
-                </p>
-              </div>
-              <div className="recommendations__box">
-                <p className="recommendations__text">
-                  {recommendationsAlgorithm3}
-                </p>
-              </div>
-              <div className="recommendations__division"></div>
-              <div className="recommendations__box">
-                <p className="recommendations__text">{windowsAlgorithm}</p>
+            <div className="middle__box--division"></div>
+            <div className="recommendations__wrapper">
+              <p className="recommendations__title">Our Recommendations</p>
+              <div className="recommendations__box--wrapper">
+                <div className="recommendations__box">
+                  <p className="recommendations__text">
+                    {recommendationsAlgorithm1}
+                  </p>
+                </div>
+                <div className="recommendations__box">
+                  <p className="recommendations__text">
+                    {recommendationsAlgorithm2}
+                  </p>
+                </div>
+                <div className="recommendations__box">
+                  <p className="recommendations__text">
+                    {recommendationsAlgorithm3}
+                  </p>
+                </div>
+                <div className="recommendations__division"></div>
+                <div className="recommendations__box">
+                  <p className="recommendations__text">{windowsAlgorithm}</p>
+                </div>
               </div>
             </div>
           </div>
