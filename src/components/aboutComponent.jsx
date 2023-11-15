@@ -14,8 +14,8 @@ const AboutComponent = () => {
         data-aos="fade-right"
         data-aos-once="true"
       >
-        <img src={ball} className="purple__ball" alt="" />
-        <img src={smallball} className="purple__smallball" alt="" />
+        <img src={ball} className="purple__ball" alt="absolute ball" />
+        <img src={smallball} className="purple__smallball" alt="absolute ball" />
         <p className="left-text">
           <h1 className="page-title" style={{ textAlign: "left" }}>
             About{" "}

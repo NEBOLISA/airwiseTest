@@ -52,16 +52,16 @@ const ReviewComponent = () => {
             alt="world"
           />
           <img src={profileImage1} alt="" className="first__profile" />
-          <img src={box1} className="hide1" alt="" />
+          <img src={box1} className="hide1" alt="box1" />
 
           <img src={profileImage2} alt="" className="second__profile" />
-          <img src={box3} className="hide2" alt="" />
+          <img src={box3} className="hide2" alt="box2" />
 
           <img src={profileImage3} alt="" className="third__profile" />
-          <img src={box4} className="hide3" alt="" />
+          <img src={box4} className="hide3" alt="box3" />
 
           <img src={profileImage4} alt="" className="fourth__profile" />
-          <img src={box2} className="hide4" alt="" />
+          <img src={box2} className="hide4" alt="box4" />
         </div>
       </div>
     </div>

@@ -335,7 +335,7 @@ function Recommendation() {
   return (
     <div className="middle__box">
       <div className="middle__box--wrapper">
-        <img src={TopImg} className="middle__img" alt="" />
+        <img src={TopImg} className="middle__img" alt="recommendation img" />
         <div className="middle__box--content">
           <p className="middle__box--title">{TopSentence}</p>
           <p className="middle__box--subtitle">{TopSubtitle}</p>
@@ -343,15 +343,15 @@ function Recommendation() {
             <p className="parameters__title">Check the main parameters</p>
             <div className="parameters__content--wrapper">
               <div className="parameters__content">
-                <img src={ballColor} alt="" />
+                <img src={ballColor} alt="ball status" />
                 <p>Weather</p>
               </div>
               <div className="parameters__content">
-                <img src={aqiBallColor} alt="" />
+                <img src={aqiBallColor} alt="ball status" />
                 <p>Air Quality index</p>
               </div>
               <div className="parameters__content">
-                <img src={healthBallColor} alt="" />
+                <img src={healthBallColor} alt="ball status" />
                 <p>Health parameters</p>
               </div>
             </div>

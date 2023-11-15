@@ -14,8 +14,8 @@ const FeaturesComponent = ({ featuresRef }) => {
       <div data-aos="fade-left" data-aos-once="true">
         <div className="title-container"></div>
         <div className="content-container features">
-          <img src={ball} className="purple__ball--features" alt="" />
-          <img src={smallball} className="purple__smallball--features" alt="" />
+          <img src={ball} className="purple__ball--features" alt="absolute ball" />
+          <img src={smallball} className="purple__smallball--features" alt="absolute ball" />
           <img
             src={features}
             alt="Image"

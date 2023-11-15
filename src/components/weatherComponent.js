@@ -1,6 +1,20 @@
 import "./recommWeather.css";
-import sun from "../assets/images/recommenWeather/sun.svg";
+
+import clearD from "../assets/WeatherStatusImages/ClearD.png";
+import clearN from "../assets/WeatherStatusImages/ClearN.png";
+import fewCloudsD from "../assets/WeatherStatusImages/FewCloudsD.png";
+import fewCloudsN from "../assets/WeatherStatusImages/FewCloudsN.png";
+import ScaterredClouds from "../assets/WeatherStatusImages/ScaterredClouds.png";
+import BrokenClouds from "../assets/WeatherStatusImages/BrokenClouds.png";
+import ShowerRain from "../assets/WeatherStatusImages/ShowerRain.png";
+import RainD from "../assets/WeatherStatusImages/RainD.png";
+import RainN from "../assets/WeatherStatusImages/RainN.png";
+import Thunderstorm from "../assets/WeatherStatusImages/Thunderstorm.png";
+import Snow from "../assets/WeatherStatusImages/Snow.png";
+import Mist from "../assets/WeatherStatusImages/Mist.png";
+
 import feels from "../assets/images/recommenWeather/feels.svg";
+import feelsGray from "../assets/images/feels__gray.svg";
 import wind from "../assets/images/recommenWeather/wind.svg";
 import humidity from "../assets/images/recommenWeather/humidity.svg";
 import windy from "../assets/images/recommenWeather/windy2.png";
@@ -122,6 +136,31 @@ function WeatherComponent() {
     );
   }
 
+  console.log(locationData?.weather);
+
+  let weatherTopBoxStatus;
+  let weatherCondition = weatherInformation?.list[0].weather[0].description;
+
+  if (weatherCondition === "clear sky") {
+    weatherTopBoxStatus = clearD;
+  } else if (weatherCondition === "few clouds") {
+    weatherTopBoxStatus = fewCloudsD;
+  } else if (weatherCondition === "scattered clouds") {
+    weatherTopBoxStatus = ScaterredClouds;
+  } else if (weatherCondition === "broken clouds") {
+    weatherTopBoxStatus = BrokenClouds;
+  } else if (weatherCondition === "shower rain") {
+    weatherTopBoxStatus = ShowerRain;
+  } else if (weatherCondition === "rain") {
+    weatherTopBoxStatus = RainD;
+  } else if (weatherCondition === "thunderstorm") {
+    weatherTopBoxStatus = Thunderstorm;
+  } else if (weatherCondition === "snow") {
+    weatherTopBoxStatus = Snow;
+  } else if (weatherCondition === "mist") {
+    weatherTopBoxStatus = Mist;
+  }
+
   const windSpeed = weatherInformation?.list[0].wind.speed;
   let windCategory;
   let weatherAlgorithm;
@@ -220,13 +259,17 @@ function WeatherComponent() {
     <div className="right-side__wrapper">
       <div className="location__wrapper">
         <div className="location">
-          <img className="location__icon" src={location} alt="" />
+          <img className="location__icon" src={location} alt="location" />
           <p className="location__text">{locationData}</p>
         </div>
       </div>
       <div className="weather__box">
         <div className="weather__header">
-          <img className="weather__icon" src={sun} alt="IconWeather" />
+          <img
+            className="weather__icon"
+            src={weatherTopBoxStatus}
+            alt="IconWeather"
+          />
           <div className="weather__header--right">
             <p className="weather__number">
               {weatherInformation
@@ -246,7 +289,7 @@ function WeatherComponent() {
             <img src={feels} alt="FeelsLike" />
             <p className="weather__info__title">feels like</p>
             <div className="weather__info--subtitle">
-              <img className="weather__info--arrow" src={arrow} alt="" />
+              <img className="weather__info--arrow" src={arrow} alt="arrow" />
               <p>
                 {Math.floor(
                   weatherInformation?.list[0].main.feels_like - 273.15
@@ -266,75 +309,111 @@ function WeatherComponent() {
             <img src={humidity} alt="Humidity" />
             <p className="weather__info__title">humidity</p>
             <div className="weather__info--subtitle">
-              <img className="weather__info--arrow" src={arrow} alt="" />
+              <img className="weather__info--arrow" src={arrow} alt="arrow" />
               <p>{weatherInformation?.list[0].main.humidity}%</p>
             </div>
           </div>
         </div>
       </div>
       <div className="week__box">
+        <div className="selected__box"></div>
+        <div className="division__line"></div>
         <div className="dates__wrapper">
           <div className="dates__header--wrapper">
-            <p style={{ color: "#0084FF" }} className="dates__header">
-              NOW
-            </p>
-            <img className="dates__icon--weather" src={sunny} alt="" />
+            <p className="dates__header">NOW</p>
+            <img
+              className="dates__icon--weather"
+              src={sunny}
+              alt="dates icon"
+            />
             <p className="dates__number--weather">
               {weatherInformation
                 ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
                 : ""}
               °
             </p>
+            <img src={feelsGray} alt="dates icon" />
+            <p className="dates__number--weather feels__like">
+              {Math.floor(weatherInformation?.list[1].main.temp - 273.15)}°
+            </p>
           </div>
-          <div className="division__line"></div>
           <div className="dates__header--wrapper">
             <p className="dates__header">{after3Hours}</p>
-            <img className="dates__icon--weather" src={rainy} alt="" />
+            <img
+              className="dates__icon--weather"
+              src={rainy}
+              alt="dates icon"
+            />
             <p className="dates__number--weather">
               {weatherInformation
                 ? Math.floor(weatherInformation?.list[1].main.temp - 273.15)
                 : ""}
               °
             </p>
+            <img src={feelsGray} alt="dates icon" />
+            <p className="dates__number--weather feels__like">
+              {Math.floor(weatherInformation?.list[2].main.temp - 273.15)}°
+            </p>
           </div>
-          <div className="division__line"></div>
           <div className="dates__header--wrapper">
             <p className="dates__header">{after6Hours}</p>
-            <img className="dates__icon--weather" src={cloudy} alt="" />
+            <img
+              className="dates__icon--weather"
+              src={cloudy}
+              alt="dates icon"
+            />
             <p className="dates__number--weather">
               {weatherInformation
                 ? Math.floor(weatherInformation?.list[2].main.temp - 273.15)
                 : ""}
               °
             </p>
+            <img src={feelsGray} alt="dates icon" />
+            <p className="dates__number--weather feels__like">
+              {Math.floor(weatherInformation?.list[3].main.temp - 273.15)}°
+            </p>
           </div>
-          <div className="division__line"></div>
           <div className="dates__header--wrapper">
             <p className="dates__header">{after9Hours}</p>
-            <img className="dates__icon--weather" src={windy} alt="" />
+            <img
+              className="dates__icon--weather"
+              src={windy}
+              alt="dates icon"
+            />
             <p className="dates__number--weather">
               {weatherInformation
                 ? Math.floor(weatherInformation?.list[3].main.temp - 273.15)
                 : ""}
               °
             </p>
+            <img src={feelsGray} alt="dates icon" />
+            <p className="dates__number--weather feels__like">
+              {Math.floor(weatherInformation?.list[4].main.temp - 273.15)}°
+            </p>
           </div>
-          <div className="division__line"></div>
           <div className="dates__header--wrapper">
             <p className="dates__header">{after12Hours}</p>
-            <img className="dates__icon--weather" src={thunderrain} alt="" />
+            <img
+              className="dates__icon--weather"
+              src={thunderrain}
+              alt="dates icon"
+            />
             <p className="dates__number--weather">
               {weatherInformation
                 ? Math.floor(weatherInformation?.list[4].main.temp - 273.15)
                 : ""}
               °
             </p>
+            <img src={feelsGray} alt="dates icon" />
+            <p className="dates__number--weather feels__like">
+              {Math.floor(weatherInformation?.list[1].main.temp - 273.15)}°
+            </p>
           </div>
         </div>
       </div>
       <div className="air__box">
         <p className="air__title">Air Quality Index</p>
-        <img className="info__icon" src={info} alt="" />
+        <img className="info__icon" src={info} alt="info icon" />
         <div className="air__box--wrapper">
           <p style={{ color: `${aqiCode}` }} className="air__box--title">
             {aqiLevel}
@@ -345,27 +424,32 @@ function WeatherComponent() {
             <img
               className={aqiColor === "green" ? "line" : "remove__line"}
               src={green}
+              alt="aqi color"
             ></img>
             <img
               className={aqiColor === "yellow" ? "line" : "remove__line"}
               src={yellow}
+              alt="aqi color"
             ></img>
             <img
               className={aqiColor === "orange" ? "line" : "remove__line"}
               src={orange}
+              alt="aqi color"
             ></img>
             <img
               className={aqiColor === "red" ? "line" : "remove__line"}
               src={red}
+              alt="aqi color"
             ></img>
             <img
               className={aqiColor === "darkred" ? "line" : "remove__line"}
               src={darkred}
+              alt="aqi color"
             ></img>
           </div>
           <div className="pollution__btn">
             <div className="pollutants__wrapper">
-              <img className="pollutants__icon" src={danger} alt="" />
+              <img className="pollutants__icon" src={danger} alt="danger" />
               <p className="pollutants__text">Check Pollutants</p>
             </div>
           </div>

@@ -44,6 +44,7 @@
   font-size: 24px;
   text-align: center;
   font-family: "Poppins";
+  font-weight: bold;
 }
 .stats__text {
   font-family: "Open Sans";
@@ -57,7 +58,7 @@
 }
 
 .highlighted-text {
-  color: #9747ff;
+  color: #562eff;
 }
 
 .image {

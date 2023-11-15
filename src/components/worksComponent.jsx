@@ -50,7 +50,7 @@ const WorksComponent = ({ worksRef }) => {
           >
             <div className="oura__detail"></div>
             <div className="logo__wrapper">
-              <img src={oura} className="oura__logo works_logo" alt="" />
+              <img src={oura} className="oura__logo works_logo" alt="oura" />
             </div>
             <div className="oura__text">
               <p className="oura_text_subtitle" style={{ fontWeight: "bold" }}>
@@ -82,7 +82,7 @@ const WorksComponent = ({ worksRef }) => {
             data-aos-delay="600"
           >
             <div className="logo__wrapper">
-              <img src={airwise} className="airwise__logo works_logo" alt="" />
+              <img src={airwise} className="airwise__logo works_logo" alt="airwise" />
             </div>
             <div className="oura__text">
               <p style={{ fontWeight: "bold" }}>Oura + OpenWeatherMap data</p>
@@ -109,7 +109,7 @@ const WorksComponent = ({ worksRef }) => {
               <img
                 src={openWeather}
                 className="openweather__logo works_logo "
-                alt=""
+                alt="openweather"
               />
             </div>
             <div className="oura__text">

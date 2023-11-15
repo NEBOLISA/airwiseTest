@@ -17,7 +17,7 @@ function FooterComponent() {
         <img
           className="footer__logo--img"
           src={isDarkMode ? logoLight : logo}
-          alt=""
+          alt="footer logo"
         />
         <p className="footer__text">© 2023AIRWISE.COM. ALL RIGHTS RESERVERD.</p>
         <span className="socials__wrapper">
