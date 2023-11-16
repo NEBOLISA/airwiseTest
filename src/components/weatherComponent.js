@@ -368,7 +368,8 @@ function WeatherComponent() {
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[1].main.temp - 273.15)}°
+              {Math.floor(weatherInformation?.list[0].main.feels_like - 273.15)}
+              °
             </p>
           </div>
           <div className="dates__header--wrapper">
