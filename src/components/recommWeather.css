@@ -40,6 +40,8 @@
   -webkit-background-clip: text;
   color: transparent;
   padding: 0;
+  display: flex;
+  align-items: center;
   margin: 0;
 }
 .week__box {
@@ -125,7 +127,8 @@
   font-weight: 200;
   padding: 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 500;
   font-family: "DM Sans";
 }
 .weather__info__header {
@@ -141,6 +144,7 @@
   font-size: 14px;
   gap: 3px;
   margin-top: 10px;
+  font-weight: 500;
 }
 
 .weather__icon {
@@ -342,12 +346,12 @@
   height: auto;
   background-color: #37218dbe;
   border: 3px solid #562eff;
-  border-radius: 15px;
+  border-radius: 25px;
   position: relative;
   margin: 20px;
   width: 1200px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 20px 20px;
 }
 .parameters__wrapper {
   display: flex;
@@ -364,7 +368,7 @@
   margin: 0 auto; */
 }
 .recommendations__title {
-  font-size: 16px;
+  font-size: 18px;
   font-family: "DM Sans";
   padding: 0;
   margin: 0;
@@ -376,12 +380,14 @@
   line-height: initial;
   padding: 0;
   margin: 0;
+  margin-left: 12px;
 }
 
 .middle__box--subtitle {
   font-size: 18px;
   font-family: "DM Sans";
   max-width: 700px;
+  margin-left: 12px;
 }
 
 .middle__box--content {
@@ -396,7 +402,6 @@
 }
 
 .recommendations__box {
-  background-color: #372383;
   width: 93px;
   height: 93px;
   border-radius: 20px;
@@ -417,26 +422,29 @@
   margin-top: 1rem;
   display: flex;
   gap: 40px;
+  max-width: 1200px;
 }
 .recommendations__box--wrapper {
   display: flex;
   margin-top: 1rem;
   gap: 20px;
-  width: 700px;
-  padding: 10px 20px;
-  border-radius: 10px;
+  height: 225px ;
+  padding: 0px 20px;
+  border-radius: 25px;
   background-color: #1e1128;
 }
 .recommendations__division {
-  width: 1px;
-  height: 70px;
-  background-color: #4737ff;
+  width: 3px;
+  height: 150px;
+  border-radius: 20px;
+  background-color: #868689;
   margin-top: 25px;
-  opacity: 0.6;
+  opacity: 0.4;
+  margin-top: 40px;
 }
 
 .parameters__title {
-  font-size: 16px;
+  font-size: 18px;
   font-family: "DM Sans";
   margin: 0;
 }
@@ -447,7 +455,7 @@
   margin-top: 1rem;
   gap: 10px;
   padding: 20px 20px;
-  border-radius: 10px;
+  border-radius: 25px;
   background-color: #1e1128;
   width: 350px;
 }
@@ -456,13 +464,13 @@
   border-bottom-right-radius: 25px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-
   background-color: #201b24;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 6px 6px;
-  margin-left: -20px;
+  padding-right: 20px !important;
+  margin-left: -25px;
   padding-right: 18px;
   align-self: center;
 }
@@ -470,11 +478,18 @@
   display: flex;
   justify-content: center;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   align-self: center;
   background-color: #201b24;
+  z-index: 2
 }
+
+
+.circle__color {
+  width: 30px !important;
+}
+
 .parameters__content {
   display: flex;
   gap: 10px;
@@ -486,11 +501,11 @@
 
 .parameters__content p {
   font-family: "DM Sans";
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 300;
   margin-top: 0;
   margin-bottom: 0;
-  margin-left: 5px;
+  margin-left: 20px;
 }
 
 .repo_comp_text {
@@ -502,4 +517,11 @@
   font-family: "DM Sans";
   margin-bottom: 12px;
   font-size: 16px;
+}
+
+.temp__scale {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'DM Sans';
+  margin-bottom: 24px;
 }
