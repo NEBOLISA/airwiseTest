@@ -347,7 +347,23 @@ function Recommendation() {
               <div className="parameters__content--wrapper">
                 <div className="parameters__content">
                   <div className="circle_shape">
-                    <img src={ballColor} alt="ball status" />
+                    <img
+                      className="circle__color"
+                      src={ballColor}
+                      alt="ball status"
+                    />
+                  </div>
+                  <div className="curved_rec">
+                    <p>Air Quality Index</p>
+                  </div>
+                </div>
+                <div className="parameters__content">
+                  <div className="circle_shape">
+                    <img
+                      className="circle__color"
+                      src={aqiBallColor}
+                      alt="ball status"
+                    />
                   </div>
                   <div className="curved_rec">
                     <p>Weather</p>
@@ -355,15 +371,11 @@ function Recommendation() {
                 </div>
                 <div className="parameters__content">
                   <div className="circle_shape">
-                    <img src={aqiBallColor} alt="ball status" />
-                  </div>
-                  <div className="curved_rec">
-                    <p>Air Quality index</p>
-                  </div>
-                </div>
-                <div className="parameters__content">
-                  <div className="circle_shape">
-                    <img src={healthBallColor} alt="ball status" />
+                    <img
+                      className="circle__color"
+                      src={healthBallColor}
+                      alt="ball status"
+                    />
                   </div>
                   <div className="curved_rec">
                     <p>Health parameters</p>
@@ -377,22 +389,28 @@ function Recommendation() {
               <div className="recommendations__box--wrapper">
                 <div className="recommendations__box">
                   <p className="recommendations__text">
+                    <img src={cycling} />
                     {recommendationsAlgorithm1}
                   </p>
                 </div>
                 <div className="recommendations__box">
                   <p className="recommendations__text">
+                    <img src={cycling} />
                     {recommendationsAlgorithm2}
                   </p>
                 </div>
                 <div className="recommendations__box">
                   <p className="recommendations__text">
+                    <img src={cycling} />
                     {recommendationsAlgorithm3}
                   </p>
                 </div>
                 <div className="recommendations__division"></div>
                 <div className="recommendations__box">
-                  <p className="recommendations__text">{windowsAlgorithm}</p>
+                <p className="recommendations__text">
+                    <img src={cycling} />
+                    {recommendationsAlgorithm3}
+                  </p>
                 </div>
               </div>
             </div>
