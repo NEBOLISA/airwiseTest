@@ -25,7 +25,7 @@ import sunny from "../assets/images/recommenWeather/sunny2.svg";
 import location from "../assets/images/location.svg";
 import danger from "../assets/images/recommenWeather/danger.svg";
 import arrow from "../assets/images/recommenWeather/arrow.svg";
-import downArrow from '../assets/images/recommenWeather/arrow_down.svg'
+import downArrow from "../assets/images/recommenWeather/arrow_down.svg";
 import info from "../assets/images/recommenWeather/info.svg";
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ApiContext";
@@ -138,13 +138,19 @@ function WeatherComponent() {
   }
 
   let arrowWeather;
- 
-  if (weatherInformation?.list[0].main.feels_like < weatherInformation?.list[0].main.temp) {
-    arrowWeather = arrow
-  } else if (weatherInformation?.list[0].main.feels_like > weatherInformation?.list[0].main.temp) {
-    arrowWeather = downArrow
+
+  if (
+    weatherInformation?.list[0].main.feels_like >
+    weatherInformation?.list[0].main.temp
+  ) {
+    arrowWeather = arrow;
+  } else if (
+    weatherInformation?.list[0].main.feels_like <
+    weatherInformation?.list[0].main.temp
+  ) {
+    arrowWeather = downArrow;
   } else {
-    arrowWeather = downArrow
+    arrowWeather = downArrow;
   }
 
   let weatherTopBoxStatus;
@@ -299,7 +305,7 @@ function WeatherComponent() {
               {weatherInformation
                 ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
                 : ""}
-              ° <span className="temp__scale">C</span>
+              °
             </p>
             <p className="weather__subtitle">
               {weatherInformation
@@ -313,7 +319,11 @@ function WeatherComponent() {
             <img src={feels} alt="FeelsLike" />
             <p className="weather__info__title">feels like</p>
             <div className="weather__info--subtitle">
-              <img className="weather__info--arrow" src={arrowWeather} alt="arrow" />
+              <img
+                className="weather__info--arrow"
+                src={arrowWeather}
+                alt="arrow"
+              />
               <p>
                 {Math.floor(
                   weatherInformation?.list[0].main.feels_like - 273.15

@@ -1,13 +1,27 @@
 import "./recommWeather.css";
-import cycling from "../assets/images/recommenWeather/cycling.svg";
-import hiking from "../assets/images/recommenWeather/hiking.svg";
-import running from "../assets/images/recommenWeather/running.svg";
-import windows from "../assets/images/recommenWeather/windows.svg";
 import ExcellentImg from "../assets/images/recommenWeather/middle.svg";
 import GoodImg from "../assets/statusImg/good_status.svg";
 import AverageImg from "../assets/statusImg/average_status.svg";
 import BadImg from "../assets/statusImg/bad_status.svg";
 import VeryBadImg from "../assets/statusImg/verybad_status.svg";
+import running from "../assets/images/recommenWeather/recommendations/running.svg";
+import fifteen from "../assets/images/recommenWeather/recommendations/15.svg";
+import closeWindows from "../assets/images/recommenWeather/recommendations/close_windows.svg";
+import health from "../assets/images/recommenWeather/recommendations/health.svg";
+import limitActions from "../assets/images/recommenWeather/recommendations/limit_act.svg";
+import mask from "../assets/images/recommenWeather/recommendations/mask.svg";
+import meditation from "../assets/images/recommenWeather/recommendations/meditation.svg";
+import nap from "../assets/images/recommenWeather/recommendations/nap.svg";
+import openWindows from "../assets/images/recommenWeather/recommendations/open_windows.svg";
+import outdoors from "../assets/images/recommenWeather/recommendations/outdoors.svg";
+import park from "../assets/images/recommenWeather/recommendations/park.svg";
+import picnic from "../assets/images/recommenWeather/recommendations/picnic.svg";
+import purifiers from "../assets/images/recommenWeather/recommendations/purifiers.svg";
+import roads from "../assets/images/recommenWeather/recommendations/roads.svg";
+import shower from "../assets/images/recommenWeather/recommendations/shower.svg";
+import stayHome from "../assets/images/recommenWeather/recommendations/stay_home.svg";
+import walking from "../assets/images/recommenWeather/recommendations/walking.svg";
+import water from "../assets/images/recommenWeather/recommendations/water.svg";
 
 import greenBall from "../assets/ballParameters/green_ball.svg";
 import redBall from "../assets/ballParameters/red_ball.svg";
@@ -126,82 +140,171 @@ function Recommendation() {
 
   //wind < 30 , air pollution < 30, readiness > 85, sleep duration > 80, heart rate is 70 - 90 cycling soccer hiking running tennis swimming
 
+  let recommendationsAlgorithmImage1;
+  let recommendationsAlgorithmImage2;
+  let recommendationsAlgorithmImage3;
+  let recommendationsAlgorithmImage4;
+  let recommendationsAlgorithmImage5;
+  let recommendationsAlgorithmImage6;
   let recommendationsAlgorithm1;
   let recommendationsAlgorithm2;
   let recommendationsAlgorithm3;
+  let recommendationsAlgorithm4;
+  let recommendationsAlgorithm5;
+  let recommendationsAlgorithm6;
 
   if (
+    // Good air quality, good weather, good health
     weatherAlgorithm <= 30 &&
     aqiLevel <= 30 &&
     healthReportsData.readiness >= 85 &&
     healthReportsData.sleep >= 80
   ) {
-    recommendationsAlgorithm1 = "Cycling";
-    recommendationsAlgorithm2 = "Soccer";
-    recommendationsAlgorithm3 = "Swimming";
+    recommendationsAlgorithmImage1 = outdoors;
+    recommendationsAlgorithmImage2 = meditation;
+    recommendationsAlgorithmImage3 = picnic;
+    recommendationsAlgorithmImage4 = park;
+    recommendationsAlgorithmImage5 = openWindows;
+    recommendationsAlgorithmImage6 = walking;
+    recommendationsAlgorithm1 = "Go outdoors";
+    recommendationsAlgorithm2 = "Meditation";
+    recommendationsAlgorithm3 = "Go on a picnic";
+    recommendationsAlgorithm4 = "Visit a park";
+    recommendationsAlgorithm5 = "Open windows";
+    recommendationsAlgorithm6 = "Walking";
   } else if (
+    // bad quality, bad weather, good health
     weatherAlgorithm > 30 &&
     aqiLevel > 30 &&
     healthReportsData.readiness >= 85 &&
     healthReportsData.sleep >= 80
   ) {
-    recommendationsAlgorithm1 = "Indoor";
-    recommendationsAlgorithm2 = "Indoor";
-    recommendationsAlgorithm3 = "Indoor";
+    recommendationsAlgorithmImage1 = stayHome;
+    recommendationsAlgorithmImage2 = meditation;
+    recommendationsAlgorithmImage3 = mask;
+    recommendationsAlgorithmImage4 = limitActions;
+    recommendationsAlgorithmImage5 = closeWindows;
+    recommendationsAlgorithmImage6 = purifiers;
+    recommendationsAlgorithm1 = "Stay home";
+    recommendationsAlgorithm2 = "Meditation";
+    recommendationsAlgorithm3 = "Wear a mask";
+    recommendationsAlgorithm4 = "Limit activities";
+    recommendationsAlgorithm5 = "Close windows";
+    recommendationsAlgorithm6 = "Use purifiers";
   } else if (
+    // good quality, good weather, bad health
     weatherAlgorithm <= 30 &&
     aqiLevel <= 30 &&
     healthReportsData.readiness < 85 &&
     healthReportsData.sleep < 80
   ) {
-    recommendationsAlgorithm1 = "Bed";
-    recommendationsAlgorithm2 = "Bed";
-    recommendationsAlgorithm3 = "Bed";
+    recommendationsAlgorithmImage1 = nap;
+    recommendationsAlgorithmImage2 = limitActions;
+    recommendationsAlgorithmImage3 = meditation;
+    recommendationsAlgorithmImage4 = stayHome;
+    recommendationsAlgorithmImage5 = water;
+    recommendationsAlgorithmImage6 = health;
+    recommendationsAlgorithm1 = "Take a nap";
+    recommendationsAlgorithm2 = "Limited activities";
+    recommendationsAlgorithm3 = "Meditation";
+    recommendationsAlgorithm4 = "Stay home";
+    recommendationsAlgorithm5 = "Drink water";
+    recommendationsAlgorithm6 = "Check your health";
   } else if (
+    // bad quality, bad weather, bad health
     weatherAlgorithm > 30 &&
     aqiLevel > 30 &&
     healthReportsData.readiness < 85 &&
     healthReportsData.sleep < 80
   ) {
-    recommendationsAlgorithm1 = "Rest";
-    recommendationsAlgorithm2 = "Rest";
-    recommendationsAlgorithm3 = "Rest";
+    recommendationsAlgorithmImage1 = roads;
+    recommendationsAlgorithmImage2 = shower;
+    recommendationsAlgorithmImage3 = health;
+    recommendationsAlgorithmImage4 = fifteen;
+    recommendationsAlgorithmImage5 = mask;
+    recommendationsAlgorithmImage6 = limitActions;
+    recommendationsAlgorithm1 = "Careful on roads";
+    recommendationsAlgorithm2 = "Shower after outdoors";
+    recommendationsAlgorithm3 = "Check your health";
+    recommendationsAlgorithm4 = "Limit outdoors";
+    recommendationsAlgorithm5 = "Wear a mask";
+    recommendationsAlgorithm6 = "Limited activities";
   } else if (
+    // bad quality, good weather, good health
     weatherAlgorithm < 30 &&
     aqiLevel > 30 &&
     healthReportsData.readiness >= 85 &&
     healthReportsData.sleep >= 80
   ) {
-    recommendationsAlgorithm1 = "Indoor Activities";
-    recommendationsAlgorithm2 = "Indoor Activities";
-    recommendationsAlgorithm3 = "Indoor Activities";
+    recommendationsAlgorithmImage1 = mask;
+    recommendationsAlgorithmImage2 = walking;
+    recommendationsAlgorithmImage3 = purifiers;
+    recommendationsAlgorithmImage4 = fifteen;
+    recommendationsAlgorithmImage5 = shower;
+    recommendationsAlgorithmImage6 = limitActions;
+    recommendationsAlgorithm1 = "Wear a mask"; 
+    recommendationsAlgorithm2 = "Walking"; 
+    recommendationsAlgorithm3 = "Use purifiers"; 
+    recommendationsAlgorithm4 = "Limit outdoors"; 
+    recommendationsAlgorithm5 = "Shower after outdoors"; 
+    recommendationsAlgorithm6 = "Limited activities"; 
   } else if (
+    // good quality, bad weather, good health
     weatherAlgorithm > 30 &&
     aqiLevel < 30 &&
     healthReportsData.readiness >= 85 &&
     healthReportsData.sleep >= 80
   ) {
-    recommendationsAlgorithm1 = "Indoor Activities2";
-    recommendationsAlgorithm2 = "Indoor Activities2";
-    recommendationsAlgorithm3 = "Indoor Activities2";
+    recommendationsAlgorithmImage1 = meditation;
+    recommendationsAlgorithmImage2 = fifteen;
+    recommendationsAlgorithmImage3 = park;
+    recommendationsAlgorithmImage4 = walking;
+    recommendationsAlgorithmImage5 = roads;
+    recommendationsAlgorithmImage6 = closeWindows;
+    recommendationsAlgorithm1 = "Meditation"; 
+    recommendationsAlgorithm2 = "Limit outdoors"; 
+    recommendationsAlgorithm3 = "Visit a park"; 
+    recommendationsAlgorithm4 = "Walking"; 
+    recommendationsAlgorithm5 = "Careful on roads"; 
+    recommendationsAlgorithm6 = "Close windows"; 
   } else if (
+    // bad quality, good weather, bad health
     weatherAlgorithm < 30 &&
     aqiLevel > 30 &&
     healthReportsData.readiness < 85 &&
     healthReportsData.sleep < 80
   ) {
-    recommendationsAlgorithm1 = "Rest";
-    recommendationsAlgorithm2 = "Rest";
-    recommendationsAlgorithm3 = "Rest";
+    recommendationsAlgorithmImage1 = stayHome;
+    recommendationsAlgorithmImage2 = nap;
+    recommendationsAlgorithmImage3 = health;
+    recommendationsAlgorithmImage4 = closeWindows; 
+    recommendationsAlgorithmImage5 = limitActions;
+    recommendationsAlgorithmImage6 = water;
+    recommendationsAlgorithm1 = "Stay home"; 
+    recommendationsAlgorithm2 = "Take a nap"; 
+    recommendationsAlgorithm3 = "Check your health"; 
+    recommendationsAlgorithm4 = "Close windows"; 
+    recommendationsAlgorithm5 = "Limit activities"; 
+    recommendationsAlgorithm6 = "Drink water"; 
   } else if (
+    // good quality, bad weather, bad health
     weatherAlgorithm > 30 &&
     aqiLevel < 30 &&
     healthReportsData.readiness < 85 &&
     healthReportsData.sleep < 80
   ) {
-    recommendationsAlgorithm1 = "Rest Here";
-    recommendationsAlgorithm2 = "Rest Here";
-    recommendationsAlgorithm3 = "Rest Here";
+    recommendationsAlgorithmImage1 = stayHome;
+    recommendationsAlgorithmImage2 = roads;
+    recommendationsAlgorithmImage3 = health;
+    recommendationsAlgorithmImage4 = closeWindows; 
+    recommendationsAlgorithmImage5 = meditation;
+    recommendationsAlgorithmImage6 = nap;
+    recommendationsAlgorithm1 = "Stay home"; 
+    recommendationsAlgorithm2 = "Careful on roads"; 
+    recommendationsAlgorithm3 = "Check your health"; 
+    recommendationsAlgorithm4 = "Close windows"; 
+    recommendationsAlgorithm5 = "Meditation"; 
+    recommendationsAlgorithm6 = "Take a nap"; 
   }
 
   if (dayStatus <= 60) {
@@ -389,28 +492,40 @@ function Recommendation() {
               <div className="recommendations__box--wrapper">
                 <div className="recommendations__box">
                   <p className="recommendations__text">
-                    <img src={cycling} />
+                    <img src={recommendationsAlgorithmImage1} />
                     {recommendationsAlgorithm1}
                   </p>
                 </div>
                 <div className="recommendations__box">
                   <p className="recommendations__text">
-                    <img src={cycling} />
+                    <img src={recommendationsAlgorithmImage2} />
                     {recommendationsAlgorithm2}
                   </p>
                 </div>
                 <div className="recommendations__box">
                   <p className="recommendations__text">
-                    <img src={cycling} />
+                    <img src={recommendationsAlgorithmImage3} />
                     {recommendationsAlgorithm3}
+                  </p>
+                </div>
+                <div className="recommendations__box">
+                  <p className="recommendations__text">
+                    <img src={recommendationsAlgorithmImage4} />
+                    {recommendationsAlgorithm4}
                   </p>
                 </div>
                 <div className="recommendations__division"></div>
                 <div className="recommendations__box">
-                <p className="recommendations__text">
-                    <img src={cycling} />
-                    {recommendationsAlgorithm3}
+                  <p className="recommendations__text">
+                    <img src={recommendationsAlgorithmImage5} />
+                    {recommendationsAlgorithm5}
                   </p>
+                  <div className="recommendations__box">
+                  <p className="recommendations__text">
+                    <img src={recommendationsAlgorithmImage6} />
+                    {recommendationsAlgorithm6}
+                  </p>
+                </div>
                 </div>
               </div>
             </div>

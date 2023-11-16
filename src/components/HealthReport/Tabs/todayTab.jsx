@@ -119,18 +119,26 @@ function TodayTab({ Line, options2 }) {
         <ReportBoxComp
           className="heart"
           icon={heart}
-          title="Heart Rate"
+          title="HRV rate"
           image={
-            <Line
-              className="chart todayChart"
-              data={heartData}
-              options={options2}
-            />
+            <SemiCircleProgress
+            percentage={sleepReadingValue - 14}
+            size={{
+              width: 300,
+              height: 250,
+            }}
+            hasBackground="true"
+            strokeLinecap="butt"
+            strokeWidth={5}
+            strokeColor="#FF2450"
+            bgStrokeColor="#555555"
+          />
           }
           heartColoredIcon={heartColoredIcon}
           heartBPMvalue={heartInfo}
-          topUnit={"BPM"}
-          downUnit={"3minutes ago"}
+          hrvAverage={'54ms'}
+          hrvMax={'88ms'}
+          hrv={'89ms'}
         />
       </div>
       {/* <CircularProgressBar

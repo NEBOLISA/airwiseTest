@@ -1,13 +1,13 @@
 .healthReport {
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 150px;
 }
 .health_report_header {
   text-align: left;
   margin-left: 20px;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 500;
   font-family: "DM Sans";
   margin-top: 40px;
 }
@@ -162,7 +162,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 3rem;
   padding-bottom: 3rem;
 }
 /* .customSlider {} */
