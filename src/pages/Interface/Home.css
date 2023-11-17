@@ -6,7 +6,7 @@
     ". location"
     "recommendation weather"
     "health weather";
-  grid-template-columns: 3fr 0.5fr;
+  grid-template-columns: 68%;
   grid-template-rows: 12% 360px 1fr;
   overflow-y: scroll;
 
@@ -25,6 +25,8 @@
 }
 .middle__box {
   grid-area: recommendation;
+  margin: 0 0 0 20px;
+  width: 100%;
 }
 .right-side__wrapper {
   grid-area: weather;

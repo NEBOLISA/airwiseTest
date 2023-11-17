@@ -94,8 +94,7 @@ function HealthReport() {
   return (
     <div className="healthReport">
       <h2 className="health_report_header">Health Reports</h2>
-      <ul className="selection_ul">
-        <li
+      {/*   <ul className="selection_ul">      <li
           className={activeTab === "today" ? "selection active" : "selection"}
           onClick={() => {
             handleTabClick("today");
@@ -118,17 +117,16 @@ function HealthReport() {
           }}
         >
           <p className="time">Month</p>
-        </li> */}
-      </ul>
+        </li> 
+      </ul>*/}
       <div className="tabs">
         {activeTab === "today" && (
           <TodayTab activeTab={activeTab} Line={Line} options2={options2} />
         )}
 
-        {activeTab === "week" && (
+        {/* {activeTab === "week" && (
           <WeekTab Line={Line} options={options} options2={options2} />
-        )}
-        {/* {activeTab === "month" && <MonthTab />} */}
+        )} {activeTab === "month" && <MonthTab />} */}
       </div>
     </div>
   );
