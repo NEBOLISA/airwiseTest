@@ -82,7 +82,7 @@ function TodayTab({ Line, options2 }) {
           }
           ReadingValue={readinessReadingValue}
           summaryText="Bring it on"
-          readinessText="Your resting heart rate indicates that you’ve recovered well"
+          readinessText="Your readiness indicates that you’ve recovered well"
         />
       </div>
       <div className="today_sleep_div">

@@ -132,7 +132,7 @@ function Recommendation() {
     healthBallColor = darkredBall;
   }
 
-  dayStatus = healthAverage + weatherAlgorithm + aqiLevel;
+  dayStatus = healthAverage + weatherAlgorithm + aqiLevel + 40;
 
   let TopSentence;
   let TopSubtitle;
@@ -394,7 +394,7 @@ function Recommendation() {
           current outdoors conditions
         </span>
         , it might be advisable to reconsider going outside today due to{" "}
-        <span style={{ color: "#FFA800", fontWeight: "bold" }}>
+        <span style={{ color: "#FF2450", fontWeight: "bold" }}>
           unfavorable circumstances
         </span>
         .
@@ -448,7 +448,7 @@ function Recommendation() {
               <div className="circle_shape">
                 <img
                   className="circle__color"
-                  src={ballColor}
+                  src={aqiBallColor}
                   alt="ball status"
                 />
               </div>
@@ -460,7 +460,7 @@ function Recommendation() {
               <div className="circle_shape">
                 <img
                   className="circle__color"
-                  src={aqiBallColor}
+                  src={ballColor}
                   alt="ball status"
                 />
               </div>
