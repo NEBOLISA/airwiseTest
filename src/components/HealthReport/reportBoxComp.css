@@ -18,7 +18,7 @@
   margin: 0;
 }
 .negative_mt {
-  margin-top: -6.5rem;
+  margin-top: -5.8rem;
 }
 .repo_comp_header {
   display: flex;
@@ -96,7 +96,7 @@ text {
 } */
 .down_img_div ._half-circular-progress {
   width: 100px;
-  height: 150px;
+  height: 120px;
 }
 
 .right_end_time,
@@ -150,4 +150,35 @@ text {
   font-size: 12px;
   font-family: "DM Sans";
   color: rgba(255, 255, 255, 0.507);
+}
+@media (max-width: 1390px) {
+  .reportBoxComp {
+    /* width: 350px; */
+    width: 307px;
+    padding: 8px;
+    height: 300px;
+  }
+  .readiness_text {
+    max-width: 100%;
+  }
+  .readiness_sleep_text {
+    max-width: 100%;
+  }
+  .sleep_duration_mid_div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 1333px) {
+  .reportBoxComp {
+    width: 400px;
+  }
+  .justify_centre {
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 1074px) {
+  .justify_centre {
+    margin-top: 0;
+  }
 }

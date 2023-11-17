@@ -484,49 +484,46 @@ function Recommendation() {
           {/*end of param_content__wrapper */}
         </div>
 
-        <div className="middle__box--division"></div>
+        {/* <div className="middle__box--division"></div> */}
         <div className="recommendations__wrapper">
           <p className="recommendations__title">Our Recommendations</p>
           <div className="recommendations__box--wrapper">
-            <div className="recommendations__box">
+            <div className="recommendations__box box1">
               <p className="recommendations__text">
                 <img src={recommendationsAlgorithmImage1} alt="recommendImg" />
                 {recommendationsAlgorithm1}
               </p>
             </div>
-            <div className="recommendations__box">
+            <div className="recommendations__box box2">
               <p className="recommendations__text">
                 <img src={recommendationsAlgorithmImage2} alt="recommendImg" />
                 {recommendationsAlgorithm2}
               </p>
             </div>
-            <div className="recommendations__box">
+            <div className="recommendations__box box3">
               <p className="recommendations__text">
                 <img src={recommendationsAlgorithmImage3} alt="recommendImg" />
                 {recommendationsAlgorithm3}
               </p>
             </div>
-            <div className="recommendations__box">
+            <div className="recommendations__box box4">
               <p className="recommendations__text">
                 <img src={recommendationsAlgorithmImage4} alt="recommendImg" />
                 {recommendationsAlgorithm4}
               </p>
             </div>
             <div className="recommendations__division"></div>
-            <div className="recommendations__box">
+            <div className="recommendations__box box5">
               <p className="recommendations__text">
                 <img src={recommendationsAlgorithmImage5} alt="recommendImg" />
                 {recommendationsAlgorithm5}
               </p>
-              <div className="recommendations__box">
-                <p className="recommendations__text">
-                  <img
-                    src={recommendationsAlgorithmImage6}
-                    alt="recommendImg"
-                  />
-                  {recommendationsAlgorithm6}
-                </p>
-              </div>
+            </div>
+            <div className="recommendations__box box6">
+              <p className="recommendations__text">
+                <img src={recommendationsAlgorithmImage6} alt="recommendImg" />
+                {recommendationsAlgorithm6}
+              </p>
             </div>
           </div>
         </div>

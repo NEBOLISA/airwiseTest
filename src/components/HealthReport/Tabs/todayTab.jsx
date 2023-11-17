@@ -122,23 +122,24 @@ function TodayTab({ Line, options2 }) {
           title="HRV rate"
           image={
             <SemiCircleProgress
-            percentage={sleepReadingValue - 14}
-            size={{
-              width: 300,
-              height: 250,
-            }}
-            hasBackground="true"
-            strokeLinecap="butt"
-            strokeWidth={5}
-            strokeColor="#FF2450"
-            bgStrokeColor="#555555"
-          />
+              percentage={heartInfo - 14}
+              size={{
+                width: 300,
+                height: 250,
+              }}
+              hasBackground="true"
+              strokeLinecap="butt"
+              strokeWidth={5}
+              strokeColor="#FF2450"
+              bgStrokeColor="#555555"
+            />
           }
+          ReadingValue={heartInfo}
           heartColoredIcon={heartColoredIcon}
           heartBPMvalue={heartInfo}
-          hrvAverage={'54ms'}
-          hrvMax={'88ms'}
-          hrv={'89ms'}
+          hrvAverage={"54ms"}
+          hrvMax={"88ms"}
+          hrv={"89ms"}
         />
       </div>
       {/* <CircularProgressBar

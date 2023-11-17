@@ -27,8 +27,8 @@ function ReportBoxComp({
   return (
     <div
       className={
-        className === "weekHeart" || className === "weekReadiness"
-          ? "reportBoxComp pstn_relative space_btw"
+        className === "heart"
+          ? "reportBoxComp justify_centre"
           : "reportBoxComp "
       }
     >
@@ -48,14 +48,18 @@ function ReportBoxComp({
       </div>
       <div
         className={
-          className === "readiness" || className === "sleep"
+          className === "readiness" ||
+          className === "sleep" ||
+          className === "heart"
             ? "negative_mt"
             : ""
         }
       >
         <h1
           className={
-            className === "readiness" || className === "sleep"
+            className === "readiness" ||
+            className === "sleep" ||
+            className === "heart"
               ? "exact_reading"
               : "none"
           }
