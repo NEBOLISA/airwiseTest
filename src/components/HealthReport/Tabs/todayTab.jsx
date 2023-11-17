@@ -82,7 +82,7 @@ function TodayTab({ Line, options2 }) {
           }
           ReadingValue={readinessReadingValue}
           summaryText="Bring it on"
-          readinessText="Your readiness indicates that you’ve recovered well"
+          readinessText= {<span>Your <span style={{fontWeight: 'bold', color: 'rgb(116, 212, 19)'}}>readiness</span> indicates that you’ve recovered well!</span>}
         />
       </div>
       <div className="today_sleep_div">
@@ -135,10 +135,11 @@ function TodayTab({ Line, options2 }) {
             />
           }
           ReadingValue={heartInfo}
-          heartColoredIcon={heartColoredIcon}
-          heartBPMvalue={heartInfo}
-          hrvAverage={"54ms"}
-          hrvMax={"88ms"}
+          // heartColoredIcon={heartColoredIcon}
+          // heartBPMvalue={heartInfo}
+          hrvRemark={<span>Your <span style={{fontWeight: 'bold', color: 'rgb(255, 36, 80)'}}>HRV</span> indicates that you had a good rest!</span>}
+          hrvAverage={"54"}
+          hrvMax={"88"}
           hrv={"89ms"}
         />
       </div>

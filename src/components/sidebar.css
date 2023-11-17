@@ -3,7 +3,8 @@
   width: 178px;
   min-height: 100vh;
   height: 100%;
-  background-color: #4123B2;
+  background-color: #4123b2;
+  z-index: 2;
 }
 .sidebar .logo_div {
   padding-top: 2rem;
@@ -27,7 +28,7 @@
   margin-left: auto;
   width: 75%;
   padding-right: 14px;
-  background-color: #4123B2;
+  background-color: #4123b2;
   border-bottom-left-radius: 25px;
   border-top-left-radius: 25px;
   transition: background-color 0.3s ease-in;
@@ -41,8 +42,8 @@
   margin-left: 1rem;
 }
 .sidebar li div:before {
-  background: #4123B2;
-  box-shadow: 0 17px 0 #4123B2;
+  background: #4123b2;
+  box-shadow: 0 17px 0 #4123b2;
   position: absolute;
   content: "";
   height: 0px;
@@ -53,7 +54,7 @@
   transition: box-shadow 0.3s ease-in;
 }
 .sidebar li.active div:before {
-  background: #4123B2;
+  background: #4123b2;
   box-shadow: 0 17px 0 #1a0f22;
   height: 30px;
 }
@@ -62,28 +63,28 @@
   content: "";
   height: 0px;
   width: 40px;
-  background: #4123B2;
+  background: #4123b2;
   right: 0;
   top: 100%;
   border-top-right-radius: 17px;
-  box-shadow: 0 -17px 0 #4123B2;
+  box-shadow: 0 -17px 0 #4123b2;
   transition: box-shadow 0.3s ease-in;
 }
 
 .sidebar li.active div:after {
   height: 30px;
-  background: #4123B2;
+  background: #4123b2;
   box-shadow: 0 -17px 0 #1a0f22;
 }
 
 .sidebar .title {
   font-weight: 400;
   z-index: 3;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
 }
 .sidebar li.active {
   background-color: #1a0f22;
 }
-.menu_div{
+.menu_div {
   margin-bottom: 50px;
 }

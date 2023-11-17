@@ -132,7 +132,7 @@ function Recommendation() {
     healthBallColor = darkredBall;
   }
 
-  dayStatus = healthAverage + weatherAlgorithm + aqiLevel + 40;
+  dayStatus = healthAverage + weatherAlgorithm + aqiLevel;
 
   let TopSentence;
   let TopSubtitle;
@@ -414,7 +414,7 @@ function Recommendation() {
       <span>
         Considering your{" "}
         <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-          current health status
+         health status
         </span>{" "}
         and the{" "}
         <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>

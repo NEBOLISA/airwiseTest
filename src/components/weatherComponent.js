@@ -36,6 +36,7 @@ import yellow from "../assets/images/yellow_bar.svg";
 import orange from "../assets/images/orange_bar.svg";
 import red from "../assets/images/red_bar.svg";
 import darkred from "../assets/images/darkred_bar.svg";
+import { Link } from "react-router-dom";
 
 const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
 const API_pollution_endpoint =
@@ -252,6 +253,7 @@ function WeatherComponent() {
 
   setAqiColorParameter(aqiColor);
 
+
   function convertTo12HourFormat(hours) {
     let period = hours >= 12 ? "PM" : "AM";
     if (hours > 12) {
@@ -290,7 +292,7 @@ function WeatherComponent() {
       <div className="location__wrapper">
         <div className="location">
           <img className="location__icon" src={location} alt="location" />
-          <p className="location__text">{locationData}</p>
+          <p className="location__text truncate">{locationData}</p>
         </div>
       </div>
       <div className="weather__box">
@@ -460,34 +462,39 @@ function WeatherComponent() {
               className={aqiColor === "green" ? "line" : "remove__line"}
               src={green}
               alt="aqi color"
+              style={{boxShadow: '0px 0px 15px green'}}
             ></img>
             <img
               className={aqiColor === "yellow" ? "line" : "remove__line"}
               src={yellow}
               alt="aqi color"
+              style={{boxShadow: '0px 0px 15px yellow'}}
             ></img>
             <img
               className={aqiColor === "orange" ? "line" : "remove__line"}
               src={orange}
               alt="aqi color"
+              style={{boxShadow: '0px 0px 15px orange'}}
             ></img>
             <img
               className={aqiColor === "red" ? "line" : "remove__line"}
               src={red}
               alt="aqi color"
+              style={{boxShadow: '0px 0px 15px red'}}
             ></img>
             <img
               className={aqiColor === "darkred" ? "line" : "remove__line"}
               src={darkred}
               alt="aqi color"
+              style={{boxShadow: '0px 0px 15px darkred'}}
             ></img>
           </div>
-          <div className="pollution__btn">
-            <div className="pollutants__wrapper">
-              <img className="pollutants__icon" src={danger} alt="danger" />
-              <p className="pollutants__text">Check Pollutants</p>
+            <div className="pollution__btn">
+              <div className="pollutants__wrapper">
+                <img className="pollutants__icon" src={danger} alt="danger" />
+                <p className="pollutants__text">Check Pollutants</p>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
