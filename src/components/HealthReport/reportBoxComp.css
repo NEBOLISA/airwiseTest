@@ -18,7 +18,7 @@
   margin: 0;
 }
 .negative_mt {
-  margin-top: -5.8rem;
+  margin-top: -7.4rem;
 }
 .repo_comp_header {
   display: flex;
@@ -53,7 +53,9 @@ text {
   font-size: 10px;
 }
 .sleep_duration_mid_div {
-  width: 75%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin: auto;
 }
 
@@ -95,10 +97,28 @@ text {
   height: ;
 } */
 .down_img_div ._half-circular-progress {
-  width: 100px;
-  height: 120px;
+  width: 270px;
+  height: 170px;
+  margin-top: -1.7rem;
 }
+.avg_max_reading_div {
+  display: flex;
+  justify-content: space-between;
 
+  margin: 0 auto;
+  margin-top: -2rem;
+  width: 240px;
+}
+.avg_max_reading_div span {
+  font-weight: 300;
+}
+.avg,
+.max {
+  font-weight: 500;
+}
+.hrv_remark {
+  text-align: center;
+}
 .right_end_time,
 .left_start_time {
   font-family: "DM Sans";

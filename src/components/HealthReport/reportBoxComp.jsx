@@ -22,6 +22,9 @@ function ReportBoxComp({
   commonClass,
   ReadingValue,
   weekMaxHeartReading,
+  hrvAverage,
+  hrvMax,
+  hrvRemark,
   data,
 }) {
   return (
@@ -66,7 +69,35 @@ function ReportBoxComp({
           style={{ textAlign: "center" }}
         >
           <CountUp end={ReadingValue} duration={4} />
+
+          <p
+            style={{
+              display: "inline-block",
+              fontWeight: "500",
+              fontSize: "15px",
+            }}
+          >
+            {className === "heart" ? "ms" : ""}
+          </p>
         </h1>
+        {className === "heart" ? (
+          <>
+            <div className="avg_max_reading_div">
+              <p className="avg">
+                <span> Avg </span>
+                {hrvAverage}ms
+              </p>
+
+              <p className="max">
+                <span> Max </span>
+                {hrvMax}ms
+              </p>
+            </div>
+            <div className="hrv_remark">{hrvRemark}</div>{" "}
+          </>
+        ) : (
+          ""
+        )}
         <h3
           className={
             className === "readiness" || className === "sleep"

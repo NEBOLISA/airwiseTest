@@ -10,6 +10,7 @@
   grid-template-rows: 12% 460px 1fr;
   max-width: fit-content;
   margin: 0 auto;
+  /* overflow-x: scroll; */
   width: 100%;
 
   /* grid-template-columns: 70% 20%;

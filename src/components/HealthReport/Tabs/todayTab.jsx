@@ -135,10 +135,13 @@ function TodayTab({ Line, options2 }) {
             />
           }
           ReadingValue={heartInfo}
-          heartColoredIcon={heartColoredIcon}
-          heartBPMvalue={heartInfo}
-          hrvAverage={"54ms"}
-          hrvMax={"88ms"}
+          // heartColoredIcon={heartColoredIcon}
+          // heartBPMvalue={heartInfo}
+          hrvRemark={
+            "Your HRV indicates that you experience good rest, digestion, recovery, and sleep"
+          }
+          hrvAverage={"54"}
+          hrvMax={"88"}
           hrv={"89ms"}
         />
       </div>
