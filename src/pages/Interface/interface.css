@@ -6,7 +6,12 @@
   overflow-y: hidden;
   position: relative;
   overflow-x: hidden;
+
   background-color: #1a0f22;
+  background-image: url("../../assets/background.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 .sidebar {
   grid-area: sidebar;
