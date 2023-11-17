@@ -121,7 +121,8 @@
 .chart {
   margin-top: 1rem;
   background-color: #302a39;
-  width: 100% !important;
+  width: 220px;
+  /* width: 100% !important; */
   height: 160px !important;
   border-radius: 5px;
 }
@@ -160,9 +161,10 @@
 }
 .todayTab {
   display: flex;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
-  align-items: center;
   padding-top: 3rem;
+  align-items: center;
   padding-bottom: 3rem;
 }
 /* .customSlider {} */

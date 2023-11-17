@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  width: 300px;
   height: 300px;
-  background-color: #1E1128;
+  width: 220px;
+  background-color: #1e1128;
   border-radius: 15px;
 }
 .pstn_relative {
@@ -29,7 +29,7 @@
 .readiness_sleep_text,
 .readiness_text {
   text-align: center;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   margin-bottom: 30px;
   font-weight: 300;
   max-width: 300px;
@@ -58,7 +58,7 @@ text {
 }
 
 .exact_reading {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-weight: bold;
 }
 
@@ -75,7 +75,7 @@ text {
   margin-bottom: 0;
   font-size: 1.7rem;
   font-weight: bold;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
 }
 .left_side_down,
 .right_side_down {
@@ -95,35 +95,35 @@ text {
   height: ;
 } */
 .down_img_div ._half-circular-progress {
-  width: 300px;
+  width: 100px;
   height: 150px;
 }
 
-.right_end_time, .left_start_time  {
-  font-family: 'DM Sans';
+.right_end_time,
+.left_start_time {
+  font-family: "DM Sans";
   font-size: 12px;
 }
 
-
 .readiness_sleep_text {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-weight: 600;
 }
 
 .sleep_duration {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-weight: 300;
   font-size: 12px;
 }
 
 .heart_beat {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-weight: 300;
   font-size: 12px;
 }
 
 .readiness_text {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   margin-bottom: 30px;
   font-weight: 300;
 }
@@ -143,11 +143,11 @@ text {
 }
 .up_unit {
   font-size: 12px;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   color: rgba(255, 255, 255, 0.507);
 }
 .down_unit {
   font-size: 12px;
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   color: rgba(255, 255, 255, 0.507);
 }
