@@ -152,6 +152,7 @@
 
 .weather__icon {
   width: 90px;
+  filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.250))
 }
 
 .weather__subtitle {

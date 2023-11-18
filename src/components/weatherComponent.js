@@ -9,6 +9,7 @@ import BrokenClouds from "../assets/WeatherStatusImages/BrokenClouds.png";
 import ShowerRain from "../assets/WeatherStatusImages/ShowerRain.png";
 import RainD from "../assets/WeatherStatusImages/RainD.png";
 import RainN from "../assets/WeatherStatusImages/RainN.png";
+import LightRain from "../assets/WeatherStatusImages/LightRain.png";
 import Thunderstorm from "../assets/WeatherStatusImages/Thunderstorm.png";
 import Snow from "../assets/WeatherStatusImages/Snow.png";
 import Mist from "../assets/WeatherStatusImages/Mist.png";
@@ -157,9 +158,27 @@ function WeatherComponent() {
   let weatherTopBoxStatus;
   let weatherCondition = weatherInformation?.list[0].weather[0].description;
 
-  if (weatherCondition === "clear sky") {
+  console.log(weatherInformation?.list[0].weather[0].icon[2]);
+
+  if (
+    weatherCondition === "clear sky" &&
+    weatherInformation?.list[0].weather[0].icon[2] === "n"
+  ) {
+    weatherTopBoxStatus = clearN;
+  } else if (
+    weatherCondition === "clear sky" &&
+    weatherInformation?.list[0].weather[0].icon[2] === "d"
+  ) {
     weatherTopBoxStatus = clearD;
-  } else if (weatherCondition === "few clouds") {
+  } else if (
+    weatherCondition === "few clouds" &&
+    weatherInformation?.list[0].weather[0].icon[2] === "n"
+  ) {
+    weatherTopBoxStatus = fewCloudsN;
+  } else if (
+    weatherCondition === "few clouds" &&
+    weatherInformation?.list[0].weather[0].icon[2] === "d"
+  ) {
     weatherTopBoxStatus = fewCloudsD;
   } else if (weatherCondition === "scattered clouds") {
     weatherTopBoxStatus = ScaterredClouds;
@@ -167,7 +186,15 @@ function WeatherComponent() {
     weatherTopBoxStatus = BrokenClouds;
   } else if (weatherCondition === "shower rain") {
     weatherTopBoxStatus = ShowerRain;
-  } else if (weatherCondition === "rain") {
+  } else if (
+    weatherCondition === "rain" &&
+    weatherInformation?.list[0].weather[0].icon[2] === "n"
+  ) {
+    weatherTopBoxStatus = RainN;
+  } else if (
+    weatherCondition === "rain" &&
+    weatherInformation?.list[0].weather[0].icon[2] === "d"
+  ) {
     weatherTopBoxStatus = RainD;
   } else if (weatherCondition === "thunderstorm") {
     weatherTopBoxStatus = Thunderstorm;
@@ -175,6 +202,8 @@ function WeatherComponent() {
     weatherTopBoxStatus = Snow;
   } else if (weatherCondition === "mist") {
     weatherTopBoxStatus = Mist;
+  } else if (weatherCondition === "light rain") {
+    weatherTopBoxStatus = LightRain;
   }
 
   const windSpeed = weatherInformation?.list[0].wind.speed;
@@ -252,7 +281,6 @@ function WeatherComponent() {
   }
 
   setAqiColorParameter(aqiColor);
-
 
   function convertTo12HourFormat(hours) {
     let period = hours >= 12 ? "PM" : "AM";
@@ -462,39 +490,39 @@ function WeatherComponent() {
               className={aqiColor === "green" ? "line" : "remove__line"}
               src={green}
               alt="aqi color"
-              style={{boxShadow: '0px 0px 15px green'}}
+              style={{ boxShadow: "0px 0px 15px green" }}
             ></img>
             <img
               className={aqiColor === "yellow" ? "line" : "remove__line"}
               src={yellow}
               alt="aqi color"
-              style={{boxShadow: '0px 0px 15px yellow'}}
+              style={{ boxShadow: "0px 0px 15px yellow" }}
             ></img>
             <img
               className={aqiColor === "orange" ? "line" : "remove__line"}
               src={orange}
               alt="aqi color"
-              style={{boxShadow: '0px 0px 15px orange'}}
+              style={{ boxShadow: "0px 0px 15px orange" }}
             ></img>
             <img
               className={aqiColor === "red" ? "line" : "remove__line"}
               src={red}
               alt="aqi color"
-              style={{boxShadow: '0px 0px 15px red'}}
+              style={{ boxShadow: "0px 0px 15px red" }}
             ></img>
             <img
               className={aqiColor === "darkred" ? "line" : "remove__line"}
               src={darkred}
               alt="aqi color"
-              style={{boxShadow: '0px 0px 15px darkred'}}
+              style={{ boxShadow: "0px 0px 15px darkred" }}
             ></img>
           </div>
-            <div className="pollution__btn">
-              <div className="pollutants__wrapper">
-                <img className="pollutants__icon" src={danger} alt="danger" />
-                <p className="pollutants__text">Check Pollutants</p>
-              </div>
+          <div className="pollution__btn">
+            <div className="pollutants__wrapper">
+              <img className="pollutants__icon" src={danger} alt="danger" />
+              <p className="pollutants__text">Check Pollutants</p>
             </div>
+          </div>
         </div>
       </div>
     </div>
