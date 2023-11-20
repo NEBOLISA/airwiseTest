@@ -132,7 +132,7 @@ function Recommendation() {
     healthBallColor = darkredBall;
   }
 
-  dayStatus = healthAverage + weatherAlgorithm + aqiLevel + 80;
+  dayStatus = healthAverage + weatherAlgorithm + aqiLevel;
 
   let TopSentence;
   let TopSubtitle;
