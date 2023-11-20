@@ -1,0 +1,18 @@
+.air_quality__chart--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.chart__airQuality {
+    background-color: #1D1127;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.chart__airQuality--leftBox {
+    background-color: #1D1127;
+    padding: 50px;
+    border-radius: 20px;
+}
