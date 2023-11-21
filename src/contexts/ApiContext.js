@@ -7,7 +7,14 @@ const ApiProvider = ({ children }) => {
   const [airInformation, setAirInformation] = useState({});
   const [weatherAlgorithm, setWeatherAlgorithm] = useState();
   const [aqiColorParameter, setAqiColorParameter] = useState();
-  const [healthReportsData, setHealthReportsData] = useState({sleep: '', readiness: '', heartRate: ''})
+  const [healthReportsData, setHealthReportsData] = useState({
+    sleep: "",
+    readiness: "",
+    heartRate: "",
+  });
+  const [airPollutionConcentration, setAirPollutionConcentration] = useState();
+  const [aqiLevel, setAqiLevel] = useState({aqiLevelStatus: '', aqiCodeStatus: ''})
+  const [locationInformation, setLocationInformation] = useState()
 
   return (
     <ApiContext.Provider
@@ -21,7 +28,13 @@ const ApiProvider = ({ children }) => {
         aqiColorParameter,
         setAqiColorParameter,
         healthReportsData,
-        setHealthReportsData
+        setHealthReportsData,
+        airPollutionConcentration,
+        setAirPollutionConcentration,
+        aqiLevel, 
+        setAqiLevel,
+        locationInformation,
+        setLocationInformation
       }}
     >
       {children}

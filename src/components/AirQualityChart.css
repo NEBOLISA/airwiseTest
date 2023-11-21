@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+    position: relative;
 }
 
 .chart__airQuality {
@@ -15,4 +16,21 @@
     background-color: #1D1127;
     padding: 50px;
     border-radius: 20px;
+}
+
+.top__box--airQuality {
+    width: 452px;
+    height: 70px;
+    background-color: #37218dbe;
+    border: 3px solid #562EFF;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px
+}
+
+.top__box--airQuality--title {
+    font-size: 24px;
+    font-family: 'DM Sans';
 }
