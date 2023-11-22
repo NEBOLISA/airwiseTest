@@ -16,6 +16,8 @@
     background-color: #1D1127;
     padding: 50px;
     border-radius: 20px;
+    width: 543px;
+    height: 193px;
 }
 
 .top__box--airQuality {
@@ -34,3 +36,63 @@
     font-size: 24px;
     font-family: 'DM Sans';
 }
+
+.pollutant__box {
+    width: 131px;
+    height: 115px;
+    background-color: #2C2535;
+    border-radius: 20px;
+}
+
+.pollutant__color {
+    width: 49px;
+    height: 5px;
+    margin-top: 10px;
+}
+
+.concentration__box {
+    width: 305px;
+    height: 110px;
+    background-color: #2C2535;
+    border-radius: 20px;
+}
+
+.pollutant__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.pollutant__box--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.concentration__box--wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.pollutant__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'DM Sans';
+}
+
+.pollutant__title {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.pollutant__subtitle {
+    font-size: 16px;
+}
+
+.color__line-wrapper {
+    display: flex;
+}
+
