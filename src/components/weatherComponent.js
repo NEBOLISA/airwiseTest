@@ -37,7 +37,6 @@ import yellow from "../assets/images/yellow_bar.svg";
 import orange from "../assets/images/orange_bar.svg";
 import red from "../assets/images/red_bar.svg";
 import darkred from "../assets/images/darkred_bar.svg";
-import { Link } from "react-router-dom";
 
 const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
 const API_pollution_endpoint =
@@ -52,7 +51,7 @@ function WeatherComponent() {
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
   const [locationData, setLocationData] = useState(null);
-  const { setWeatherAlgorithm, setAqiColorParameter } = useContext(ApiContext);
+  const { setWeatherAlgorithm, setAqiColorParameter, setAirPollutionConcentration, setAqiLevel, setLocationInformation } = useContext(ApiContext);
 
   useEffect(() => {
     if (!latitude && !longitude) {
@@ -87,6 +86,7 @@ function WeatherComponent() {
             .then((airPollutionResponse) => {
               if (airPollutionResponse) {
                 setAirPollutionData(airPollutionResponse?.data);
+                setAirPollutionConcentration(airPollutionResponse?.data)
               }
 
               // Print air pollution data to the console
@@ -251,6 +251,8 @@ function WeatherComponent() {
     weatherAlgorithm = 60;
   }
 
+  setLocationInformation(locationData)
+
   setWeatherAlgorithm(weatherAlgorithm);
 
   const aqi = airPollutionData?.list[0].main.aqi;
@@ -280,7 +282,9 @@ function WeatherComponent() {
     aqiCode = "#9C0A08";
   }
 
-  setAqiColorParameter(aqiColor);
+  setAqiLevel({aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode})
+
+  setAqiColorParameter(aqiColor, aqiColor);
 
   function convertTo12HourFormat(hours) {
     let period = hours >= 12 ? "PM" : "AM";

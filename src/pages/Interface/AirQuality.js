@@ -12,7 +12,7 @@ const AirQuality = () => {
 
   return (
     <div className='airQuality--wrapper' style={{ display: 'flex' }}>
-      <div>
+      <div className='chart_airQuality--wrapper'>
         <AirQualityChart className= "chart_airQuality" style={{width: '500px'}} handleClick={handleDataClick} />
       </div>
             {/* Add content for the selected data */}
