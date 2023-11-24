@@ -199,20 +199,24 @@ const AirQualityChart = () => {
   let atRisk;
 
   if (aqiLevel.aqiLevelStatus === "Excellent") {
-    topSubtitle = "Very Good";
+    topSubtitle =
+      "The current air quality is deemed to be satisfactory, with minimal to no discernible risk posed by air pollution!";
     atRisk = "None";
   } else if (aqiLevel.aqiLevelStatus === "Good") {
-    topSubtitle = "Good";
+    topSubtitle =
+      "Air quality is within acceptable levels, and the presence of air pollution carries minimal to no discernible risk.";
     atRisk = "Sensitive Groups";
     sensitiveGroups = sensitiveIn;
   } else if (aqiLevel.aqiLevelStatus === "Moderate") {
-    topSubtitle = "Moderate Situation";
+    topSubtitle =
+      "The current air quality falls within the moderate range, indicating a subtle level of risk associated with air pollution.";
     atRisk = "Sensitive Groups, seniors, outdoor workers ";
     sensitiveGroups = sensitiveIn;
     seniors = seniorsIn;
     outdoorWorkers = outdoorWIn;
   } else if (aqiLevel.aqiLevelStatus === "Poor") {
-    topSubtitle = "Poor situation";
+    topSubtitle =
+      "The current air quality is assessed as poor, indicating a significant and notable risk emanating from air pollution.";
     atRisk = "Sensitive Groups, seniors, outdoor workers, children, pregnant";
     sensitiveGroups = sensitiveIn;
     seniors = seniorsIn;
@@ -220,7 +224,8 @@ const AirQualityChart = () => {
     children = childrenIn;
     pregnant = pregnantIn;
   } else if (aqiLevel.aqiLevelStatus === "Very Poor") {
-    topSubtitle = "Terrible situation";
+    topSubtitle =
+      "The air quality is characterized as very poor, signifying a substantial and noteworthy risk arising from air pollution.";
     atRisk =
       "Sensitive Groups, seniors, outdoor workers, children, pregnant, adults";
     sensitiveGroups = sensitiveIn;
@@ -237,6 +242,7 @@ const AirQualityChart = () => {
         <div className="doughnut_wrapper">
           <div className="inner_circle">pollutants</div>
           <Doughnut
+          className="inner_circle--content"
             style={{}}
             data={data}
             options={{
@@ -268,6 +274,60 @@ const AirQualityChart = () => {
             }}
           />
         </div>
+        <div className="bottom__leftSide">
+          <div className="bottom__leftSide__wrapper">
+            <div className="bottom__leftSide--content">
+              <div
+                style={{
+                  backgroundColor: "#E7EB23",
+                  boxShadow: "0px 0px 10px #E7EB23",
+                }}
+                className="pollutant__line"
+              ></div>
+              <p>PM2.5</p>
+            </div>
+            <div className="bottom__leftSide--content">
+              <div
+                style={{
+                  backgroundColor: "#00DDD0",
+                  boxShadow: "0px 0px 10px #00DDD0",
+                }}
+                className="pollutant__line"
+              ></div>
+              <p>O3</p>
+            </div>
+            <div className="bottom__leftSide--content">
+              <div
+                style={{
+                  backgroundColor: "#FF2450",
+                  boxShadow: "0px 0px 10px #FF2450",
+                }}
+                className="pollutant__line"
+              ></div>
+              <p>NO2</p>
+            </div>
+            <div className="bottom__leftSide--content">
+              <div
+                style={{
+                  backgroundColor: "#035BE2",
+                  boxShadow: "0px 0px 10px #035BE2",
+                }}
+                className="pollutant__line"
+              ></div>
+              <p>SO2</p>
+            </div>
+            <div className="bottom__leftSide--content">
+              <div
+                style={{
+                  backgroundColor: "#FFA800",
+                  boxShadow: "0px 0px 10px #FFA800",
+                }}
+                className="pollutant__line"
+              ></div>
+              <p>PM10</p>
+            </div>
+          </div>
+        </div>
       </div>
       {/* <div className="location__wrapper">
         <div className="location">
@@ -277,25 +337,48 @@ const AirQualityChart = () => {
       </div> */}
       <div className="left__side--wrapper">
         <div className="top__title--wrapper">
-          <p style={{ marginBottom: "5px", marginTop: "0" }}>
+          <p
+            className="top__title--airQuality"
+            style={{ marginBottom: "5px", marginTop: "0" }}
+          >
             Today's air quality
           </p>
           <p
             style={{ color: `${aqiLevel.aqiCodeStatus}` }}
-            className="air__box--title"
+            className="air__box--title box--title__airQuality"
           >
             {aqiLevel.aqiLevelStatus}
           </p>
-          <p>{topSubtitle}</p>
-          <p>At risk - {atRisk}</p>
+          <p className="top__airQuality--subtitle">{topSubtitle}</p>
+          <p className="top__airQuality--risk">
+            At risk - <p className="atRisk">{atRisk}</p>
+          </p>
         </div>
         <div className="atrisk_div">
-          <img src={seniors} alt="" />
-          <img src={sensitiveGroups} alt="" />
-          <img src={outdoorWorkers} alt="" />
-          <img src={adults} alt="" />
-          <img src={children} alt="" />
-          <img src={pregnant} alt="" />
+          <div className="atrisk__wrapper">
+            <img src={seniors} alt="" />
+            <p className="atrisk__text">Seniors</p>
+          </div>
+          <div className="atrisk__wrapper">
+            <img src={sensitiveGroups} alt="" />
+            <p className="atrisk__text">Sentitive Groups</p>
+          </div>
+          <div className="atrisk__wrapper">
+            <img src={outdoorWorkers} alt="" />
+            <p className="atrisk__text">Outdoors</p>
+          </div>
+          <div className="atrisk__wrapper">
+            <img src={adults} alt="" />
+            <p className="atrisk__text">Adults</p>
+          </div>
+          <div className="atrisk__wrapper">
+            <img src={children} alt="" />
+            <p className="atrisk__text">Childrens</p>
+          </div>
+          <div className="atrisk__wrapper">
+            <img src={pregnant} alt="" />
+            <p className="atrisk__text">Seniors</p>
+          </div>
         </div>
         <div
           className="chart__airQuality--leftBox"
@@ -362,61 +445,76 @@ const AirQualityChart = () => {
               <div className="concentration__box">
                 {selectedData === 0 && (
                   <div className="conc_reading_div">
-                    {no2Value}μg/m3 <p>{airQualityNo2}</p>{" "}
                     <div className="color__line-wrapper">
-                      <img src={green}></img>
-                      <img src={yellow}></img>
-                      <img src={orange}></img>
-                      <img src={red}></img>
-                      <img src={darkred}></img>
+                      <p className="color__line">{airQualityNo2}</p>{" "}
+                      <div className="lines">
+                        <img className="color__lines" src={green}></img>
+                        <img className="color__lines" src={yellow}></img>
+                        <img className="color__lines" src={orange}></img>
+                        <img className="color__lines" src={red}></img>
+                        <img className="color__lines" src={darkred}></img>
+                      </div>
+                      <p className="color__subtitle">{no2Value}μg/m3</p>
                     </div>
                   </div>
                 )}
                 {selectedData === 1 && (
                   <div className="conc_reading_div">
-                    {o3Value}μg/m3 <p>{airQualityO3}</p>{" "}
                     <div className="color__line-wrapper">
-                      <img src={green}></img>
-                      <img src={yellow}></img>
-                      <img src={orange}></img>
-                      <img src={red}></img>
-                      <img src={darkred}></img>
+                      <p className="color__line">{airQualityO3}</p>{" "}
+                      <div className="lines">
+                        <img className="color__lines" src={green}></img>
+                        <img className="color__lines" src={yellow}></img>
+                        <img className="color__lines" src={orange}></img>
+                        <img className="color__lines" src={red}></img>
+                        <img className="color__lines" src={darkred}></img>
+                      </div>
+                      <p className="color__subtitle">{o3Value}μg/m3</p>
                     </div>
                   </div>
                 )}
                 {selectedData === 2 && (
                   <div className="conc_reading_div">
-                    {pm25Value}μg/m3 <p>{airQualityPM25}</p>{" "}
                     <div className="color__line-wrapper">
-                      <img src={green}></img>
-                      <img src={yellow}></img>
-                      <img src={orange}></img>
-                      <img src={red}></img>
-                      <img src={darkred}></img>
+                      <p className="color__line">{airQualityPM25}</p>{" "}
+                      <div className="lines">
+                        <img className="color__lines" src={green}></img>
+                        <img className="color__lines" src={yellow}></img>
+                        <img className="color__lines" src={orange}></img>
+                        <img className="color__lines" src={red}></img>
+                        <img className="color__lines" src={darkred}></img>
+                      </div>
+                      <p className="color__subtitle">{pm25Value}μg/m3</p>
                     </div>
                   </div>
                 )}
                 {selectedData === 3 && (
                   <div className="conc_reading_div">
-                    {pm10Value}μg/m3 <p>{airQualityPM10}</p>{" "}
                     <div className="color__line-wrapper">
-                      <img src={green}></img>
-                      <img src={yellow}></img>
-                      <img src={orange}></img>
-                      <img src={red}></img>
-                      <img src={darkred}></img>
+                      <p className="color__line">{airQualityPM10}</p>{" "}
+                      <div className="lines">
+                        <img className="color__lines" src={green}></img>
+                        <img className="color__lines" src={yellow}></img>
+                        <img className="color__lines" src={orange}></img>
+                        <img className="color__lines" src={red}></img>
+                        <img className="color__lines" src={darkred}></img>
+                      </div>
+                      <p className="color__subtitle">{pm10Value}μg/m3</p>
                     </div>
                   </div>
                 )}
                 {selectedData === 4 && (
                   <div className="conc_reading_div">
-                    {so2Value}μg/m3 <p>{airQualitySo2}</p>{" "}
                     <div className="color__line-wrapper">
-                      <img src={green}></img>
-                      <img src={yellow}></img>
-                      <img src={orange}></img>
-                      <img src={red}></img>
-                      <img src={darkred}></img>
+                      <p className="color__line">{airQualitySo2}</p>{" "}
+                      <div className="lines">
+                        <img className="color__lines" src={green}></img>
+                        <img className="color__lines" src={yellow}></img>
+                        <img className="color__lines" src={orange}></img>
+                        <img className="color__lines" src={red}></img>
+                        <img className="color__lines" src={darkred}></img>
+                      </div>
+                      <p className="color__subtitle">{so2Value}μg/m3</p>
                     </div>
                   </div>
                 )}
