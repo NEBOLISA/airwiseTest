@@ -1,26 +1,26 @@
 .quality__wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 200px;
 }
 
 .quality__wrapper img {
-    width: 500px;
+  width: 500px;
 }
 
 .quality__wrapper p {
-    font-family: 'DM Sans';
-    font-weight: bold;
+  font-family: "DM Sans";
+  font-weight: bold;
 }
 
 .chart_airQuality {
-    width: 500px !important;
+  /* width: 500px !important; */
 }
 
 .airQuality--wrapper {
-    align-items: center;
-    justify-content: center;
-    display: flex;
+  /* align-items: center;
+  justify-content: center;
+  display: flex; */
 }

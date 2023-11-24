@@ -8,18 +8,18 @@ import yellow from "../assets/images/yellow_bar.svg";
 import orange from "../assets/images/orange_bar.svg";
 import red from "../assets/images/red_bar.svg";
 import darkred from "../assets/images/darkred_bar.svg";
-import adultsIn from '../assets/groups/adults.svg'
-import adultsUn from '../assets/groups/adults-un.svg'
-import childrenIn from '../assets/groups/children.svg'
-import childrenUn from '../assets/groups/children-un.svg'
-import outdoorWIn from '../assets/groups/outdoorW.svg'
-import outdoorWUn from '../assets/groups/outdoorW-un.svg'
-import pregnantIn from '../assets/groups/pregnant.svg'
-import pregnantUn from '../assets/groups/pregnant-un.svg'
-import seniorsIn from '../assets/groups/seniors.svg'
-import seniorsUn from '../assets/groups/seniors-un.svg'
-import sensitiveIn from '../assets/groups/sensitive.svg'
-import sensitiveUn from '../assets/groups/sensitive-un.svg'
+import adultsIn from "../assets/groups/adults.svg";
+import adultsUn from "../assets/groups/adults-un.svg";
+import childrenIn from "../assets/groups/children.svg";
+import childrenUn from "../assets/groups/children-un.svg";
+import outdoorWIn from "../assets/groups/outdoorW.svg";
+import outdoorWUn from "../assets/groups/outdoorW-un.svg";
+import pregnantIn from "../assets/groups/pregnant.svg";
+import pregnantUn from "../assets/groups/pregnant-un.svg";
+import seniorsIn from "../assets/groups/seniors.svg";
+import seniorsUn from "../assets/groups/seniors-un.svg";
+import sensitiveIn from "../assets/groups/sensitive.svg";
+import sensitiveUn from "../assets/groups/sensitive-un.svg";
 
 const AirQualityChart = () => {
   const [selectedData, setSelectedData] = useState(null);
@@ -221,7 +221,8 @@ const AirQualityChart = () => {
     pregnant = pregnantIn;
   } else if (aqiLevel.aqiLevelStatus === "Very Poor") {
     topSubtitle = "Terrible situation";
-    atRisk = "Sensitive Groups, seniors, outdoor workers, children, pregnant, adults";
+    atRisk =
+      "Sensitive Groups, seniors, outdoor workers, children, pregnant, adults";
     sensitiveGroups = sensitiveIn;
     seniors = seniorsIn;
     outdoorWorkers = outdoorWIn;
@@ -231,36 +232,42 @@ const AirQualityChart = () => {
   }
 
   return (
-    <div className="air_quality__chart--wrapper" style={{ display: "flex" }}>
-      <div style={{ flex: 1 }}>
-        <Doughnut
-          className="chart__airQuality"
-          style={{ width: "350px" }}
-          data={data}
-          options={{
-            animations: {
-              tension: {
-                duration: 1000,
-                easing: "linear",
-                from: 1,
-                to: 0,
-                loop: true,
+    <div className="air_quality__chart--wrapper">
+      <div className="chart__airQuality">
+        <div className="doughnut_wrapper">
+          <div className="inner_circle">pollutants</div>
+          <Doughnut
+            style={{}}
+            data={data}
+            options={{
+              animations: {
+                tension: {
+                  duration: 1000,
+                  easing: "linear",
+                  from: 1,
+                  to: 0,
+                  loop: true,
+                },
               },
-            },
-            borderColor: "#1D1127",
-            hoverBackgroundColor: "#1D1127",
-            borderWidth: 2,
-            borderRadius: 15,
-            spacing: 15,
-            weight: 5,
-            onClick: handleDataClick,
-            plugins: {
-              legend: {
-                display: false,
+              cutout: 130,
+              responsive: true,
+              maintainAspectRatio: true,
+              borderColor: "#1D1127",
+              hoverBackgroundColor: "#1D1127",
+              borderWidth: 2,
+
+              borderRadius: 15,
+              spacing: 10,
+              weight: 5,
+              onClick: handleDataClick,
+              plugins: {
+                legend: {
+                  display: false,
+                },
               },
-            },
-          }}
-        />
+            }}
+          />
+        </div>
       </div>
       {/* <div className="location__wrapper">
         <div className="location">
@@ -270,7 +277,9 @@ const AirQualityChart = () => {
       </div> */}
       <div className="left__side--wrapper">
         <div className="top__title--wrapper">
-          <p>Today's air quality</p>
+          <p style={{ marginBottom: "5px", marginTop: "0" }}>
+            Today's air quality
+          </p>
           <p
             style={{ color: `${aqiLevel.aqiCodeStatus}` }}
             className="air__box--title"
@@ -279,6 +288,8 @@ const AirQualityChart = () => {
           </p>
           <p>{topSubtitle}</p>
           <p>At risk - {atRisk}</p>
+        </div>
+        <div className="atrisk_div">
           <img src={seniors} alt="" />
           <img src={sensitiveGroups} alt="" />
           <img src={outdoorWorkers} alt="" />
@@ -350,7 +361,7 @@ const AirQualityChart = () => {
               <p>Pollutant concentration</p>
               <div className="concentration__box">
                 {selectedData === 0 && (
-                  <div>
+                  <div className="conc_reading_div">
                     {no2Value}μg/m3 <p>{airQualityNo2}</p>{" "}
                     <div className="color__line-wrapper">
                       <img src={green}></img>
@@ -362,7 +373,7 @@ const AirQualityChart = () => {
                   </div>
                 )}
                 {selectedData === 1 && (
-                  <div>
+                  <div className="conc_reading_div">
                     {o3Value}μg/m3 <p>{airQualityO3}</p>{" "}
                     <div className="color__line-wrapper">
                       <img src={green}></img>
@@ -374,7 +385,7 @@ const AirQualityChart = () => {
                   </div>
                 )}
                 {selectedData === 2 && (
-                  <div>
+                  <div className="conc_reading_div">
                     {pm25Value}μg/m3 <p>{airQualityPM25}</p>{" "}
                     <div className="color__line-wrapper">
                       <img src={green}></img>
@@ -386,7 +397,7 @@ const AirQualityChart = () => {
                   </div>
                 )}
                 {selectedData === 3 && (
-                  <div>
+                  <div className="conc_reading_div">
                     {pm10Value}μg/m3 <p>{airQualityPM10}</p>{" "}
                     <div className="color__line-wrapper">
                       <img src={green}></img>
@@ -398,7 +409,7 @@ const AirQualityChart = () => {
                   </div>
                 )}
                 {selectedData === 4 && (
-                  <div>
+                  <div className="conc_reading_div">
                     {so2Value}μg/m3 <p>{airQualitySo2}</p>{" "}
                     <div className="color__line-wrapper">
                       <img src={green}></img>
