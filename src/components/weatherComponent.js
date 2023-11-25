@@ -51,7 +51,13 @@ function WeatherComponent() {
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
   const [locationData, setLocationData] = useState(null);
-  const { setWeatherAlgorithm, setAqiColorParameter, setAirPollutionConcentration, setAqiLevel, setLocationInformation } = useContext(ApiContext);
+  const {
+    setWeatherAlgorithm,
+    setAqiColorParameter,
+    setAirPollutionConcentration,
+    setAqiLevel,
+    setLocationInformation,
+  } = useContext(ApiContext);
 
   useEffect(() => {
     if (!latitude && !longitude) {
@@ -74,7 +80,6 @@ function WeatherComponent() {
           }
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
-
           console.log("API Location");
           console.log(response?.data);
 
@@ -86,7 +91,7 @@ function WeatherComponent() {
             .then((airPollutionResponse) => {
               if (airPollutionResponse) {
                 setAirPollutionData(airPollutionResponse?.data);
-                setAirPollutionConcentration(airPollutionResponse?.data)
+                setAirPollutionConcentration(airPollutionResponse?.data);
               }
 
               // Print air pollution data to the console
@@ -158,26 +163,24 @@ function WeatherComponent() {
   let weatherTopBoxStatus;
   let weatherCondition = weatherInformation?.list[0].weather[0].description;
 
-  console.log(weatherInformation?.list[0].weather[0].icon[2]);
-
   if (
     weatherCondition === "clear sky" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "n"
+    weatherInformation?.list[0].weather[0].icon[2] === "d"
   ) {
     weatherTopBoxStatus = clearN;
   } else if (
     weatherCondition === "clear sky" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "d"
+    weatherInformation?.list[0].weather[0].icon[2] === "n"
   ) {
     weatherTopBoxStatus = clearD;
   } else if (
     weatherCondition === "few clouds" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "n"
+    weatherInformation?.list[0].weather[0].icon[2] === "d"
   ) {
     weatherTopBoxStatus = fewCloudsN;
   } else if (
     weatherCondition === "few clouds" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "d"
+    weatherInformation?.list[0].weather[0].icon[2] === "n"
   ) {
     weatherTopBoxStatus = fewCloudsD;
   } else if (weatherCondition === "scattered clouds") {
@@ -188,12 +191,12 @@ function WeatherComponent() {
     weatherTopBoxStatus = ShowerRain;
   } else if (
     weatherCondition === "rain" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "n"
+    weatherInformation?.list[0].weather[0].icon[2] === "d"
   ) {
     weatherTopBoxStatus = RainN;
   } else if (
     weatherCondition === "rain" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "d"
+    weatherInformation?.list[0].weather[0].icon[2] === "n"
   ) {
     weatherTopBoxStatus = RainD;
   } else if (weatherCondition === "thunderstorm") {
@@ -251,7 +254,7 @@ function WeatherComponent() {
     weatherAlgorithm = 60;
   }
 
-  setLocationInformation(locationData)
+  setLocationInformation(locationData);
 
   setWeatherAlgorithm(weatherAlgorithm);
 
@@ -282,7 +285,7 @@ function WeatherComponent() {
     aqiCode = "#9C0A08";
   }
 
-  setAqiLevel({aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode})
+  setAqiLevel({ aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode });
 
   setAqiColorParameter(aqiColor, aqiColor);
 
