@@ -46,6 +46,7 @@
   width: 350px;
   height: 350px;
   margin-bottom: 100px;
+  cursor: pointer;
 }
 .atrisk_div {
   width: 420px;
@@ -266,6 +267,11 @@
 
 .color__lines {
   width: 40px;
+}
+
+.location__wrapper__airQuality {
+  top: 8%;
+  right: 10%;
 }
 
 .color__subtitle {

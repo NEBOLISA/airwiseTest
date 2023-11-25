@@ -290,9 +290,10 @@ const AirQualityChart = () => {
               responsive: true,
               maintainAspectRatio: true,
               borderColor: "#1D1127",
-              hoverBackgroundColor: "#1D1127",
+              hoverBackgroundColor: "red",
+              hoverBorderColor: "white",
               borderWidth: 2,
-
+              clip: false,
               borderRadius: 15,
               spacing: 10,
               weight: 5,
@@ -420,6 +421,12 @@ const AirQualityChart = () => {
           className="chart__airQuality--leftBox"
           style={{ flex: 1, padding: "20px 30px" }}
         >
+           <div className="location__wrapper location__wrapper__airQuality">
+        <div className="location">
+          <img className="location__icon" src={location} alt="location" />
+          <p className="location__text truncate">{locationInformation}</p>
+        </div>
+      </div>
           <div className="pollutant__wrapper">
             <div className="pollutant__box--wrapper">
               <p>Pollutants</p>
