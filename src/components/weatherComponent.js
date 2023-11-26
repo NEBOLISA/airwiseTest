@@ -27,6 +27,7 @@ import location from "../assets/images/location.svg";
 import danger from "../assets/images/recommenWeather/danger.svg";
 import arrow from "../assets/images/recommenWeather/arrow.svg";
 import downArrow from "../assets/images/recommenWeather/arrow_down.svg";
+import arrowMid from '../assets/images/recommenWeather/arrow-mid.svg'
 import info from "../assets/images/recommenWeather/info.svg";
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ApiContext";
@@ -157,7 +158,7 @@ function WeatherComponent() {
   ) {
     arrowWeather = downArrow;
   } else {
-    arrowWeather = downArrow;
+    arrowWeather = arrowMid;
   }
 
   let weatherTopBoxStatus;
@@ -485,7 +486,6 @@ function WeatherComponent() {
       </div>
       <div className="air__box">
         <p className="air__title">Air Quality Index</p>
-        <img className="info__icon" src={info} alt="info icon" />
         <div className="air__box--wrapper">
           <p style={{ color: `${aqiCode}` }} className="air__box--title">
             {aqiLevel}
