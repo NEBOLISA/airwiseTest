@@ -164,8 +164,6 @@ function WeatherComponent() {
   let weatherTopBoxStatus;
   let weatherCondition = weatherInformation?.list[0].weather[0].description;
 
-  console.log(weatherInformation?.list[0].weather[0].icon[2]);
-
   if (
     weatherCondition === "clear sky" &&
     weatherInformation?.list[0].weather[0].icon[2] === "n"

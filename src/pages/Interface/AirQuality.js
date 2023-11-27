@@ -12,7 +12,13 @@ const AirQuality = () => {
 
   return (
     <div className="airQuality--wrapper" style={{}}>
-      <div className="chart_airQuality--wrapper">
+      <div
+        className="chart_airQuality--wrapper"
+        data-aos="fade-left"
+        data-aos-delay="200"
+        data-aos-duration="500"
+        data-aos-once="true"
+      >
         <AirQualityChart
           className="chart_airQuality"
           style={{}}
