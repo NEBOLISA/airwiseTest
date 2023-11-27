@@ -1,0 +1,97 @@
+.settings__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+
+.InterfaceSettings--title {
+  background-color: #1e1327;
+  width: 258px;
+  height: 68px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  justify-content: start;
+  padding-left: 20px;
+  align-items: center;
+  font-family: "DM Sans";
+  margin: 5px;
+}
+
+.InterfaceSettings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.InterfaceSettings--subtitles {
+  background-color: #1c072d;
+  font-family: "DM Sans";
+  width: 364px;
+  height: 68px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.interfaceText__btn {
+  background-color: #1e1327;
+  width: 258px;
+  height: 68px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: start;
+  padding-left: 20px;
+  align-items: center;
+  font-family: "DM Sans";
+}
+
+.interfaceText__btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.InterfaceSettings--subtitles p {
+    font-size: 18px;
+}
+
+.InterfaceSettings--subtitles--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px
+}
+
+.InterfaceSettings--subtitles--wrapper img {
+    width: 20px;
+}
+
+.interfaceBox {
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background-color: #868689;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.interfaceBox:hover {
+    background-color: #737375;
+}
+
+.interfaceBox__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px
+}
+
+.interfaceBoxSelected {
+    background-color: #562eff;
+}

@@ -27,7 +27,7 @@ import location from "../assets/images/location.svg";
 import danger from "../assets/images/recommenWeather/danger.svg";
 import arrow from "../assets/images/recommenWeather/arrow.svg";
 import downArrow from "../assets/images/recommenWeather/arrow_down.svg";
-import arrowMid from '../assets/images/recommenWeather/arrow-mid.svg'
+import arrowMid from "../assets/images/recommenWeather/arrow-mid.svg";
 import info from "../assets/images/recommenWeather/info.svg";
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ApiContext";
@@ -49,7 +49,9 @@ const API_key = "79cb096b547bbcc6543bf0b737909f6f"; //API key used for all API's
 function WeatherComponent() {
   const [weatherInformation, setWeatherInformation] = useState(null);
   const [latitude, setLatitude] = useState("");
-  const [nowWeather, setNowWeather] = useState(null)
+  const [temperatureScale, setTemperatureScale] = useState(null)
+  const [feelsScale, setFeelsScale] = useState(null)
+  const [nowWeather, setNowWeather] = useState(null);
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
   const [locationData, setLocationData] = useState(null);
@@ -59,6 +61,7 @@ function WeatherComponent() {
     setAirPollutionConcentration,
     setAqiLevel,
     setLocationInformation,
+    scaleSelection,
   } = useContext(ApiContext);
 
   useEffect(() => {
@@ -71,6 +74,16 @@ function WeatherComponent() {
   }, [latitude, longitude]);
 
   useEffect(() => {
+    if(scaleSelection === 'celsius') {
+      setTemperatureScale(Math.floor(nowWeather?.main.temp - 273.15))
+      setFeelsScale(Math.floor(nowWeather?.main.feels_like - 273.15))
+    } else if (scaleSelection === 'fahrenheit') {
+      setTemperatureScale(Math.floor( ( (9 / 5) * nowWeather?.main.temp ) - 459.67 ) )
+      setFeelsScale(Math.floor( ( (9 / 5) * nowWeather?.main.feels_like ) - 459.67 ) )
+    }
+  }, [scaleSelection, nowWeather])
+
+  useEffect(() => {
     if (latitude && longitude) {
       axios
         .get(
@@ -79,7 +92,7 @@ function WeatherComponent() {
         .then((response) => {
           if (response) {
             setLocationData(response?.data.name);
-            setNowWeather(response.data)
+            setNowWeather(response.data);
           }
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
@@ -132,6 +145,7 @@ function WeatherComponent() {
         });
     }
   }, [latitude, longitude]);
+
   if (!longitude && !latitude) {
     return (
       <div
@@ -147,17 +161,14 @@ function WeatherComponent() {
     );
   }
 
+
+
+
   let arrowWeather;
 
-  if (
-    nowWeather?.main.feels_like >
-    nowWeather?.main.temp
-  ) {
+  if (nowWeather?.main.feels_like > nowWeather?.main.temp) {
     arrowWeather = arrow;
-  } else if (
-    nowWeather?.main.feels_like <
-    nowWeather?.main.temp
-  ) {
+  } else if (nowWeather?.main.feels_like < nowWeather?.main.temp) {
     arrowWeather = downArrow;
   } else {
     arrowWeather = arrowMid;
@@ -211,7 +222,12 @@ function WeatherComponent() {
   } else if (weatherCondition === "light rain") {
     weatherTopBoxStatus = LightRain;
   } else if (weatherCondition === "heavy intensity rain") {
-    weatherTopBoxStatus = LightRain
+    weatherTopBoxStatus = LightRain;
+  } else if (weatherCondition === "thunderstorm with rain") {
+    weatherTopBoxStatus = ScaterredClouds;
+    weatherCondition = "thunderstorm rain";
+  } else {
+    weatherTopBoxStatus = ScaterredClouds;
   }
 
   const windSpeed = nowWeather?.wind.speed;
@@ -344,15 +360,10 @@ function WeatherComponent() {
           />
           <div className="weather__header--right">
             <p className="weather__number">
-              {nowWeather
-                ? Math.floor(nowWeather.main.temp - 273.15)
-                : ""}
-              °
+              {temperatureScale}°
             </p>
             <p className="weather__subtitle">
-              {nowWeather
-                ? nowWeather?.weather[0].description
-                : ""}
+              {nowWeather ? nowWeather?.weather[0].description : ""}
             </p>
           </div>
         </div>
@@ -367,10 +378,8 @@ function WeatherComponent() {
                 alt="arrow"
               />
               <p>
-                {Math.floor(
-                  nowWeather?.main.feels_like - 273.15
-                )}
-                <b>°C</b>
+                {feelsScale}
+                <b>°{scaleSelection === 'celsius' ? 'C' : 'F'}</b>
               </p>
             </div>
           </div>
@@ -403,14 +412,11 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {nowWeather
-                ? Math.floor(nowWeather?.main.temp - 273.15)
-                : ""}
-              °
+              {temperatureScale}°
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[0].main.feels_like - 273.15)}
+              {feelsScale}
               °
             </p>
           </div>
@@ -422,14 +428,15 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[1].main.temp - 273.15)
-                : ""}
-              °
+              {scaleSelection === 'celsius'
+                ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
+                : Math.floor(((9 / 5) * weatherInformation?.list[0].main.temp) - 459.67)}°
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[2].main.temp - 273.15)}°
+            {scaleSelection === 'celsius'
+                ? Math.floor(weatherInformation?.list[0].main.feels_like - 273.15)
+                : Math.floor(((9 / 5) * weatherInformation?.list[0].main.feels_like) - 459.67)}°
             </p>
           </div>
           <div className="dates__header--wrapper">
@@ -440,14 +447,16 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[2].main.temp - 273.15)
-                : ""}
+            {scaleSelection === 'celsius'
+                ? Math.floor(weatherInformation?.list[1].main.temp - 273.15)
+                : Math.floor(((9 / 5) * weatherInformation?.list[1].main.temp) - 459.67)}
               °
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[3].main.temp - 273.15)}°
+            {scaleSelection === 'celsius'
+                ? Math.floor(weatherInformation?.list[1].main.feels_like - 273.15)
+                : Math.floor(((9 / 5) * weatherInformation?.list[1].main.feels_like) - 459.67)}°
             </p>
           </div>
           <div className="dates__header--wrapper">
@@ -458,14 +467,16 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[3].main.temp - 273.15)
-                : ""}
+            {scaleSelection === 'celsius'
+                ? Math.floor(weatherInformation?.list[2].main.temp - 273.15)
+                : Math.floor(((9 / 5) * weatherInformation?.list[2].main.temp) - 459.67)}
               °
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[4].main.temp - 273.15)}°
+            {scaleSelection === 'celsius'
+                ? Math.floor(weatherInformation?.list[2].main.feels_like - 273.15)
+                : Math.floor(((9 / 5) * weatherInformation?.list[2].main.feels_like) - 459.67)}°
             </p>
           </div>
           <div className="dates__header--wrapper">
@@ -476,14 +487,16 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[4].main.temp - 273.15)
-                : ""}
+            {scaleSelection === 'celsius'
+                ? Math.floor(weatherInformation?.list[3].main.temp - 273.15)
+                : Math.floor(((9 / 5) * weatherInformation?.list[3].main.temp) - 459.67)}
               °
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[1].main.temp - 273.15)}°
+            {scaleSelection === 'celsius'
+                ? Math.floor(weatherInformation?.list[3].main.feels_like - 273.15)
+                : Math.floor(((9 / 5) * weatherInformation?.list[3].main.feels_like) - 459.67)}°
             </p>
           </div>
         </div>
