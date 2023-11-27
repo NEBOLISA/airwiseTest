@@ -31,6 +31,7 @@ import info from "../assets/images/recommenWeather/info.svg";
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ApiContext";
 import axios from "axios";
+import arrowMid from "../assets/images/recommenWeather/arrow-mid.svg";
 import CircularProgress from "@mui/joy/CircularProgress";
 import green from "../assets/images/green_bar.svg";
 import yellow from "../assets/images/yellow_bar.svg";
@@ -49,6 +50,9 @@ function WeatherComponent() {
   const [weatherInformation, setWeatherInformation] = useState(null);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  const [temperatureScale, setTemperatureScale] = useState(null);
+  const [feelsScale, setFeelsScale] = useState(null);
+  const [nowWeather, setNowWeather] = useState(null);
   const [airPollutionData, setAirPollutionData] = useState(null);
   const [locationData, setLocationData] = useState(null);
   const {
@@ -56,6 +60,7 @@ function WeatherComponent() {
     setAqiColorParameter,
     setAirPollutionConcentration,
     setAqiLevel,
+    scaleSelection,
     setLocationInformation,
   } = useContext(ApiContext);
 
@@ -67,6 +72,15 @@ function WeatherComponent() {
       });
     }
   }, [latitude, longitude]);
+  useEffect(() => {
+    if (scaleSelection === "celsius") {
+      setTemperatureScale(Math.floor(nowWeather?.main.temp - 273.15));
+      setFeelsScale(Math.floor(nowWeather?.main.feels_like - 273.15));
+    } else if (scaleSelection === "fahrenheit") {
+      setTemperatureScale(Math.floor((9 / 5) * nowWeather?.main.temp - 459.67));
+      setFeelsScale(Math.floor((9 / 5) * nowWeather?.main.feels_like - 459.67));
+    }
+  }, [scaleSelection, nowWeather]);
 
   useEffect(() => {
     if (latitude && longitude) {
@@ -77,6 +91,7 @@ function WeatherComponent() {
         .then((response) => {
           if (response) {
             setLocationData(response?.data.name);
+            setNowWeather(response.data);
           }
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
