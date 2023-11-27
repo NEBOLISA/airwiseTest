@@ -241,19 +241,19 @@ const AirQualityChart = () => {
   } else if (aqiLevel.aqiLevelStatus === "Good") {
     topSubtitle =
       "Air quality is within acceptable levels, and the presence of air pollution carries minimal to no discernible risk.";
-    atRisk = "Sensitive Groups";
+    atRisk = "Vulnerables";
     sensitiveGroups = sensitiveIn;
   } else if (aqiLevel.aqiLevelStatus === "Moderate") {
     topSubtitle =
       "The current air quality falls within the moderate range, indicating a subtle level of risk associated with air pollution.";
-    atRisk = "Sensitive Groups, seniors, outdoor workers ";
+    atRisk = "Vulnerables, seniors, fieldworkers ";
     sensitiveGroups = sensitiveIn;
     seniors = seniorsIn;
     outdoorWorkers = outdoorWIn;
   } else if (aqiLevel.aqiLevelStatus === "Poor") {
     topSubtitle =
       "The current air quality is assessed as poor, indicating a significant and notable risk emanating from air pollution.";
-    atRisk = "Sensitive Groups, seniors, outdoor workers, children, pregnant";
+    atRisk = "Vulnerables, seniors, fieldworkers, children, pregnant";
     sensitiveGroups = sensitiveIn;
     seniors = seniorsIn;
     outdoorWorkers = outdoorWIn;
@@ -263,7 +263,7 @@ const AirQualityChart = () => {
     topSubtitle =
       "The air quality is characterized as very poor, signifying a substantial and noteworthy risk arising from air pollution.";
     atRisk =
-      "Sensitive Groups, seniors, outdoor workers, children, pregnant, adults";
+      "Vulnerables, seniors, fieldworkers, children, pregnant, adults";
     sensitiveGroups = sensitiveIn;
     seniors = seniorsIn;
     outdoorWorkers = outdoorWIn;
@@ -393,7 +393,7 @@ const AirQualityChart = () => {
           </p>
           <p className="top__airQuality--subtitle">{topSubtitle}</p>
           <p className="top__airQuality--risk">
-            At risk - <p className="atRisk">{atRisk}</p>
+            At risk - <p className="atRisk air__box--title" style={{fontWeight: 'initial', fontSize: '24px', padding: 'initial', margin: '24px 0px'}}>{atRisk}</p>
           </p>
         </div>
         <div className="atrisk_div">
@@ -403,11 +403,11 @@ const AirQualityChart = () => {
           </div>
           <div className="atrisk__wrapper">
             <img src={sensitiveGroups} alt="" />
-            <p className="atrisk__text">Sentitive Groups</p>
+            <p className="atrisk__text">Vulnerables</p>
           </div>
           <div className="atrisk__wrapper">
             <img src={outdoorWorkers} alt="" />
-            <p className="atrisk__text">Outdoors</p>
+            <p className="atrisk__text">Fieldworkers</p>
           </div>
           <div className="atrisk__wrapper">
             <img src={adults} alt="" />
@@ -415,7 +415,7 @@ const AirQualityChart = () => {
           </div>
           <div className="atrisk__wrapper">
             <img src={children} alt="" />
-            <p className="atrisk__text">Childrens</p>
+            <p className="atrisk__text">Children</p>
           </div>
           <div className="atrisk__wrapper">
             <img src={pregnant} alt="" />

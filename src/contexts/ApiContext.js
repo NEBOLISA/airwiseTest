@@ -14,7 +14,8 @@ const ApiProvider = ({ children }) => {
   });
   const [airPollutionConcentration, setAirPollutionConcentration] = useState();
   const [aqiLevel, setAqiLevel] = useState({aqiLevelStatus: '', aqiCodeStatus: ''})
-  const [locationInformation, setLocationInformation] = useState()
+  const [locationInformation, setLocationInformation] = useState();
+  const [scaleSelection, setScaleSelection] = useState('celsius');
 
   return (
     <ApiContext.Provider
@@ -34,7 +35,9 @@ const ApiProvider = ({ children }) => {
         aqiLevel, 
         setAqiLevel,
         locationInformation,
-        setLocationInformation
+        setLocationInformation,
+        scaleSelection,
+        setScaleSelection
       }}
     >
       {children}
