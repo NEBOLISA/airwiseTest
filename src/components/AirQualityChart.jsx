@@ -22,9 +22,16 @@ import sensitiveIn from "../assets/groups/sensitive.svg";
 import sensitiveUn from "../assets/groups/sensitive-un.svg";
 
 const AirQualityChart = () => {
-  const [selectedData, setSelectedData] = useState(Math.floor(Math.random() * 4));
-  const { airPollutionConcentration, aqiLevel, locationInformation } =
-    useContext(ApiContext);
+  const [selectedData, setSelectedData] = useState(
+    Math.floor(Math.random() * 4)
+  );
+  // const { airPollutionConcentration, aqiLevel, locationInformation } =
+  //   useContext(ApiContext);
+  const airPollutionConcentration = JSON.parse(
+    localStorage.getItem("airpollutiondata")
+  );
+  const aqiLevel = JSON.parse(localStorage.getItem("aqilevel"));
+  const locationInformation = localStorage.getItem("locationInformation");
   const [components, setComponents] = useState(null);
   const [totalComponents, setTotalComponents] = useState(null);
   const [co, setCo] = useState(null);
@@ -41,11 +48,9 @@ const AirQualityChart = () => {
     }
   };
 
-  console.log(selectedData)
-
-  useEffect(() => {
-    setComponents(airPollutionConcentration?.list[0].components);
-  }, [airPollutionConcentration]);
+  // useEffect(() => {
+  //   setComponents(airPollutionConcentration?.list[0].components);
+  // }, [airPollutionConcentration]);
 
   useEffect(() => {
     if (airPollutionConcentration?.list[0].components.co) {
@@ -79,7 +84,7 @@ const AirQualityChart = () => {
           100
       );
     }
-  }, [components]);
+  }, [airPollutionConcentration]);
 
   const data = {
     labels: ["NO2", "O3", "PM2.5", "PM10", "SO2"],
@@ -421,12 +426,12 @@ const AirQualityChart = () => {
           className="chart__airQuality--leftBox"
           style={{ flex: 1, padding: "20px 30px" }}
         >
-           <div className="location__wrapper location__wrapper__airQuality">
-        <div className="location">
-          <img className="location__icon" src={location} alt="location" />
-          <p className="location__text truncate">{locationInformation}</p>
-        </div>
-      </div>
+          <div className="location__wrapper location__wrapper__airQuality">
+            <div className="location">
+              <img className="location__icon" src={location} alt="location" />
+              <p className="location__text truncate">{locationInformation}</p>
+            </div>
+          </div>
           <div className="pollutant__wrapper">
             <div className="pollutant__box--wrapper">
               <p>Pollutants</p>

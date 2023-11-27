@@ -4,13 +4,16 @@ import settings from "../assets/images/settings.svg";
 import home from "../assets/images/home.svg";
 import questionIcon from "../assets/images/q&a.svg";
 import qualityIcon from "../assets/images/airquality.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 function Sidebar() {
-  const [activeItem, setActiveItem] = useState(0);
+  const [activeItem, setActiveItem] = useState(
+    parseInt(localStorage.getItem("clickedSidebarTabIndex")) || 0
+  );
 
   const handleItemClick = (index) => {
     setActiveItem(index);
+    localStorage.setItem("clickedSidebarTabIndex", index);
   };
 
   const items = ["Home", "Air Quality", "Settings", "Q&A"];

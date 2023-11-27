@@ -93,6 +93,10 @@ function WeatherComponent() {
               if (airPollutionResponse) {
                 setAirPollutionData(airPollutionResponse?.data);
                 setAirPollutionConcentration(airPollutionResponse?.data);
+                localStorage.setItem(
+                  "airpollutiondata",
+                  JSON.stringify(airPollutionResponse?.data)
+                );
               }
 
               // Print air pollution data to the console
@@ -256,6 +260,8 @@ function WeatherComponent() {
   }
 
   setLocationInformation(locationData);
+  localStorage.setItem("locationInformation", locationData);
+  localStorage.setItem("weatherAlgorithm", weatherAlgorithm);
 
   setWeatherAlgorithm(weatherAlgorithm);
 
@@ -287,6 +293,11 @@ function WeatherComponent() {
   }
 
   setAqiLevel({ aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode });
+  localStorage.setItem(
+    "aqilevel",
+    JSON.stringify({ aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode })
+  );
+  localStorage.setItem("aqicolorparameter", aqiColor);
 
   setAqiColorParameter(aqiColor, aqiColor);
 
