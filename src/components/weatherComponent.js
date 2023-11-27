@@ -49,6 +49,7 @@ const API_key = "79cb096b547bbcc6543bf0b737909f6f"; //API key used for all API's
 function WeatherComponent() {
   const [weatherInformation, setWeatherInformation] = useState(null);
   const [latitude, setLatitude] = useState("");
+  const [nowWeather, setNowWeather] = useState(null)
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
   const [locationData, setLocationData] = useState(null);
@@ -78,6 +79,7 @@ function WeatherComponent() {
         .then((response) => {
           if (response) {
             setLocationData(response?.data.name);
+            setNowWeather(response.data)
           }
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
@@ -148,13 +150,13 @@ function WeatherComponent() {
   let arrowWeather;
 
   if (
-    weatherInformation?.list[0].main.feels_like >
-    weatherInformation?.list[0].main.temp
+    nowWeather?.main.feels_like >
+    nowWeather?.main.temp
   ) {
     arrowWeather = arrow;
   } else if (
-    weatherInformation?.list[0].main.feels_like <
-    weatherInformation?.list[0].main.temp
+    nowWeather?.main.feels_like <
+    nowWeather?.main.temp
   ) {
     arrowWeather = downArrow;
   } else {
@@ -162,26 +164,26 @@ function WeatherComponent() {
   }
 
   let weatherTopBoxStatus;
-  let weatherCondition = weatherInformation?.list[0].weather[0].description;
+  let weatherCondition = nowWeather?.weather[0].description;
 
   if (
     weatherCondition === "clear sky" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "d"
+    nowWeather?.weather[0].icon[2] === "n"
   ) {
     weatherTopBoxStatus = clearN;
   } else if (
     weatherCondition === "clear sky" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "n"
+    nowWeather?.weather[0].icon[2] === "d"
   ) {
     weatherTopBoxStatus = clearD;
   } else if (
     weatherCondition === "few clouds" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "d"
+    nowWeather?.weather[0].icon[2] === "n"
   ) {
     weatherTopBoxStatus = fewCloudsN;
   } else if (
     weatherCondition === "few clouds" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "n"
+    nowWeather?.weather[0].icon[2] === "d"
   ) {
     weatherTopBoxStatus = fewCloudsD;
   } else if (weatherCondition === "scattered clouds") {
@@ -192,12 +194,12 @@ function WeatherComponent() {
     weatherTopBoxStatus = ShowerRain;
   } else if (
     weatherCondition === "rain" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "d"
+    nowWeather?.weather[0].icon[2] === "n"
   ) {
     weatherTopBoxStatus = RainN;
   } else if (
     weatherCondition === "rain" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "n"
+    nowWeather?.weather[0].icon[2] === "d"
   ) {
     weatherTopBoxStatus = RainD;
   } else if (weatherCondition === "thunderstorm") {
@@ -208,9 +210,11 @@ function WeatherComponent() {
     weatherTopBoxStatus = Mist;
   } else if (weatherCondition === "light rain") {
     weatherTopBoxStatus = LightRain;
+  } else if (weatherCondition === "heavy intensity rain") {
+    weatherTopBoxStatus = LightRain
   }
 
-  const windSpeed = weatherInformation?.list[0].wind.speed;
+  const windSpeed = nowWeather?.wind.speed;
   let windCategory;
   let weatherAlgorithm;
 
@@ -340,14 +344,14 @@ function WeatherComponent() {
           />
           <div className="weather__header--right">
             <p className="weather__number">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
+              {nowWeather
+                ? Math.floor(nowWeather.main.temp - 273.15)
                 : ""}
               °
             </p>
             <p className="weather__subtitle">
-              {weatherInformation
-                ? weatherInformation?.list[0].weather[0].description
+              {nowWeather
+                ? nowWeather?.weather[0].description
                 : ""}
             </p>
           </div>
@@ -364,7 +368,7 @@ function WeatherComponent() {
               />
               <p>
                 {Math.floor(
-                  weatherInformation?.list[0].main.feels_like - 273.15
+                  nowWeather?.main.feels_like - 273.15
                 )}
                 <b>°C</b>
               </p>
@@ -382,7 +386,7 @@ function WeatherComponent() {
             <p className="weather__info__title">humidity</p>
             <div className="weather__info--subtitle">
               {/* <img className="weather__info--arrow" src={arrow} alt="arrow" /> */}
-              <p>{weatherInformation?.list[0].main.humidity}%</p>
+              <p>{nowWeather?.main.humidity}%</p>
             </div>
           </div>
         </div>
@@ -399,8 +403,8 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
+              {nowWeather
+                ? Math.floor(nowWeather?.main.temp - 273.15)
                 : ""}
               °
             </p>
