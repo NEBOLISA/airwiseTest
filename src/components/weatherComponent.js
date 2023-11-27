@@ -51,7 +51,13 @@ function WeatherComponent() {
   const [longitude, setLongitude] = useState("");
   const [airPollutionData, setAirPollutionData] = useState(null);
   const [locationData, setLocationData] = useState(null);
-  const { setWeatherAlgorithm, setAqiColorParameter, setAirPollutionConcentration, setAqiLevel, setLocationInformation } = useContext(ApiContext);
+  const {
+    setWeatherAlgorithm,
+    setAqiColorParameter,
+    setAirPollutionConcentration,
+    setAqiLevel,
+    setLocationInformation,
+  } = useContext(ApiContext);
 
   useEffect(() => {
     if (!latitude && !longitude) {
@@ -75,8 +81,8 @@ function WeatherComponent() {
           const receivedLatitude = response.data.coord.lat;
           const receivedLongitude = response.data.coord.lon;
 
-          console.log("API Location");
-          console.log(response?.data);
+          // console.log("API Location");
+          // console.log(response?.data);
 
           // Fetch air pollution data using the retrieved latitude and longitude
           axios
@@ -86,12 +92,12 @@ function WeatherComponent() {
             .then((airPollutionResponse) => {
               if (airPollutionResponse) {
                 setAirPollutionData(airPollutionResponse?.data);
-                setAirPollutionConcentration(airPollutionResponse?.data)
+                setAirPollutionConcentration(airPollutionResponse?.data);
               }
 
               // Print air pollution data to the console
-              console.log("Air Pollution Data:");
-              console.log(airPollutionResponse.data);
+              // console.log("Air Pollution Data:");
+              // console.log(airPollutionResponse.data);
             })
             .catch((airPollutionError) => {
               console.error(
@@ -110,8 +116,8 @@ function WeatherComponent() {
               }
 
               // Print forecast data to the console
-              console.log("Weather Forecast Data:");
-              console.log(forecastResponse?.data);
+              // console.log("Weather Forecast Data:");
+              // console.log(forecastResponse?.data);
             })
             .catch((forecastError) => {
               console.error(
@@ -251,7 +257,7 @@ function WeatherComponent() {
     weatherAlgorithm = 60;
   }
 
-  setLocationInformation(locationData)
+  setLocationInformation(locationData);
 
   setWeatherAlgorithm(weatherAlgorithm);
 
@@ -282,7 +288,7 @@ function WeatherComponent() {
     aqiCode = "#9C0A08";
   }
 
-  setAqiLevel({aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode})
+  setAqiLevel({ aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode });
 
   setAqiColorParameter(aqiColor, aqiColor);
 
