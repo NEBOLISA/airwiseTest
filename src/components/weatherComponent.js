@@ -27,11 +27,11 @@ import location from "../assets/images/location.svg";
 import danger from "../assets/images/recommenWeather/danger.svg";
 import arrow from "../assets/images/recommenWeather/arrow.svg";
 import downArrow from "../assets/images/recommenWeather/arrow_down.svg";
+import arrowMid from "../assets/images/recommenWeather/arrow-mid.svg";
 import info from "../assets/images/recommenWeather/info.svg";
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ApiContext";
-import axios from "axios";
-import arrowMid from "../assets/images/recommenWeather/arrow-mid.svg";
+// import axios from "axios";
 import CircularProgress from "@mui/joy/CircularProgress";
 import green from "../assets/images/green_bar.svg";
 import yellow from "../assets/images/yellow_bar.svg";
@@ -39,39 +39,56 @@ import orange from "../assets/images/orange_bar.svg";
 import red from "../assets/images/red_bar.svg";
 import darkred from "../assets/images/darkred_bar.svg";
 
-const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
-const API_pollution_endpoint =
-  "https://api.openweathermap.org/data/2.5/air_pollution?"; // Air pollution API endpoint
-const API_forecast_endpoint =
-  "https://api.openweathermap.org/data/2.5/forecast?"; // Forecast API endpoint
-const API_key = "79cb096b547bbcc6543bf0b737909f6f"; //API key used for all API's from openweathermap
+// const API_weather_endpoint = "https://api.openweathermap.org/data/2.5/weather?"; // Weather API endpoint
+// const API_pollution_endpoint =
+//   "https://api.openweathermap.org/data/2.5/air_pollution?"; // Air pollution API endpoint
+// const API_forecast_endpoint =
+//   "https://api.openweathermap.org/data/2.5/forecast?"; // Forecast API endpoint
+// const API_key = "79cb096b547bbcc6543bf0b737909f6f"; //API key used for all API's from openweathermap
 
 function WeatherComponent() {
-  const [weatherInformation, setWeatherInformation] = useState(null);
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  // {
+  //   // nowWeather,
+  //   // locationData,
+  //   // airPollutionData,
+  //   // weatherInformation,
+  // }
+  // const [weatherInformation, setWeatherInformation] = useState(null);
+  //const [isLoading, setIsLoading] = useState(false);
+  //const [latitude, setLatitude] = useState("");
   const [temperatureScale, setTemperatureScale] = useState(null);
   const [feelsScale, setFeelsScale] = useState(null);
-  const [nowWeather, setNowWeather] = useState(null);
-  const [airPollutionData, setAirPollutionData] = useState(null);
-  const [locationData, setLocationData] = useState(null);
+  // const [nowWeather, setNowWeather] = useState(null);
+  //const [longitude, setLongitude] = useState("");
+  // const [airPollutionData, setAirPollutionData] = useState(null);
+  // const [locationData, setLocationData] = useState(null);
+  const nowWeather = JSON.parse(localStorage.getItem("nowWeather"));
+  const locationData = localStorage.getItem("locationData");
+  const airPollutionData = JSON.parse(localStorage.getItem("airpollutiondata"));
+  const weatherInformation = JSON.parse(
+    localStorage.getItem("weatherInformation")
+  );
+
   const {
     setWeatherAlgorithm,
     setAqiColorParameter,
     setAirPollutionConcentration,
     setAqiLevel,
-    scaleSelection,
     setLocationInformation,
+    setIsLoading,
+    isLoading,
+    scaleSelection,
   } = useContext(ApiContext);
 
-  useEffect(() => {
-    if (!latitude && !longitude) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-      });
-    }
-  }, [latitude, longitude]);
+  // useEffect(() => {
+  //   if (!latitude && !longitude) {
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       setLatitude(position.coords.latitude);
+  //       setLongitude(position.coords.longitude);
+  //     });
+  //   }
+  // }, [latitude, longitude]);
+
   useEffect(() => {
     if (scaleSelection === "celsius") {
       setTemperatureScale(Math.floor(nowWeather?.main.temp - 273.15));
@@ -82,125 +99,133 @@ function WeatherComponent() {
     }
   }, [scaleSelection, nowWeather]);
 
-  useEffect(() => {
-    if (latitude && longitude) {
-      axios
-        .get(
-          `${API_weather_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`
-        )
-        .then((response) => {
-          if (response) {
-            setLocationData(response?.data.name);
-            setNowWeather(response.data);
-          }
-          const receivedLatitude = response.data.coord.lat;
-          const receivedLongitude = response.data.coord.lon;
+  // useEffect(() => {
+  //   if (latitude && longitude) {
+  //     axios
+  //       .get(
+  //         `${API_weather_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`
+  //       )
+  //       .then((response) => {
+  //         if (response) {
+  //           setLocationData(response?.data.name);
+  //           setNowWeather(response.data);
+  //           localStorage.setItem(
+  //             "locationData",
+  //             response?.data.name
+  //           );
+  //            localStorage.setItem(
+  //              "nowWeather",
+  //              JSON.stringify(response?.data)
+  //            );
+  //         }
+  //         const receivedLatitude = response.data.coord.lat;
+  //         const receivedLongitude = response.data.coord.lon;
+  //         console.log("API Location");
+  //         console.log(response?.data);
 
-          // console.log("API Location");
-          // console.log(response?.data);
+  //         // Fetch air pollution data using the retrieved latitude and longitude
+  //         axios
+  //           .get(
+  //             `${API_pollution_endpoint}lat=${receivedLatitude}&lon=${receivedLongitude}&appid=${API_key}`
+  //           )
+  //           .then((airPollutionResponse) => {
+  //             if (airPollutionResponse) {
+  //               setAirPollutionData(airPollutionResponse?.data);
+  //               setAirPollutionConcentration(airPollutionResponse?.data);
+  //               localStorage.setItem(
+  //                 "airpollutiondata",
+  //                 JSON.stringify(airPollutionResponse?.data)
+  //               );
+  //             }
 
-          // Fetch air pollution data using the retrieved latitude and longitude
-          axios
-            .get(
-              `${API_pollution_endpoint}lat=${receivedLatitude}&lon=${receivedLongitude}&appid=${API_key}`
-            )
-            .then((airPollutionResponse) => {
-              if (airPollutionResponse) {
-                setAirPollutionData(airPollutionResponse?.data);
-                setAirPollutionConcentration(airPollutionResponse?.data);
-                localStorage.setItem(
-                  "airpollutiondata",
-                  JSON.stringify(airPollutionResponse?.data)
-                );
-              }
+  //             // Print air pollution data to the console
+  //             console.log("Air Pollution Data:");
+  //             console.log(airPollutionResponse.data);
+  //           })
+  //           .catch((airPollutionError) => {
+  //             console.error(
+  //               "Error fetching air pollution data: " + airPollutionError
+  //             );
+  //             setIsLoading(false);
+  //           });
 
-              // Print air pollution data to the console
-              // console.log("Air Pollution Data:");
-              // console.log(airPollutionResponse.data);
-            })
-            .catch((airPollutionError) => {
-              console.error(
-                "Error fetching air pollution data: " + airPollutionError
-              );
-            });
+  //         // Fetch weather forecast data using the retrieved latitude and longitude
+  //         axios
+  //           .get(
+  //             `${API_forecast_endpoint}lat=${receivedLatitude}&lon=${receivedLongitude}&appid=${API_key}`
+  //           )
+  //           .then((forecastResponse) => {
+  //             if (forecastResponse) {
+  //               setWeatherInformation(forecastResponse?.data);
+  //               setIsLoading(false);
+  //             }
 
-          // Fetch weather forecast data using the retrieved latitude and longitude
-          axios
-            .get(
-              `${API_forecast_endpoint}lat=${receivedLatitude}&lon=${receivedLongitude}&appid=${API_key}`
-            )
-            .then((forecastResponse) => {
-              if (forecastResponse) {
-                setWeatherInformation(forecastResponse?.data);
-              }
+  //             // Print forecast data to the console
+  //             console.log("Weather Forecast Data:");
+  //             console.log(forecastResponse?.data);
+  //           })
+  //           .catch((forecastError) => {
+  //             console.error(
+  //               "Error fetching weather forecast data: " + forecastError
+  //             );
+  //           });
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error fetching weather data: " + error);
+  //         setIsLoading(false);
+  //       });
+  //   }
+  // }, [latitude, longitude]);
+  //console.log(isLoading);
+  // if (
 
-              // Print forecast data to the console
-              // console.log("Weather Forecast Data:");
-              // console.log(forecastResponse?.data);
-            })
-            .catch((forecastError) => {
-              console.error(
-                "Error fetching weather forecast data: " + forecastError
-              );
-            });
-        })
-        .catch((error) => {
-          console.error("Error fetching weather data: " + error);
-        });
-    }
-  }, [latitude, longitude]);
-  if (!longitude && !latitude) {
-    return (
-      <div
-        style={{
-          margin: "auto",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <CircularProgress variant="solid" />
-      </div>
-    );
-  }
+  //   !longitude && !latitude
+  //   ) {
+  //   return (
+  // <div
+  //   style={{
+  //     margin: "auto",
+  //     display: "flex",
+  //     justifyContent: "center",
+  //     alignItems: "center",
+  //   }}
+  // >
+  //   <CircularProgress variant="solid" />
+  // </div>
+  //   );
+  // }
 
   let arrowWeather;
 
-  if (
-    weatherInformation?.list[0].main.feels_like >
-    weatherInformation?.list[0].main.temp
-  ) {
+  if (nowWeather?.main.feels_like > nowWeather?.main.temp) {
     arrowWeather = arrow;
-  } else if (
-    weatherInformation?.list[0].main.feels_like <
-    weatherInformation?.list[0].main.temp
-  ) {
+  } else if (nowWeather?.main.feels_like < nowWeather?.main.temp) {
     arrowWeather = downArrow;
   } else {
-    arrowWeather = downArrow;
+    arrowWeather = arrowMid;
   }
 
   let weatherTopBoxStatus;
-  let weatherCondition = weatherInformation?.list[0].weather[0].description;
+  let weatherCondition = nowWeather?.weather[0].description;
 
   if (
     weatherCondition === "clear sky" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "n"
+    nowWeather?.weather[0].icon[2] === "n"
   ) {
     weatherTopBoxStatus = clearN;
   } else if (
     weatherCondition === "clear sky" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "d"
+    nowWeather?.weather[0].icon[2] === "d"
   ) {
     weatherTopBoxStatus = clearD;
   } else if (
     weatherCondition === "few clouds" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "n"
+    nowWeather?.weather[0].icon[2] === "n"
   ) {
     weatherTopBoxStatus = fewCloudsN;
   } else if (
     weatherCondition === "few clouds" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "d"
+    nowWeather?.weather[0].icon[2] === "d"
   ) {
     weatherTopBoxStatus = fewCloudsD;
   } else if (weatherCondition === "scattered clouds") {
@@ -211,12 +236,12 @@ function WeatherComponent() {
     weatherTopBoxStatus = ShowerRain;
   } else if (
     weatherCondition === "rain" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "n"
+    nowWeather?.weather[0].icon[2] === "n"
   ) {
     weatherTopBoxStatus = RainN;
   } else if (
     weatherCondition === "rain" &&
-    weatherInformation?.list[0].weather[0].icon[2] === "d"
+    nowWeather?.weather[0].icon[2] === "d"
   ) {
     weatherTopBoxStatus = RainD;
   } else if (weatherCondition === "thunderstorm") {
@@ -227,9 +252,16 @@ function WeatherComponent() {
     weatherTopBoxStatus = Mist;
   } else if (weatherCondition === "light rain") {
     weatherTopBoxStatus = LightRain;
+  } else if (weatherCondition === "heavy intensity rain") {
+    weatherTopBoxStatus = LightRain;
+  } else if (weatherCondition === "thunderstorm with rain") {
+    weatherTopBoxStatus = ScaterredClouds;
+    weatherCondition = "thunderstorm rain";
+  } else {
+    weatherTopBoxStatus = ScaterredClouds;
   }
 
-  const windSpeed = weatherInformation?.list[0].wind.speed;
+  const windSpeed = nowWeather?.wind.speed;
   let windCategory;
   let weatherAlgorithm;
 
@@ -274,11 +306,11 @@ function WeatherComponent() {
     weatherAlgorithm = 60;
   }
 
-  setLocationInformation(locationData);
-  localStorage.setItem("locationInformation", locationData);
+  //setLocationInformation(locationData);
+  // localStorage.setItem("locationInformation", locationData);
   localStorage.setItem("weatherAlgorithm", weatherAlgorithm);
 
-  setWeatherAlgorithm(weatherAlgorithm);
+  //setWeatherAlgorithm(weatherAlgorithm);
 
   const aqi = airPollutionData?.list[0].main.aqi;
   let aqiLevel;
@@ -307,14 +339,13 @@ function WeatherComponent() {
     aqiCode = "#9C0A08";
   }
 
-  setAqiLevel({ aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode });
+  //setAqiLevel({ aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode });
   localStorage.setItem(
     "aqilevel",
     JSON.stringify({ aqiLevelStatus: aqiLevel, aqiCodeStatus: aqiCode })
   );
   localStorage.setItem("aqicolorparameter", aqiColor);
-
-  setAqiColorParameter(aqiColor, aqiColor);
+  //setAqiColorParameter(aqiColor, aqiColor);
 
   function convertTo12HourFormat(hours) {
     let period = hours >= 12 ? "PM" : "AM";
@@ -366,15 +397,10 @@ function WeatherComponent() {
           />
           <div className="weather__header--right">
             <p className="weather__number">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
-                : ""}
-              °
+              {temperatureScale ? temperatureScale : ""}°
             </p>
             <p className="weather__subtitle">
-              {weatherInformation
-                ? weatherInformation?.list[0].weather[0].description
-                : ""}
+              {nowWeather ? nowWeather?.weather[0].description : ""}
             </p>
           </div>
         </div>
@@ -389,10 +415,8 @@ function WeatherComponent() {
                 alt="arrow"
               />
               <p>
-                {Math.floor(
-                  weatherInformation?.list[0].main.feels_like - 273.15
-                )}
-                <b>°C</b>
+                {feelsScale}
+                <b>°{scaleSelection === "celsius" ? "C" : "F"}</b>
               </p>
             </div>
           </div>
@@ -408,7 +432,7 @@ function WeatherComponent() {
             <p className="weather__info__title">humidity</p>
             <div className="weather__info--subtitle">
               {/* <img className="weather__info--arrow" src={arrow} alt="arrow" /> */}
-              <p>{weatherInformation?.list[0].main.humidity}%</p>
+              <p>{nowWeather?.main.humidity}%</p>
             </div>
           </div>
         </div>
@@ -424,17 +448,9 @@ function WeatherComponent() {
               src={sunny}
               alt="dates icon"
             />
-            <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
-                : ""}
-              °
-            </p>
+            <p className="dates__number--weather">{temperatureScale}°</p>
             <img src={feelsGray} alt="dates icon" />
-            <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[0].main.feels_like - 273.15)}
-              °
-            </p>
+            <p className="dates__number--weather feels__like">{feelsScale}°</p>
           </div>
           <div className="dates__header--wrapper">
             <p className="dates__header">{after3Hours}</p>
@@ -444,14 +460,24 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[1].main.temp - 273.15)
-                : ""}
+              {scaleSelection === "celsius"
+                ? Math.floor(weatherInformation?.list[0].main.temp - 273.15)
+                : Math.floor(
+                    (9 / 5) * weatherInformation?.list[0].main.temp - 459.67
+                  )}
               °
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[2].main.temp - 273.15)}°
+              {scaleSelection === "celsius"
+                ? Math.floor(
+                    weatherInformation?.list[0].main.feels_like - 273.15
+                  )
+                : Math.floor(
+                    (9 / 5) * weatherInformation?.list[0].main.feels_like -
+                      459.67
+                  )}
+              °
             </p>
           </div>
           <div className="dates__header--wrapper">
@@ -462,14 +488,24 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[2].main.temp - 273.15)
-                : ""}
+              {scaleSelection === "celsius"
+                ? Math.floor(weatherInformation?.list[1].main.temp - 273.15)
+                : Math.floor(
+                    (9 / 5) * weatherInformation?.list[1].main.temp - 459.67
+                  )}
               °
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[3].main.temp - 273.15)}°
+              {scaleSelection === "celsius"
+                ? Math.floor(
+                    weatherInformation?.list[1].main.feels_like - 273.15
+                  )
+                : Math.floor(
+                    (9 / 5) * weatherInformation?.list[1].main.feels_like -
+                      459.67
+                  )}
+              °
             </p>
           </div>
           <div className="dates__header--wrapper">
@@ -480,14 +516,24 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[3].main.temp - 273.15)
-                : ""}
+              {scaleSelection === "celsius"
+                ? Math.floor(weatherInformation?.list[2].main.temp - 273.15)
+                : Math.floor(
+                    (9 / 5) * weatherInformation?.list[2].main.temp - 459.67
+                  )}
               °
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[4].main.temp - 273.15)}°
+              {scaleSelection === "celsius"
+                ? Math.floor(
+                    weatherInformation?.list[2].main.feels_like - 273.15
+                  )
+                : Math.floor(
+                    (9 / 5) * weatherInformation?.list[2].main.feels_like -
+                      459.67
+                  )}
+              °
             </p>
           </div>
           <div className="dates__header--wrapper">
@@ -498,21 +544,30 @@ function WeatherComponent() {
               alt="dates icon"
             />
             <p className="dates__number--weather">
-              {weatherInformation
-                ? Math.floor(weatherInformation?.list[4].main.temp - 273.15)
-                : ""}
+              {scaleSelection === "celsius"
+                ? Math.floor(weatherInformation?.list[3].main.temp - 273.15)
+                : Math.floor(
+                    (9 / 5) * weatherInformation?.list[3].main.temp - 459.67
+                  )}
               °
             </p>
             <img src={feelsGray} alt="dates icon" />
             <p className="dates__number--weather feels__like">
-              {Math.floor(weatherInformation?.list[1].main.temp - 273.15)}°
+              {scaleSelection === "celsius"
+                ? Math.floor(
+                    weatherInformation?.list[3].main.feels_like - 273.15
+                  )
+                : Math.floor(
+                    (9 / 5) * weatherInformation?.list[3].main.feels_like -
+                      459.67
+                  )}
+              °
             </p>
           </div>
         </div>
       </div>
       <div className="air__box">
         <p className="air__title">Air Quality Index</p>
-        <img className="info__icon" src={info} alt="info icon" />
         <div className="air__box--wrapper">
           <p style={{ color: `${aqiCode}` }} className="air__box--title">
             {aqiLevel}

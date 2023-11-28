@@ -13,9 +13,15 @@ const ApiProvider = ({ children }) => {
     heartRate: "",
   });
   const [airPollutionConcentration, setAirPollutionConcentration] = useState();
-  const [aqiLevel, setAqiLevel] = useState({aqiLevelStatus: '', aqiCodeStatus: ''})
+  const [aqiLevel, setAqiLevel] = useState({
+    aqiLevelStatus: "",
+    aqiCodeStatus: "",
+  });
   const [locationInformation, setLocationInformation] = useState();
-  const [scaleSelection, setScaleSelection] = useState('celsius');
+  const [scaleSelection, setScaleSelection] = useState(
+    localStorage.getItem("scaleSelection") || "celsius"
+  );
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <ApiContext.Provider
@@ -32,12 +38,14 @@ const ApiProvider = ({ children }) => {
         setHealthReportsData,
         airPollutionConcentration,
         setAirPollutionConcentration,
-        aqiLevel, 
+        aqiLevel,
         setAqiLevel,
         locationInformation,
         setLocationInformation,
         scaleSelection,
-        setScaleSelection
+        setScaleSelection,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}

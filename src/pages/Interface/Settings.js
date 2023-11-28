@@ -5,17 +5,19 @@ import active from "../../assets/active__circle.svg";
 import unactive from "../../assets/unactive__circle.svg";
 
 function Settings() {
-  const { locationInformation, setScaleSelection, scaleSelection } = useContext(ApiContext);
+  const { locationInformation, setScaleSelection, scaleSelection } =
+    useContext(ApiContext);
 
-  const celsiusBoxStatus = document.getElementById('.interfaceBox')
+  const celsiusBoxStatus = document.getElementById(".interfaceBox");
 
   function celsiusBox() {
-    setScaleSelection('celsius')
-
+    setScaleSelection("celsius");
+    localStorage.setItem("scaleSelection", "celsius");
   }
 
   function fahrenheitBox() {
-    setScaleSelection('fahrenheit')
+    setScaleSelection("fahrenheit");
+    localStorage.setItem("scaleSelection", "fahrenheit");
   }
 
   return (
@@ -50,11 +52,25 @@ function Settings() {
           <p className="InterfaceSettings--title">Temperature Scale</p>
           <div className="InterfaceSettings--subtitles">
             <div className="interfaceBox__wrapper">
-              <div onClick={celsiusBox} className={scaleSelection === 'celsius' ? 'interfaceBox interfaceBoxSelected' : 'interfaceBox'}></div>
+              <div
+                onClick={celsiusBox}
+                className={
+                  scaleSelection === "celsius"
+                    ? "interfaceBox interfaceBoxSelected"
+                    : "interfaceBox"
+                }
+              ></div>
               <p className="BoxText">Celsius</p>
             </div>
             <div className="interfaceBox__wrapper">
-              <div onClick={fahrenheitBox} className={scaleSelection === 'fahrenheit' ? 'interfaceBox interfaceBoxSelected' : 'interfaceBox'}></div>
+              <div
+                onClick={fahrenheitBox}
+                className={
+                  scaleSelection === "fahrenheit"
+                    ? "interfaceBox interfaceBoxSelected"
+                    : "interfaceBox"
+                }
+              ></div>
               <p className="BoxText">Fahrenheit</p>
             </div>
           </div>

@@ -31,7 +31,7 @@ const AirQualityChart = () => {
     localStorage.getItem("airpollutiondata")
   );
   const aqiLevel = JSON.parse(localStorage.getItem("aqilevel"));
-  const locationInformation = localStorage.getItem("locationInformation");
+  const locationInformation = localStorage.getItem("locationData");
   const [components, setComponents] = useState(null);
   const [totalComponents, setTotalComponents] = useState(null);
   const [co, setCo] = useState(null);
@@ -262,8 +262,7 @@ const AirQualityChart = () => {
   } else if (aqiLevel.aqiLevelStatus === "Very Poor") {
     topSubtitle =
       "The air quality is characterized as very poor, signifying a substantial and noteworthy risk arising from air pollution.";
-    atRisk =
-      "Vulnerables, seniors, fieldworkers, children, pregnant, adults";
+    atRisk = "Vulnerables, seniors, fieldworkers, children, pregnant, adults";
     sensitiveGroups = sensitiveIn;
     seniors = seniorsIn;
     outdoorWorkers = outdoorWIn;
@@ -393,7 +392,18 @@ const AirQualityChart = () => {
           </p>
           <p className="top__airQuality--subtitle">{topSubtitle}</p>
           <p className="top__airQuality--risk">
-            At risk - <p className="atRisk air__box--title" style={{fontWeight: 'initial', fontSize: '24px', padding: 'initial', margin: '24px 0px'}}>{atRisk}</p>
+            At risk -{" "}
+            <p
+              className="atRisk air__box--title"
+              style={{
+                fontWeight: "initial",
+                fontSize: "24px",
+                padding: "initial",
+                margin: "24px 0px",
+              }}
+            >
+              {atRisk}
+            </p>
           </p>
         </div>
         <div className="atrisk_div">

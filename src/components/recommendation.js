@@ -32,9 +32,15 @@ import { useContext } from "react";
 import { ApiContext } from "../contexts/ApiContext";
 
 function Recommendation() {
-  const { weatherAlgorithm, aqiColorParameter, healthReportsData } =
-    useContext(ApiContext);
+  const {
+    //weatherAlgorithm,
+    //aqiColorParameter,
 
+    healthReportsData,
+  } = useContext(ApiContext);
+  const weatherAlgorithm = localStorage.getItem("weatherAlgorithm");
+  const aqiColorParameter = localStorage.getItem("aqicolorparameter");
+  console.log(aqiColorParameter);
   let ballColor;
   let aqiBallColor;
   let healthBallColor;
@@ -132,8 +138,8 @@ function Recommendation() {
     healthBallColor = darkredBall;
   }
 
-  dayStatus = healthAverage + weatherAlgorithm + aqiLevel;
-
+  dayStatus = healthAverage + parseInt(weatherAlgorithm) + parseInt(aqiLevel);
+  console.log("dayStatus", healthAverage, weatherAlgorithm, aqiLevel);
   let TopSentence;
   let TopSubtitle;
   let TopImg;
@@ -306,7 +312,7 @@ function Recommendation() {
     recommendationsAlgorithm5 = "Meditation";
     recommendationsAlgorithm6 = "Take a nap";
   }
-
+  console.log(dayStatus);
   if (dayStatus <= 60) {
     TopSentence = (
       <span>
@@ -414,7 +420,7 @@ function Recommendation() {
       <span>
         Considering your{" "}
         <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
-         health status
+          health status
         </span>{" "}
         and the{" "}
         <span style={{ color: "#9C1B1E", fontWeight: "bold" }}>
